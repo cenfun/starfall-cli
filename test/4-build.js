@@ -135,37 +135,21 @@ describe("sf build", function() {
     });
 
     //require build dependencies first because bundle require it
-    //so build all before
     it("exec sf build app -b", () => {
         const sh = shelljs.exec("sf build app -b");
-        assert.strictEqual(sh.code, 0);
-    });
-
-    it("check component build folder and vendor js", () => {
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.js"), true);
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.js.map"), true);
-
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.vendor.js"), true);
-    });
-
-    //require build dependencies first because bundle require it
-    //so build all before
-    it("exec sf build app -b -a", () => {
-        const sh = shelljs.exec("sf build app -b -a");
         assert.strictEqual(sh.code, 0);
     });
 
     it("check component build folder and bundle js", () => {
         assert.strictEqual(fs.existsSync("packages/app/dist/app.js"), false);
         assert.strictEqual(fs.existsSync("packages/app/dist/app.js.map"), false);
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.vendor.js"), false);
 
         assert.strictEqual(fs.existsSync("packages/app/dist/app.bundle.js"), true);
     });
 
     //reset to default for publish, because -b -a will remove dependencies
 
-    it("reset dependencies to default after build all to bundle", () => {
+    it("reset dependencies to default after build to bundle", () => {
 
         const componentConfPath = "packages/app/package.json";
         const conf = Util.readJSONSync(componentConfPath);
@@ -178,7 +162,6 @@ describe("sf build", function() {
 
         assert.strictEqual(fs.existsSync("packages/app/dist/app.js"), true);
         assert.strictEqual(fs.existsSync("packages/app/dist/app.js.map"), true);
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.vendor.js"), false);
         assert.strictEqual(fs.existsSync("packages/app/dist/app.bundle.js"), false);
 
     });

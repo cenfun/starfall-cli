@@ -9,7 +9,14 @@ module.exports = {
     create: function(option) {
 
         //========================================================================
-        let mode = "development";
+        
+        const modes = {
+            production: "production",
+            development: "development"
+        };
+        const mode = modes[option.mode] || modes.production;
+
+
         const plugins = [];
         const rules = [];
 
@@ -48,10 +55,6 @@ module.exports = {
             }
         };
         rules.push(ruleJS);
-
-        if (option.type === "prod") {
-            mode = "production";
-        }
 
         //========================================================================
 

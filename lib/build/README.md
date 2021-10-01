@@ -18,15 +18,11 @@ sf build component-name-1,component-name-2
 sf build component-name -m
 sf build component-name --minify
 
-#bundle dependencies as vendor (name.vendor.js)
+#bundle name.bundle.js
 sf build component-name -b
 sf build component-name --bundle
 #for publish: remove dependencies after bundle
 sf build component-name -b publish
-
-#bundle all in one (name.bundle.js)
-sf build component-name -b -a
-sf build component-name --bundle --all
 
 #add query string to src when injecting, {version} will be replaced with current version
 #<link href="dist/xxx-components-app.bundle.css?v=1.0.55" rel="stylesheet" />
@@ -38,7 +34,7 @@ sf build component-name --query v={version}
 sf build component-name -c
 sf build component-name --css
 
-#inject aligned path
+#inject path
 sf build component-name -i
 sf build component-name --inject
 

@@ -2,10 +2,12 @@ module.exports = {
 
     subsPath: "packages",
     tempPath: ".temp",
-    previewPath: "preview",
-    buildPath: "dist",
 
+    buildPath: "dist",
+    previewPath: "preview",
     srcEntry: "index.js",
+
+    cssExtract: false,
 
     infoRegistry: "https://registry.npmjs.org/",
     publishRegistry: "https://registry.npmjs.org/",
@@ -107,8 +109,6 @@ module.exports = {
     addPreCommitHook: true,
 
     injectIgnore: {},
-    //only for bundle, align to relative path
-    injectAlignedPath: false,
 
     naming: {
         required: false
