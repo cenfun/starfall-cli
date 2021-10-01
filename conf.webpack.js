@@ -74,7 +74,7 @@ module.exports = {
             loader: "css-loader",
             options: {
                 esModule: false,
-                import: false,
+                //import: false,
                 sourceMap: false
             }
         };
@@ -129,12 +129,12 @@ module.exports = {
         });
 
         rules.push({
-            test: /\.(png|jpg|gif)$/,
+            test: /\.(png|jpg|gif|svg)$/,
             use: "url-loader"
         });
 
         rules.push({
-            test: /\.(txt|svg)$/,
+            test: /\.(txt)$/,
             use: {
                 loader: "raw-loader",
                 options: {
