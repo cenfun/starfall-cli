@@ -1,0 +1,227 @@
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+
+//https://webpack.js.org/configuration/
+
+module.exports = {
+
+    /* eslint-disable max-statements */
+    create: function(option) {
+
+        //========================================================================
+        let mode = "development";
+        const plugins = [];
+        const rules = [];
+
+        //========================================================================
+        //vue loader
+
+        const VueLoaderPlugin = require(`${option.nmRoot}/node_modules/vue-loader`).VueLoaderPlugin;
+        plugins.push(new VueLoaderPlugin());
+
+        const ruleVUE = {
+            test: /\.vue$/,
+            loader: "vue-loader",
+            options: {
+                hotReload: false
+            }
+        };
+        rules.push(ruleVUE);
+
+        //========================================================================
+        //babel-loader
+        //https://babeljs.io/
+        const ruleJS = {
+            test: /\.(js|ts)$/,
+            exclude: /node_modules/,
+            use: {
+                loader: "babel-loader",
+                options: {
+                    cacheDirectory: true,
+                    babelrc: false,
+                    plugins: [],
+                    presets: [
+                        `${option.nmRoot}/node_modules/@babel/preset-env`,
+                        `${option.nmRoot}/node_modules/@babel/preset-typescript`
+                    ]
+                }
+            }
+        };
+        rules.push(ruleJS);
+
+        if (option.type === "prod") {
+            mode = "production";
+        }
+
+        //========================================================================
+
+        const styleLoader = {
+            loader: "style-loader",
+            options: {
+                //Reuses a single style element
+                injectType: "singletonStyleTag",
+                attributes: {
+                    //Add custom attrs to style for debug
+                    context: option.componentName || ""
+                }
+            }
+        };
+
+        const cssLoader = {
+            loader: "css-loader",
+            options: {
+                esModule: false,
+                import: false,
+                sourceMap: false
+            }
+        };
+
+        // const lzLoader = {
+        //     loader: "lz-loader",
+        //     options: {
+        //         esModule: false,
+        //         compressor: "css-loader"
+        //     }
+        // };
+
+        rules.push({
+            test: /\.css$/,
+            use: [styleLoader, cssLoader]
+        });
+
+        rules.push({
+            test: /\.scss$/,
+            use: [styleLoader, cssLoader, {
+                // compiles Sass to CSS
+                loader: "sass-loader"
+            }]
+        });
+
+        //========================================================================
+
+        rules.push({
+            test: /\.html$/,
+            use: {
+                loader: "html-loader",
+                options: {
+                    esModule: false,
+                    sources: false,
+                    minimize: {
+                        removeComments: true,
+                        collapseWhitespace: true,
+                        removeAttributeQuotes: false
+                    }
+                }
+            }
+        });
+
+        rules.push({
+            test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+            use: {
+                loader: "url-loader",
+                options: {
+                    limit: 100000
+                }
+            }
+        });
+
+        rules.push({
+            test: /\.(png|jpg|gif)$/,
+            use: "url-loader"
+        });
+
+        rules.push({
+            test: /\.(txt|svg)$/,
+            use: {
+                loader: "raw-loader",
+                options: {
+                    esModule: false
+                }
+            }
+        });
+
+        //========================================================================
+
+        //console.log("webpack externals:");
+        //console.log(externals);
+
+        const defaultWebpackConf = {
+
+            mode: mode,
+
+            //replace with component entry
+            entry: "",
+
+            output: {
+
+                // the target directory for all output files
+                path: "",
+                // the filename template for entry chunks
+                filename: "",
+                // the name of the exported library
+                library: option.componentName,
+
+                // the type of the exported library
+                libraryTarget: "umd",
+                // use a named AMD module in UMD library
+                umdNamedDefine: true
+            },
+
+            //https://webpack.js.org/configuration/other-options/#cache
+            cache: true,
+
+            target: ["web", "es5"],
+            
+            //https://webpack.js.org/configuration/devtool/#devtool
+            devtool: "source-map",
+
+            optimization: {
+                //minimize: true, auto enabled with production mode
+                minimizer: [
+                    new TerserPlugin({
+                        terserOptions: {
+                            output: {
+                                comments: false
+                            }
+                        },
+                        extractComments: false
+                    }),
+                    new CssMinimizerPlugin({
+                        minimizerOptions: {
+                            preset: ["default", {
+                                discardComments: {
+                                    removeAll: true
+                                }
+                            }]
+                        }
+                    })
+                ]
+            },
+
+            //for webpack loader path
+            resolveLoader: {
+                modules: [`${option.nmRoot}/node_modules`]
+            },
+
+            module: {
+                rules: rules
+            },
+
+            resolve: {
+                modules: [
+                    "node_modules",
+                    `${option.nmRoot}/node_modules`
+                ],
+                alias: option.alias,
+                extensions: [".js", ".vue", ".json"]
+            },
+
+            plugins: plugins,
+
+            externals: option.externals
+
+        };
+
+        return defaultWebpackConf;
+    }
+};

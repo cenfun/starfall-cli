@@ -1,0 +1,111 @@
+
+.gui-combox {
+    position: relative;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 8px 10px;
+    background-position: right 5px center;
+    padding: 0 20px 0 5px;
+    border-radius: 5px;
+    height: 30px;
+    min-width: 35px;
+    border: 1px solid #ccc;
+    user-select: none;
+}
+
+.gui-combox:hover:not(.disabled) {
+    border: 1px solid #aaa;
+}
+
+.gui-combox.disabled {
+    background-color: #eee;
+}
+
+.gui-combox:focus:not(.disabled) {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.gui-combox-name {
+    height: 28px;
+    line-height: 28px;
+    cursor: default;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.gui-combox-input {
+    position: relative;
+}
+
+.gui-combox-list {
+    position: absolute;
+    background-color: #fff;
+    z-index: 10000;
+    top: 100%;
+    left: 0;
+    border: 1px solid #aaa;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.gui-combox-item {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+    color: #555;
+}
+
+.gui-combox-item:hover {
+    background: #e8e8e8;
+}
+
+.gui-combox-item-name {
+    padding: 0 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gui-combox-delete-item {
+    padding-right: 25px;
+}
+
+.gui-combox-delete-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 100%;
+    background-image: url(images/delete.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 16px 16px;
+    visibility: hidden;
+}
+
+.gui-combox-delete-icon:hover {
+    background-color: #ddd;
+}
+
+.gui-combox-item:hover .gui-combox-delete-icon {
+    visibility: visible;
+}
+
+.gui-combox-item.selected {
+    background: #ccc;
+    color: #002b36;
+}
+
+.gui-combox-item.selected:hover {
+    background: #ccc;
+}
+
+.gui-combox-item.selected:hover .gui-combox-delete-icon {
+    visibility: hidden;
+}

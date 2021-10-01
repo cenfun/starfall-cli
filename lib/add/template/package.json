@@ -1,0 +1,11 @@
+{
+    "name": "cli-component-name",
+    "version": "",
+    "main": "cli-build-path/cli-component-name.js",
+    "repository": "npm",
+    "files": [
+        "cli-build-path"
+    ],
+    "dependencies": {},
+    "devDependencies": {}
+}

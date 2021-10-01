@@ -1,0 +1,44 @@
+<script>
+    (function() {
+
+        var svg = 'svg_content';
+
+        var injectSvg = function() {
+
+            var id = 'svg_id';
+            var holder = document.getElementById(id);
+            if (holder) {
+                return true;
+            }
+
+            holder = document.createElement('div');
+            holder.setAttribute("id", id);
+            holder.style.display = 'none';
+            holder.innerHTML = svg;
+
+            if (document.head) {
+                document.head.appendChild(holder);
+                return true;
+            }
+
+            if (document.body) {
+                document.body.appendChild(holder);
+                return true;
+            }
+
+            return false;
+        };
+
+        window.addEventListener('load', function() {
+            injectSvg();
+        });
+
+        setTimeout(function() {
+            injectSvg();
+        }, 1000);
+
+        injectSvg();
+
+    })();
+
+</script>

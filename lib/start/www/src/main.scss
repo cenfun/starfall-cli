@@ -1,0 +1,1248 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f9f9f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    padding: 0 0;
+    margin: 0 0;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: arial, sans-serif;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    margin: 0;
+    font-family: arial, sans-serif;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+button,
+input {
+    overflow: visible;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+select {
+    word-wrap: normal;
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: #f5f5f5;
+    border: 1px solid transparent;
+    padding: 2px 8px;
+    line-height: 1.5;
+    border-radius: 5px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: #6c757d;
+    border-color: #6c757d;
+    min-width: 75px;
+    white-space: nowrap;
+}
+
+.gui-version button {
+    min-width: 35px;
+}
+
+button:focus,
+button.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+button.disabled,
+button:disabled {
+    opacity: 0.65;
+}
+
+button:not(.gui-button-loading):hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+button.gui-button-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+button.gui-button-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+button.gui-button-primary:focus,
+button.gui-button-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+button.gui-button-primary.disabled,
+button.gui-button-primary:disabled {
+    opacity: 0.65;
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+a:link,
+a:visited {
+    color: #002b36;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: #3fa8f8;
+    text-decoration: underline;
+}
+
+.gui-input {
+    display: inline-block;
+    padding: 2px 15px;
+    height: 30px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 15px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.gui-input:hover {
+    border: 1px solid #aaa;
+}
+
+.gui-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.gui-control-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.gui-control-label::before {
+    position: absolute;
+    top: 7px;
+    left: -20px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    content: "";
+    background-color: #fff;
+    border: #adb5bd solid 1px;
+}
+
+.gui-checkbox .gui-control-label::before {
+    border-radius: 3px;
+}
+
+.gui-control-input:disabled ~ .gui-control-label::before {
+    background-color: #e9ecef;
+}
+
+.gui-control-input:checked ~ .gui-control-label::before {
+    color: #fff;
+    border-color: #0077cf;
+    background-color: #0077cf;
+}
+
+.gui-control-input:focus ~ .gui-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.gui-control-input:focus:not(:checked) ~ .gui-control-label::before {
+    border-color: #80bdff;
+}
+
+.gui-control-label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+    height: 30px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.gui-control-input:disabled ~ .gui-control-label {
+    color: #6c757d;
+}
+
+.gui-control-input:not(:disabled):active ~ .gui-control-label::before {
+    color: #fff;
+    background-color: #b3d7ff;
+    border-color: #b3d7ff;
+}
+
+.gui-control-label::after {
+    position: absolute;
+    top: 7px;
+    left: -20px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    content: "";
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+    background-clip: border-box;
+}
+
+.gui-checkbox {
+    display: inline-block;
+    padding-left: 22px;
+    padding-right: 2px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.gui-checkbox .gui-control-input:checked ~ .gui-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.gui-checkbox .gui-control-input:indeterminate ~ .gui-control-label::before {
+    border-color: #0077cf;
+    background-color: #0077cf;
+}
+
+.gui-checkbox .gui-control-input:not(:checked) ~ .gui-control-label:hover::before {
+    border-color: #888;
+}
+
+.gui-checkbox .gui-control-input:indeterminate ~ .gui-control-label::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e");
+}
+
+.gui-checkbox .gui-control-input:disabled:checked ~ .gui-control-label::before {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+
+.gui-checkbox .gui-control-input:disabled:indeterminate ~ .gui-control-label::before {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+
+.gui-spec-combox,
+.gui-lint-eslint-combox,
+.gui-sort-combox,
+.gui-env-combox {
+    width: 75px;
+}
+
+/*
+gui-tooltip
+*/
+
+.gui-tooltip {
+    position: absolute;
+    color: #fff;
+    background-color: #333;
+    z-index: 10001;
+    word-wrap: break-word;
+    margin: 0;
+    border-radius: 5px;
+    max-width: 200px;
+    max-height: 500px;
+    text-overflow: ellipsis;
+    padding: 5px 10px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.gui-tooltip::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    content: "";
+    opacity: 0;
+    transition: opacity 0.5s;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 5'%3e%3cpath fill='%23333333' d='M0,0 L5,5 L10,0z'/%3e%3c/svg%3e");
+}
+
+.gui-tooltip.gui-tooltip-down::after {
+    top: -5px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 5'%3e%3cpath fill='%23333333' d='M0,5 L5,0 L10,5z'/%3e%3c/svg%3e");
+}
+
+/*
+gui-table
+*/
+
+.gui-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gui-table td {
+    padding: 5px 5px;
+    border: 1px solid #ccc;
+}
+
+/*
+gui-flex
+*/
+
+.gui-h-space-5 {
+    display: inline-block;
+    width: 5px;
+    height: 100%;
+}
+
+.gui-h-space-10 {
+    display: inline-block;
+    width: 10px;
+    height: 100%;
+}
+
+.gui-v-space-5 {
+    display: block;
+    height: 5px;
+}
+
+.gui-v-space-10 {
+    display: block;
+    height: 10px;
+}
+
+.gui-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.gui-flex-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.gui-flex-auto {
+    flex: 1 1 0%;
+    overflow: hidden;
+}
+
+/*
+gui-container
+*/
+
+.gui-container {
+    width: 100%;
+    height: 100%;
+}
+
+.gui-hidden {
+    display: none;
+}
+
+.gui-fade,
+.gui-fade::before,
+.gui-fade::after {
+    opacity: 1;
+}
+
+.gui-resize {
+    position: relative;
+}
+
+.gui-dragger {
+    background: #888;
+    width: 100%;
+    height: 5px;
+    cursor: ns-resize;
+    opacity: 0;
+    position: absolute;
+    z-index: 10000;
+    top: -3px;
+}
+
+.gui-dragger:hover {
+    opacity: 0.5;
+}
+
+.gui-dragger-cursor {
+    cursor: ns-resize;
+}
+
+.gui-title-icon-list {
+    padding-left: 30px;
+    background-image: url(images/list.svg);
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    background-size: 16px 16px;
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.gui-title-icon-open {
+    padding-left: 25px;
+    background-image: url(images/open.svg);
+    background-repeat: no-repeat;
+    background-position: 2px center;
+    background-size: 18px 18px;
+    padding-right: 8px;
+    font-weight: bold;
+}
+
+/*
+gui-output
+*/
+
+.gui-output {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+    color: #eee8d5;
+    background: #073642;
+    margin: 0;
+    padding: 0;
+}
+
+.gui-output a:link,
+.gui-output a:visited {
+    color: #eee8d5;
+    text-decoration: underline;
+}
+
+.gui-output a:hover {
+    color: #3fa8f8;
+}
+
+.gui-output-content {
+    position: relative;
+    font-weight: 100;
+    font-family: Menlo, Consolas;
+    font-size: 14px;
+    padding: 5px 5px;
+}
+
+.gui-output-line {
+    position: relative;
+    word-break: break-word;
+}
+
+.gui-locate-focus {
+    background: #fff;
+}
+
+/*
+gui loading
+*/
+
+.gui-output-loading {
+    position: relative;
+    pointer-events: none;
+    height: 16px;
+    margin: 0 5px 5px 5px;
+    overflow: hidden;
+    display: none;
+}
+
+.gui-output-loading::after {
+    display: block;
+    opacity: 0.8;
+    width: 16px;
+    height: 16px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: 1s gui-output-loading linear infinite;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M1,8 A7 7 0 1 1 8 15' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none' /%3e%3c/svg%3e");
+}
+
+@keyframes gui-output-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gui-button-loading {
+    color: #008000;
+    border-color: #008000;
+    animation: gui-button-loading 2s linear infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.gui-button-loading::after {
+    position: absolute;
+    width: 500px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: "";
+    background-image: repeating-linear-gradient(-45deg, rgba(0, 128, 0, 0.3), rgba(0, 128, 0, 0.3) 10px, transparent 10px, transparent 15px);
+    animation: gui-button-loading-bg 3s linear infinite;
+}
+
+@keyframes gui-button-loading {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes gui-button-loading-bg {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100px;
+    }
+}
+
+/*
+gui-head
+*/
+
+.gui-head {
+    background: #dee1e6;
+    width: 100%;
+    height: 40px;
+    position: relative;
+    border-top: 1px solid #fff;
+    z-index: 10;
+}
+
+.gui-tab {
+    position: relative;
+    height: 100%;
+    margin-left: 10px;
+    align-items: flex-end;
+}
+
+.gui-tab-item {
+    position: relative;
+    padding: 0 20px;
+    height: 36px;
+    line-height: 36px;
+    cursor: pointer;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-width: 80px;
+    user-select: none;
+    color: #002b36;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gui-tab-item:hover {
+    background-color: #ebecef;
+    z-index: 2;
+}
+
+.gui-tab-item::after {
+    background-color: #a4a7ab;
+    display: block;
+    position: absolute;
+    left: 100%;
+    bottom: 8px;
+    width: 1px;
+    height: 20px;
+    content: "";
+}
+
+.gui-tab-item:hover::before,
+.gui-tab-item:hover::after {
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    content: "";
+}
+
+.gui-tab-item:hover::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3e%3cpath fill='%23ebecef' d='M0,10 Q10,10 10,0 L10,10z'/%3e%3c/svg%3e");
+}
+
+.gui-tab-item:hover::after {
+    left: 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3e%3cpath fill='%23ebecef' d='M0,0 Q0,10 10,10 L0,10z'/%3e%3c/svg%3e");
+}
+
+.gui-tab-item.selected {
+    background-color: #fff;
+    height: 38px;
+    line-height: 38px;
+    margin-bottom: -1px;
+    position: relative;
+    z-index: 3;
+}
+
+.gui-tab-item.selected::before,
+.gui-tab-item.selected::after {
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    left: -10px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    content: "";
+}
+
+.gui-tab-item.selected::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3e%3cpath fill='%23fff' d='M0,10 Q10,10 10,0 L10,10z'/%3e%3c/svg%3e");
+}
+
+.gui-tab-item.selected::after {
+    left: 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3e%3cpath fill='%23fff' d='M0,0 Q0,10 10,10 L0,10z'/%3e%3c/svg%3e");
+}
+
+/*
+gui-modal
+*/
+
+.gui-modal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 11000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.gui-modal::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    content: "";
+    opacity: 0.3;
+    background-color: #000;
+}
+
+.gui-modal-main {
+    position: relative;
+    border: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    z-index: 10;
+    padding: 10px 10px;
+}
+
+.gui-modal-head {
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.gui-modal-title {
+    font-weight: bold;
+    font-size: 18px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.gui-modal-close {
+    font-weight: bold;
+    color: #666;
+    padding: 0 10px;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.gui-modal-close:hover {
+    color: #000;
+}
+
+.gui-modal-body {
+    position: relative;
+    padding: 10px 0;
+}
+
+.gui-modal-foot {
+    position: relative;
+    color: #666;
+}
+
+/*
+gui-browse
+*/
+
+.gui-browse-head {
+    padding-bottom: 10px;
+}
+
+.gui-browse-list {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 10px;
+}
+
+.gui-browse-filter {
+    width: 200px;
+    padding-left: 25px;
+    background-image: url(images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 16px 16px;
+}
+
+.gui-browse-open {
+    width: 80px;
+}
+
+/*
+gui-icon
+*/
+
+.gui-tab-icon-dashboard {
+    background-image: url(images/dashboard.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 16px 16px;
+    padding-left: 40px;
+}
+
+.gui-tab-icon-tools {
+    background-image: url(images/tools.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 16px 16px;
+    padding-left: 40px;
+}
+
+.gui-tab-icon-readme {
+    background-image: url(images/info.svg);
+    background-repeat: no-repeat;
+    background-position: 20px center;
+    background-size: 16px 16px;
+    padding-left: 40px;
+}
+
+.gui-input-icon-cmd {
+    padding-left: 25px;
+    background-image: url(images/terminal.svg);
+    background-repeat: no-repeat;
+    background-position: 7px center;
+    background-size: 16px 16px;
+    width: 200px;
+}
+
+.gui-browse-icon {
+    width: 20px;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 16px 16px;
+}
+
+.gui-browse-icon-up {
+    background-image: url(images/up.svg);
+}
+
+.gui-browse-icon-dir {
+    background-image: url(images/dir.svg);
+}
+
+.gui-browse-icon-json {
+    background-image: url(images/check.svg);
+}
+
+/*
+gui-body
+*/
+
+.gui-body {
+    position: relative;
+    height: 290px;
+}
+
+.gui-body-item {
+    display: none;
+    padding: 5px 5px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gui-body-item.selected {
+    display: block;
+}
+
+.gui-body-readme {
+    height: 100%;
+    padding: 20px 20px;
+    overflow-y: auto;
+}
+
+/*
+gui-dashboard
+*/
+
+.gui-dashboard {
+    align-items: start;
+    height: 100%;
+}
+
+.gui-project {
+    height: 100%;
+    border-right: 1px solid #ccc;
+    padding-right: 5px;
+}
+
+.gui-project-combox {
+    width: 135px;
+}
+
+.gui-project-head {
+    height: 30px;
+    line-height: 30px;
+}
+
+.gui-project-body {
+    margin-top: 5px;
+    align-items: flex-start;
+    overflow-y: auto;
+}
+
+.gui-project-open {
+    min-width: 30px;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 10px 0 30px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid #aaa;
+    background-image: url(images/plus.svg);
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 16px 16px;
+    white-space: nowrap;
+}
+
+.gui-project-open:hover {
+    border: 1px solid #666;
+}
+
+.gui-project-restart {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: 1px solid #aaa;
+    background-image: url(images/restart.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 16px 16px;
+    white-space: nowrap;
+}
+
+.gui-project-restart:hover {
+    border: 1px solid #666;
+}
+
+/*
+gui-component
+*/
+
+.gui-component {
+    height: 100%;
+}
+
+.gui-component-head {
+    width: 300px;
+}
+
+.gui-component-filter {
+    padding-left: 25px;
+    background-image: url(images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    background-size: 16px 16px;
+}
+
+.gui-component-list {
+    position: relative;
+    width: 300px;
+    height: 100%;
+}
+
+.gui-component-list .tg-row .gui-grid-name {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.gui-component-list .tg-row .tg-checkbox .tg-icon {
+    transform: scale(1);
+}
+
+.gui-component-list .tg-row .tg-cell {
+    border-right: none;
+}
+
+.gui-component-list .tg-scrollbar-track {
+    border-radius: 5px;
+}
+
+.gui-component-list .tg-scrollbar-thumb {
+    border-radius: 5px;
+}
+
+/*
+gui-action
+*/
+
+.gui-action {
+    position: relative;
+    overflow-y: auto;
+    width: 100%;
+    height: 100%;
+}
+
+.gui-action .gui-selected-names {
+    line-height: 20px;
+}
+
+/*
+gui-project-branch
+*/
+
+.gui-project-version {
+    background-image: url(images/at.svg);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: 16px 16px;
+    padding-left: 18px;
+    color: #002b36;
+}
+
+.gui-project-branch {
+    background-image: url(images/branch.svg);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-size: 16px 16px;
+    padding-left: 18px;
+}
+
+.gui-about a:link,
+.gui-about a:visited {
+    color: #0077cf;
+}
+
+/*
+gui-context-menu
+*/
+
+.gui-context-menu {
+    position: absolute;
+    z-index: 100;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    padding: 0 2px;
+    box-shadow: 3px 3px 5px #888;
+}
+
+.gui-context-head {
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+}
+
+.gui-context-item {
+    padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    position: relative;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.gui-context-item:hover {
+    background: #ddd;
+}
+
+.gui-style-star {
+    padding-left: 25px;
+}
+
+.gui-style-star::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-image: url('images/star.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 5px;
+}
+
+.gui-style-heart {
+    padding-left: 25px;
+    font-weight: bold;
+}
+
+.gui-style-heart::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-image: url('images/heart.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 6px;
+}
+
+.gui-style-check {
+    padding-left: 25px;
+    color: #008000;
+}
+
+.gui-style-check::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-image: url('images/check.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 6px;
+}
+
+.gui-style-error {
+    padding-left: 25px;
+    color: #c00;
+}
+
+.gui-style-error::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-image: url('images/error.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 6px;
+}
+
+.gui-style-question {
+    padding-left: 25px;
+    color: #007acc;
+}
+
+.gui-style-question::before {
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    background-image: url('images/question.svg');
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 6px;
+}
+
+/*
+colors
+*/
+
+.inline {
+    width: 20px;
+    height: 1em;
+    display: inline-block;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.blink {
+    text-decoration: blink;
+}
+
+.inverse {
+    background: #333;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.c30,
+.c90 {
+    color: black;
+}
+
+.c31,
+.c91 {
+    color: red;
+}
+
+.c32,
+.c92 {
+    color: green;
+}
+
+.c33,
+.c93 {
+    color: yellow;
+}
+
+.c34,
+.c94 {
+    color: blue;
+}
+
+.c35,
+.c95 {
+    color: magenta;
+}
+
+.c36,
+.c96 {
+    color: cyan;
+}
+
+.c37,
+.c97 {
+    color: white;
+}
+
+.bg40,
+.bg100 {
+    background: black;
+}
+
+.bg41,
+.bg101 {
+    background: red;
+}
+
+.bg42,
+.bg102 {
+    background: green;
+}
+
+.bg43,
+.bg103 {
+    background: yellow;
+}
+
+.bg44,
+.bg104 {
+    background: blue;
+}
+
+.bg45,
+.bg105 {
+    background: magenta;
+}
+
+.bg46,
+.bg106 {
+    background: cyan;
+}
+
+.bg47,
+.bg107 {
+    background: white;
+}

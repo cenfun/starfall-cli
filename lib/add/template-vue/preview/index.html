@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Preview cli-component-name</title>
+    <!--inject:start-->
+    <!--inject:end-->
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .preview-head {
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 0 5px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .preview-body {
+            position: absolute;
+            top: 35px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid #ccc;
+            padding: 0;
+            margin: 0;
+        }
+
+        .preview-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-head">Preview cli-component-name:</div>
+    <div class="preview-body">
+        <div class="preview-container"></div>
+    </div>
+    <script>
+        new Vue({
+            el: ".preview-container",
+            render: (h) => {
+                return h(window["cli-component-name"].default);
+            }
+        });
+    </script>
+</body>
+
+</html>

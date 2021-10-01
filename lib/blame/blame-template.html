@@ -1,0 +1,404 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <style>
+        html,
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-auto {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .main {
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .footer {
+            padding: 5px 5px;
+            font-size: 14px;
+        }
+
+        .title {
+            font-size: 18px;
+            padding: 5px 5px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .toolbar {
+            padding: 5px 5px;
+        }
+
+        .toolbar-item {
+            margin-right: 20px;
+        }
+
+        label.toolbar-item {
+            user-select: none;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .grid {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            bottom: 5px;
+            left: 5px;
+        }
+
+        .grid .tg-row .tg-column-group-name {
+            color: #000;
+        }
+
+        .grid .tg-pane .bg-gray {
+            background-color: #eee;
+            border-right: 1px solid #fff;
+        }
+
+        .grid .tg-pane .border-right {
+            border-right: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="main flex-column">
+        <div class="header">
+            <div class="title">{title}</div>
+            <div class="toolbar flex-row">
+                <div class="toolbar-item">
+                    Date Range
+                    <select class="date-range"></select>
+                </div>
+                <div class="toolbar-item">
+                    By
+                    <select class="group-by"></select>
+                    <select class="group-list"></select>
+                </div>
+                <div class="toolbar-item">
+                    Row Filter
+                    <input type="text" class="keywords" placeholder="keywords"></input>
+                    <label>
+                        <input type="checkbox" class="filter-selected"></input>
+                        Filter Selected
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="container flex-auto">
+            <div class="grid"></div>
+        </div>
+        <div class="footer">
+            {about}
+        </div>
+    </div>
+    <script>
+        /*inject:start*/
+        /*inject:end*/
+
+    </script>
+    <script>
+        const Grid = window.turbogrid.Grid;
+        const $ = window.turbogrid.$;
+        let grid;
+        let rowFilterKeywords;
+
+        const isMatchKeywords = function(value, keywords) {
+            if (!value || !keywords) {
+                return false;
+            }
+            value = value.toLowerCase();
+            keywords = keywords.toLowerCase();
+            if (keywords.indexOf(value) !== -1) {
+                return true;
+            }
+            let list = keywords.split(/\s+/g);
+            if (keywords.indexOf(",") !== -1) {
+                list = keywords.split(/\s?,\s?/g);
+            }
+            for (let i = 0, l = list.length; i < l; i++) {
+                let k = list[i];
+                if (value.indexOf(k) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        const gridDataHandler = function(data, gitBlameData) {
+
+            data = JSON.parse(JSON.stringify(data));
+
+            const groupId = $(".group-list").val();
+
+            if (groupId) {
+                data.columns = data.columns.filter(c => {
+                    if (!c.subs) {
+                        return true;
+                    }
+                    if (c.id + "" !== groupId) {
+                        return false;
+                    }
+                    const l = c.subs.length;
+                    c.align = "center";
+                    data.option.sortField = c.id + "_" + gitBlameData.columnIdMap.lines;
+                    return true;
+                });
+            } else {
+                data.columns.forEach(c => {
+                    if (!c.subs) {
+                        return;
+                    }
+                    c.align = "center";
+                    c.headerItemClass = "border-right";
+                    c.subs.forEach((item, i) => {
+                        if (i === c.subs.length - 1) {
+                            item.cellClass = "border-right";
+                            item.headerItemClass = "border-right";
+                        }
+                    });
+                    if (!data.option.sortField) {
+                        data.option.sortField = c.id + "_" + gitBlameData.columnIdMap.lines;
+                    }
+                });
+            }
+
+            const totalRow = data.rows.find(item => item.name === "Total");
+            if (totalRow) {
+                totalRow.rowType = "total";
+            }
+
+            return data;
+
+        };
+
+        //=======================================================================================================================================
+
+        const renderGrid = function(gitBlameData) {
+            let dateRangeId = $(".date-range").val();
+            console.log("dateRangeId: " + dateRangeId);
+            let dateRange = gitBlameData.dateRangeList.find(d => {
+                if (d.id === dateRangeId) {
+                    return true;
+                }
+            });
+            dateRange = dateRange || gitBlameData.dateRangeList[0];
+
+            const gb = $(".group-by").val();
+            let data = dateRange.authorData;
+            if (gb === "author") {
+                data = dateRange.groupData;
+            }
+            data = gridDataHandler(data, gitBlameData);
+            console.log(data);
+            grid.setData(data);
+            grid.render();
+        };
+
+        const initDataRange = function(gitBlameData) {
+            const optionList = [];
+            gitBlameData.dateRangeList.forEach(d => {
+                optionList.push('<option value="' + d.id + '">' + d.name + '</option>');
+            });
+            $(".date-range")
+                .html(optionList.join(""))
+                .bind("change", function(e) {
+                    renderGrid(gitBlameData);
+                    localStorage.setItem(gitBlameData.name + "-dateRange", this.val());
+                });
+
+            const dateRange = localStorage.getItem(gitBlameData.name + "-dateRange");
+            if (dateRange) {
+                $(".date-range").val(dateRange);
+            }
+
+        };
+
+        const renderGroupList = function(gitBlameData) {
+            const gb = $(".group-by").val();
+            //console.log(gb);
+            const dateRange = gitBlameData.dateRangeList[0];
+            const glList = [];
+            let data = dateRange.authorData;
+            if (gb === "author") {
+                data = dateRange.groupData;
+            }
+            data.columns.forEach(g => {
+                if (g.subs) {
+                    glList.push('<option value="' + g.id + '">' + g.name + '</option>');
+                }
+            });
+            if (glList.length > 1) {
+                glList.push('<option value=""></option>');
+            }
+            $(".group-list").html(glList.join(""));
+            return glList;
+        };
+
+        const initGroup = function(gitBlameData) {
+            $(".group-list").bind("change", function(e) {
+                renderGrid(gitBlameData);
+            });
+            const glList = renderGroupList(gitBlameData);
+            const gbList = [];
+            gbList.push('<option value="group">Group</option>');
+            if (gitBlameData.dateRangeList[0].authorData.columns.length > 2) {
+                gbList.push('<option value="author">Author</option>');
+            }
+            $(".group-by")
+                .html(gbList.join(""))
+                .bind("change", function(e) {
+                    renderGroupList(gitBlameData);
+                    renderGrid(gitBlameData);
+                });
+        };
+
+        const initRowFilter = function(gitBlameData) {
+            rowFilterKeywords = localStorage.getItem(gitBlameData.name + "-rowFilterKeywords");
+            if (rowFilterKeywords) {
+                $(".keywords").val(rowFilterKeywords);
+                $(".filter-selected").attr("checked", "checked");
+            }
+            $(".keywords").bind("focus", function(e) {
+                $(this).select();
+            }).bind("blur keyup change", function(e) {
+                rowFilterKeywords = ($(this).val() + "").trim();
+                localStorage.setItem(gitBlameData.name + "-rowFilterKeywords", rowFilterKeywords);
+                if (!grid) {
+                    return;
+                }
+                clearTimeout(grid.timeout_filter);
+                grid.timeout_filter = setTimeout(function() {
+                    grid.render();
+                }, 200);
+            });
+            $(".filter-selected").bind("change", function() {
+                var ks = "";
+                if (this.get(0).checked) {
+                    if (grid) {
+                        var selectedRows = grid.getSelectedRows();
+                        if (selectedRows.length) {
+                            ks = selectedRows.map(item => item.name).join(", ");
+                        }
+                    }
+                }
+                $(".keywords").val(ks).trigger("change");
+            });
+        };
+
+        const initGrid = function(gitBlameData) {
+            grid = new Grid(".grid");
+            grid.bind("onClick", function(e, d) {
+                var rowData = this.getRowItem(d.row);
+                if (this.isRowSelectable(rowData)) {
+                    this.setSelectedRow(d.row, d.e);
+                }
+                var selectedRows = this.getSelectedRows();
+                localStorage.setItem(gitBlameData.name + "-selectedRows", selectedRows.map(item => item.name))
+            });
+            grid.bind("onRenderComplete", function() {
+                var selectedRows = localStorage.getItem(gitBlameData.name + "-selectedRows");
+                if (!selectedRows) {
+                    return;
+                }
+                console.log(selectedRows);
+                selectedRows.split(",").forEach(item => {
+                    //console.log(item);
+                    var row = grid.getRowItemBy({
+                        name: item
+                    });
+                    if (row) {
+                        grid.setSelectedRow(row.tg_index);
+                    }
+                });
+            });
+            grid.setFormatter("header", function(v, row, column) {
+                if (column.from) {
+                    let from = new Date(column.from).toLocaleDateString();
+                    let till = new Date(column.till).toLocaleDateString();
+                    let time = " (" + from + " - " + till + ")";
+                    v += time;
+                }
+                return v;
+            });
+            grid.setOption({
+                frozenRow: 0,
+                frozenColumn: 0,
+                sortAsc: false,
+                sortOnInit: true,
+                textSelectable: true,
+                bindWindowResize: true,
+                percentFormat: function(v, rowData, columnData) {
+                    if (typeof(v) === "number") {
+                        let pv = (v * 100).toFixed(2);
+                        return pv + "%";
+                    }
+                    return v;
+                },
+                numberFormat: function(v, rowData, columnData) {
+                    if (typeof(v) === "number") {
+                        return v.toLocaleString();
+                    }
+                    return v;
+                },
+                rowFilter: function(rowData) {
+                    if (!rowFilterKeywords) {
+                        return true;
+                    }
+                    if (rowData.tg_frozen) {
+                        return true;
+                    }
+                    if (isMatchKeywords(rowData.name, rowFilterKeywords)) {
+                        return true;
+                    }
+                    return false;
+                }
+            });
+            renderGrid(gitBlameData);
+        };
+
+        const init = function() {
+            const gitBlameData = window.gitBlameData;
+            console.log(gitBlameData);
+            initDataRange(gitBlameData);
+            initGroup(gitBlameData);
+            initRowFilter(gitBlameData);
+            initGrid(gitBlameData);
+        };
+
+        window.addEventListener("load", function() {
+            init();
+        });
+
+    </script>
+</body>
+
+</html>

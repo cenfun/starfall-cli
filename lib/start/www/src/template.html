@@ -1,0 +1,295 @@
+<div class="gui-container gui-flex-column">
+    <div class="gui-output gui-flex-auto">
+        <div class="gui-output-content"></div>
+        <div class="gui-output-loading"></div>
+    </div>
+    <div class="gui-resize">
+        <div class="gui-dragger"></div>
+    </div>
+    <div class="gui-head gui-flex-row">
+        <div class="gui-tab gui-flex-row">
+            <div class="gui-tab-item gui-tab-icon-dashboard selected" data="dashboard">Dashboard</div>
+            <div class="gui-tab-item gui-tab-icon-tools" data="tools">Tools</div>
+            <div class="gui-tab-item gui-tab-icon-readme" data="readme">Readme</div>
+        </div>
+        <div class="gui-flex-auto"></div>
+        <div class="gui-flex-row">
+
+            <input class="gui-input gui-input-icon-cmd gui-terminal" placeholder="Terminal" tooltip="Execute CMD in Terminal"></input>
+
+            <div class="gui-h-space-5"></div>
+            <div class="gui-checkbox">
+                <input class="gui-control-input cb-autoscroll" type="checkbox" checked="checked" id="cb-autoscroll"></input>
+                <label class="gui-control-label" for="cb-autoscroll" tooltip="Checked for auto scroll">scroll</label>
+            </div>
+
+            <div class="gui-h-space-5"></div>
+            <button class="bt-cancel" tooltip="Cancel running process">cancel</button>
+
+            <div class="gui-h-space-5"></div>
+            <button class="bt-clear" tooltip="Clear Logs">clear</button>
+
+            <div class="gui-h-space-5"></div>
+        </div>
+    </div>
+
+    <div class="gui-body">
+
+        <div class="gui-body-item selected" data="dashboard">
+
+            <div class="gui-dashboard gui-flex-row">
+                <div class="gui-project gui-flex-column">
+                    <div class="gui-project-head">
+                        <div class="gui-title-icon-open">Project</div>
+                    </div>
+                    <div class="gui-v-space-5"></div>
+                    <div class="gui-project-combox" tooltip="Switch Project"></div>
+                    <div class="gui-v-space-10"></div>
+                    <div class="gui-flex-row">
+                        <div class="gui-project-open" tooltip="Open Project">Open</div>
+                        <div class="gui-h-space-10"></div>
+                        <div class="gui-project-restart" tooltip="Restart Project"></div>
+                    </div>
+                    <div class="gui-v-space-10"></div>
+                    <div>
+                        <button cmd="sf install" tooltip="Install dependencies and link internal dependencies">install</button>
+                    </div>
+                    <div class="gui-v-space-10"></div>
+                    <div>
+                        <button cmd="sf clean" tooltip="Clean dependencies and temporary files">clean</button>
+                    </div>
+                    <div class="gui-v-space-10"></div>
+                    <div class="gui-project-version" tooltip="Version"></div>
+                    <div class="gui-v-space-10"></div>
+                    <div class="gui-project-branch" tooltip="Branch"></div>
+                    
+                </div>
+                <div class="gui-h-space-5"></div>
+                <div class="gui-component gui-flex-column">
+                    <div class="gui-component-head gui-flex-row">
+                        <div class="gui-title-icon-list">Components</div>
+                        <input class="gui-flex-auto gui-input gui-component-filter" placeholder="Filter"></input>
+                    </div>
+                    <div class="gui-v-space-5"></div>
+                    <div class="gui-component-list gui-flex-auto"></div>
+                </div>
+                <div class="gui-h-space-5"></div>
+                <div class="gui-action">
+
+                        <table class="gui-table">
+                            <tr>
+                                <td colspan="3">
+                                    <div class="gui-selected-names">&nbsp;</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><button class="cli-build-all">build all</button></td>
+                                <td><button class="cli-build">build</button></td>
+                                <td>
+                                    <div class="gui-flex-row">
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-minify" type="checkbox" id="cb-minify"></input>
+                                            <label class="gui-control-label" for="cb-minify" tooltip="-m --minify (build additional minify version)">minify</label>
+                                        </div>
+                                        <div class="gui-h-space-10"></div>
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-bundle" type="checkbox" id="cb-bundle"></input>
+                                            <label class="gui-control-label" for="cb-bundle" tooltip="-b --bundle (bundle dependencies)">bundle</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td><button class="cli-preview">preview</button></td>
+                                <td>
+                                    <div class="gui-flex-row">
+                                        <div class="gui-env-combox"></div>
+                                        <div class="gui-h-space-5"></div>
+                                        <label tooltip="-e --env (http proxy env, default to DEV)">env</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><button class="cli-test-all">test all</button></td>
+                                <td><button class="cli-test">test</button></td>
+                                <td>
+                                    <div class="gui-flex-row">
+                                        <div class="gui-flex-row">
+                                            <div class="gui-spec-combox"></div>
+                                            <div class="gui-h-space-5"></div>
+                                            <label tooltip="-s --spec (test a spec if have multiple specs)">spec</label>
+                                        </div>
+                                        <div class="gui-h-space-10"></div>
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-debug" type="checkbox" id="cb-debug"></input>
+                                            <label class="gui-control-label" for="cb-debug" tooltip="Test in debug mode">debug</label>
+                                        </div>
+                                        <div class="gui-h-space-10"></div>
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-open" type="checkbox" id="cb-open"></input>
+                                            <label class="gui-control-label" for="cb-open" tooltip="-c --open (open report after test)">open report</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><button class="cli-lint-all">lint all</button></td>
+                                <td><button class="cli-lint">lint</button></td>
+                                <td>
+                                        <div class="gui-flex-row">
+                                        <div class="gui-flex-row">
+                                            <div class="gui-lint-eslint-combox"></div>
+                                            <div class="gui-h-space-5"></div>
+                                            <label tooltip="-e --eslint (eslint plugin)">eslint</label>
+                                        </div>
+                                        <div class="gui-h-space-10"></div>
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-stylelint" type="checkbox" id="cb-stylelint"></input>
+                                            <label class="gui-control-label" for="cb-stylelint" tooltip="-s --stylelint (require stylelint passed)">stylelint</label>
+                                        </div>
+                                        <div class="gui-h-space-10"></div>
+                                        <div class="gui-checkbox">
+                                            <input class="gui-control-input cb-naming" type="checkbox" id="cb-naming"></input>
+                                            <label class="gui-control-label" for="cb-naming" tooltip="-n --naming (require file/folder naming passed)">naming</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><button class="cli-precommit-all">precommit all</button></td>
+                                <td><button class="cli-precommit">precommit</button></td>
+                                <td>
+                                    <div class="gui-checkbox">
+                                        <input class="gui-control-input cb-pass" type="checkbox" id="cb-pass"></input>
+                                        <label class="gui-control-label" for="cb-pass" tooltip="-p --pass (pass without test)">pass</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td><button class="cli-list-all">list all</button></td>
+                                <td><button class="cli-list">list</button></td>
+                                <td>
+                                    <div class="gui-flex-row">
+                                        <div class="gui-sort-combox"></div>
+                                        <div class="gui-h-space-5"></div>
+                                        <label tooltip="-s --sort (default to name)">sort</label>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="gui-body-item" data="tools">
+
+            <table class="gui-table">
+                <tr>
+                    <td>Git</td>
+                    <td>
+                        <div class="gui-flex-row">
+                            <button cmd="git pull">git pull</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="git reset --hard">git reset --hard</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="git clean -df">git clean -df</button>
+                            <div class="gui-h-space-10"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Starfall</td>
+                    <td>
+                        <div class="gui-flex-row">
+                            <button cmd="sf --help">sf --help</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="sf sonar">sf sonar</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="sf pack app">sf pack app</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="sf link">sf link</button>
+                            <div class="gui-h-space-10"></div>
+                            <button cmd="n sf run app-status" tooltip="pm2 status and health check for cloud apps. default env is qa, or: sf run app-status stg">sf run app-status</button>
+                            <div class="gui-h-space-10"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Project Version</td>
+                    <td>
+                        <div class="gui-flex-row gui-version">
+                            <div class="gui-h-space-5"></div>
+                            <div class="gui-project-version"></div>
+                            <div class="gui-h-space-10"></div>
+                            <div>Update Version:</div>
+                            <div class="gui-h-space-5"></div>
+                            <input class="gui-input it-version" size="8"></input>
+                            <div class="gui-h-space-10"></div>
+                            <div>
+                                <button class="bt-version-major">major</button>
+                                .
+                                <button class="bt-version-minor">minor</button>
+                                .
+                                <button class="bt-version-patch">patch</button>
+                            </div>
+                            <div class="gui-h-space-10"></div>
+
+                            <button class="bt-version-reset">reset</button>
+                            <div class="gui-h-space-10"></div>
+                            <button class="bt-version">save version</button>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Sync Files</td>
+                    <td>
+                        <div class="gui-flex-row">
+                            <div>Sync path: </div>
+                            <div class="gui-h-space-5"></div>
+                            <input class="gui-input it-sync-path" style="width: 400px;" type="text" value="../page-builder/node_modules"></input>
+                            <div class="gui-h-space-10"></div>
+                            <button class="bt-sync-file">sync selected build</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Jenkins Logs</td>
+                    <td>
+                        <div class="gui-flex-row">
+                            <input class="it-load-file" type="file" style="display: none;"></input>
+                            <button class="bt-load">load logs</button>
+                            <div class="gui-h-space-10"></div>
+                            <button class="bt-locate" name="locate error">locate error</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>About CLI</td>
+                    <td>
+                        <div class="gui-flex-row gui-about">
+                            <div></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="gui-body-item" data="readme">
+            <div class="gui-body-readme markdown-body"></div>
+        </div>
+
+    </div>
+
+</div>

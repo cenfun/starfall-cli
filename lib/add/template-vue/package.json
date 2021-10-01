@@ -1,0 +1,16 @@
+{
+    "name": "cli-component-name",
+    "version": "",
+    "main": "cli-build-path/cli-component-name.js",
+    "repository": "npm",
+    "files": [
+        "cli-build-path"
+    ],
+    "cssExtract": true,
+    "dependencies": {
+        "axios": "^0.21.1",
+        "vue": "^2.6.14",
+        "vue-router": "^3.5.2"
+    },
+    "devDependencies": {}
+}
