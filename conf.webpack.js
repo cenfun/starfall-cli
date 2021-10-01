@@ -48,7 +48,13 @@ module.exports = {
                     babelrc: false,
                     plugins: [],
                     presets: [
-                        `${option.nmRoot}/node_modules/@babel/preset-env`,
+                        [`${option.nmRoot}/node_modules/@babel/preset-env`, {
+                            "targets": [
+                                "defaults",
+                                "not IE 11",
+                                "maintained node versions"
+                            ]
+                        }],
                         `${option.nmRoot}/node_modules/@babel/preset-typescript`
                     ]
                 }
@@ -173,7 +179,7 @@ module.exports = {
             //https://webpack.js.org/configuration/other-options/#cache
             cache: true,
 
-            target: ["web", "es5"],
+            target: ["web"],
             
             //https://webpack.js.org/configuration/devtool/#devtool
             devtool: "source-map",
