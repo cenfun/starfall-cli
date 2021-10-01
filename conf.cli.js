@@ -46,13 +46,6 @@ module.exports = {
             dependencies: {}
         },
 
-        "backbone": {
-            dependencies: {
-                jquery: true,
-                underscore: true
-            }
-        },
-
         "i18next": {
             main: ["i18next.min.js"],
             dependencies: {}
@@ -66,25 +59,11 @@ module.exports = {
             main: ["dist/vue-router.min.js"]
         },
 
-        "@babel/polyfill": {
-            main: ["dist/polyfill.min.js"],
-            dependencies: {}
-        },
-
-        "document-register-element": {
-            main: "build/document-register-element.js",
-            dependencies: {}
-        },
-
         "axios": {
             browser: {
                 axios: "dist/axios.min.js"
             },
             dependencies: {}
-        },
-
-        "promise-polyfill": {
-            main: "dist/polyfill.min.js"
         },
 
         "xlsx": {
