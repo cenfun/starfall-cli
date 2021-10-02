@@ -109,44 +109,18 @@ module.exports = {
         //========================================================================
 
         rules.push({
-            test: /\.html$/,
-            use: {
-                loader: "html-loader",
-                options: {
-                    esModule: false,
-                    sources: false,
-                    minimize: {
-                        removeComments: true,
-                        collapseWhitespace: true,
-                        removeAttributeQuotes: false
-                    }
-                }
-            }
-        });
-
-        rules.push({
             test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-            use: {
-                loader: "url-loader",
-                options: {
-                    limit: 100000
-                }
-            }
+            type: "asset/inline"
         });
 
         rules.push({
             test: /\.(png|jpg|gif|svg)$/,
-            use: "url-loader"
+            type: "asset/inline"
         });
 
         rules.push({
-            test: /\.(txt)$/,
-            use: {
-                loader: "raw-loader",
-                options: {
-                    esModule: false
-                }
-            }
+            test: /\.(html|txt)$/,
+            type: "asset/source"
         });
 
         //========================================================================
