@@ -1,6 +1,6 @@
 # sf pack
 
-> Pack a component with web server to zip file
+> Pack a component with node web server to zip file
 
 ## Usage
 

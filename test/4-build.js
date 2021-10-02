@@ -89,20 +89,6 @@ describe("sf build", function() {
         assert.strictEqual(fs.existsSync("packages/app/dist/app.min.js.map"), false);
     });
 
-    it("exec sf build app -e", () => {
-        const sh = shelljs.exec("sf build app -e");
-        assert.strictEqual(sh.code, 0);
-    });
-
-    it("check component build folder and build js", () => {
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.js"), true);
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.js.map"), true);
-
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.min.js"), true);
-        assert.strictEqual(fs.existsSync("packages/app/dist/app.min.js.map"), true);
-    });
-
-
     it("check component inject content app", () => {
         const contentApp = getInjectContent("app");
         console.log(`inject content app: [${contentApp}]`);

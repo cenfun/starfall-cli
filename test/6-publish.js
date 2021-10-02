@@ -7,8 +7,8 @@ const Util = require("../lib/core/util.js");
 describe("sf publish", function() {
     this.timeout(50 * 1000);
 
-    it("exec sf publish patch -p -d", () => {
-        const sh = shelljs.exec("sf publish patch -p -d");
+    it("exec sf publish patch -d", () => {
+        const sh = shelljs.exec("sf publish patch -d");
         assert.strictEqual(sh.code, 0);
     });
 
@@ -29,8 +29,8 @@ describe("sf publish", function() {
     });
 
 
-    it("exec sf publish minor -p -d", () => {
-        const sh = shelljs.exec("sf publish minor -p -d");
+    it("exec sf publish minor -d", () => {
+        const sh = shelljs.exec("sf publish minor -d");
         assert.strictEqual(sh.code, 0);
     });
 
