@@ -1,8 +1,11 @@
-use webpack dev server for preview, hot reload
+pack：
+inject file path is not right
+
+publicPath
+
 
 build only components
 
 publish need build minify
 
-
-pack for bundle
+use webpack dev server for preview, hot reload
