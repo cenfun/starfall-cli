@@ -1,31 +1,31 @@
 module.exports = {
 
-    subsPath: "packages",
-    tempPath: ".temp",
+    subsPath: 'packages',
+    tempPath: '.temp',
 
-    buildPath: "dist",
-    previewPath: "preview",
-    publicPath: "public",
-    srcEntry: "index.js",
+    buildPath: 'dist',
+    previewPath: 'preview',
+    publicPath: 'public',
+    srcEntry: 'index.js',
 
     cssExtract: false,
 
-    infoRegistry: "https://registry.npmjs.org/",
-    publishRegistry: "https://registry.npmjs.org/",
+    infoRegistry: 'https://registry.npmjs.org/',
+    publishRegistry: 'https://registry.npmjs.org/',
 
     moduleRootNames: {
-        "backbone": "Backbone",
-        "exceljs": "ExcelJS",
-        "file-saver": "saveAs",
-        "golden-layout": "GoldenLayout",
-        "jquery": "jQuery",
-        "lodash": "_",
-        "pdfjs-dist": "PDFJS",
-        "underscore": "_",
-        "vue": "Vue",
-        "vue-custom-element": "VueCustomElement",
-        "vue-router": "VueRouter",
-        "vuex": "Vuex"
+        'backbone': 'Backbone',
+        'exceljs': 'ExcelJS',
+        'file-saver': 'saveAs',
+        'golden-layout': 'GoldenLayout',
+        'jquery': 'jQuery',
+        'lodash': '_',
+        'pdfjs-dist': 'PDFJS',
+        'underscore': '_',
+        'vue': 'Vue',
+        'vue-custom-element': 'VueCustomElement',
+        'vue-router': 'VueRouter',
+        'vuex': 'Vuex'
     },
 
     moduleAlias: {
@@ -34,45 +34,45 @@ module.exports = {
 
     moduleOverrides: {
 
-        "core-js": {
+        'core-js': {
             main: [
-                "client/core.min.js"
+                'client/core.min.js'
             ],
             dependencies: {}
         },
 
-        "select2": {
+        'select2': {
             main: [
-                "dist/css/select2.css",
-                "dist/js/select2.full.js"
+                'dist/css/select2.css',
+                'dist/js/select2.full.js'
             ],
             dependencies: {}
         },
 
-        "i18next": {
-            main: ["i18next.min.js"],
+        'i18next': {
+            main: ['i18next.min.js'],
             dependencies: {}
         },
 
-        "vue": {
-            main: ["dist/vue.min.js"]
+        'vue': {
+            main: ['dist/vue.min.js']
         },
 
-        "vue-router": {
-            main: ["dist/vue-router.min.js"]
+        'vue-router': {
+            main: ['dist/vue-router.min.js']
         },
 
-        "axios": {
+        'axios': {
             browser: {
-                axios: "dist/axios.min.js"
+                axios: 'dist/axios.min.js'
             },
             dependencies: {}
         },
 
-        "xlsx": {
+        'xlsx': {
             browser: {},
             dependencies: {},
-            main: "xlsx.mini.js"
+            main: 'xlsx.mini.js'
         }
     },
 
@@ -117,13 +117,13 @@ module.exports = {
 
     stylelint: {
         required: false,
-        ext: "{css,scss}",
-        option: ""
+        ext: '{css,scss}',
+        option: ''
     },
 
     eslint: {
-        ext: "js",
-        option: ""
+        ext: 'js',
+        option: ''
     },
 
     guiHistory: 2000,

@@ -1,107 +1,107 @@
-const fs = require("fs");
-const path = require("path");
-const assert = require("assert");
-const shelljs = require("shelljs");
+const fs = require('fs');
+const path = require('path');
+const assert = require('assert');
+const shelljs = require('shelljs');
 
-const Util = require("../lib/core/util.js");
+const Util = require('../lib/core/util.js');
 
-const rootPath = path.resolve(__dirname, "../");
+const rootPath = path.resolve(__dirname, '../');
 console.log(`rootPath: ${rootPath}`);
-const tempPath = path.resolve(rootPath, ".temp");
+const tempPath = path.resolve(rootPath, '.temp');
 console.log(`tempPath: ${tempPath}`);
 
-describe("sf init", function() {
+describe('sf init', function() {
     this.timeout(20 * 1000);
 
     before(() => {
         //create .temp folder for test
         if (fs.existsSync(tempPath)) {
-            shelljs.rm("-rf", tempPath);
+            shelljs.rm('-rf', tempPath);
         }
-        console.log("create .temp folder for test");
-        shelljs.mkdir("-p", tempPath);
+        console.log('create .temp folder for test');
+        shelljs.mkdir('-p', tempPath);
 
-        console.log("go to .temp folder");
+        console.log('go to .temp folder');
         shelljs.cd(tempPath);
 
-        console.log("create project folder");
-        shelljs.mkdir("-p", "my-test-project");
+        console.log('create project folder');
+        shelljs.mkdir('-p', 'my-test-project');
 
-        console.log("go to my-test-project folder");
-        shelljs.cd("my-test-project");
+        console.log('go to my-test-project folder');
+        shelljs.cd('my-test-project');
 
     });
 
-    it("exec sf init -f", () => {
-        const sh = shelljs.exec("sf init -f");
+    it('exec sf init -f', () => {
+        const sh = shelljs.exec('sf init -f');
         assert.strictEqual(sh.code, 0);
     });
 
-    it("check project files", () => {
-        assert.strictEqual(fs.existsSync(".eslintignore"), true);
-        assert.strictEqual(fs.existsSync(".eslintrc.js"), true);
-        assert.strictEqual(fs.existsSync(".gitignore"), true);
-        assert.strictEqual(fs.existsSync(".npmrc"), true);
-        assert.strictEqual(fs.existsSync(".stylelintignore"), true);
-        assert.strictEqual(fs.existsSync(".stylelintrc.js"), true);
-        assert.strictEqual(fs.existsSync("conf.cli.js"), true);
-        assert.strictEqual(fs.existsSync("package.json"), true);
-        assert.strictEqual(fs.existsSync("README.md"), true);
+    it('check project files', () => {
+        assert.strictEqual(fs.existsSync('.eslintignore'), true);
+        assert.strictEqual(fs.existsSync('.eslintrc.js'), true);
+        assert.strictEqual(fs.existsSync('.gitignore'), true);
+        assert.strictEqual(fs.existsSync('.npmrc'), true);
+        assert.strictEqual(fs.existsSync('.stylelintignore'), true);
+        assert.strictEqual(fs.existsSync('.stylelintrc.js'), true);
+        assert.strictEqual(fs.existsSync('conf.cli.js'), true);
+        assert.strictEqual(fs.existsSync('package.json'), true);
+        assert.strictEqual(fs.existsSync('README.md'), true);
     });
 
-    it("check project package.json", () => {
-        const projectConfPath = "package.json";
+    it('check project package.json', () => {
+        const projectConfPath = 'package.json';
         assert.strictEqual(fs.existsSync(projectConfPath), true);
 
         const conf = Util.readJSONSync(projectConfPath);
         assert.ok(conf);
-        assert.strictEqual(conf.name, "my-test-project");
-        assert.strictEqual(conf.version, "1.0.0");
+        assert.strictEqual(conf.name, 'my-test-project');
+        assert.strictEqual(conf.version, '1.0.0');
 
         assert.ok(conf.scripts);
-        assert.strictEqual(conf.scripts.start, "sf start");
+        assert.strictEqual(conf.scripts.start, 'sf start');
 
         assert.ok(conf.dependencies);
         assert.ok(conf.devDependencies);
 
     });
 
-    it("check component files", () => {
-        assert.strictEqual(fs.existsSync("packages/app/preview/index.html"), true);
-        assert.strictEqual(fs.existsSync("packages/app/src/index.js"), true);
-        assert.strictEqual(fs.existsSync("packages/app/test/specs/test.js"), true);
-        assert.strictEqual(fs.existsSync("packages/app/package.json"), true);
-        assert.strictEqual(fs.existsSync("packages/app/README.md"), true);
+    it('check component files', () => {
+        assert.strictEqual(fs.existsSync('packages/app/preview/index.html'), true);
+        assert.strictEqual(fs.existsSync('packages/app/src/index.js'), true);
+        assert.strictEqual(fs.existsSync('packages/app/test/specs/test.js'), true);
+        assert.strictEqual(fs.existsSync('packages/app/package.json'), true);
+        assert.strictEqual(fs.existsSync('packages/app/README.md'), true);
     });
 
-    it("check component package.json", () => {
-        const conf = Util.readJSONSync("packages/app/package.json");
+    it('check component package.json', () => {
+        const conf = Util.readJSONSync('packages/app/package.json');
         assert.ok(conf);
-        assert.strictEqual(conf.name, "app");
-        assert.strictEqual(conf.main, "dist/app.js");
-        assert.strictEqual(conf.repository, "npm");
+        assert.strictEqual(conf.name, 'app');
+        assert.strictEqual(conf.main, 'dist/app.js');
+        assert.strictEqual(conf.repository, 'npm');
         assert.ok(conf.dependencies);
     });
 
-    it("exec sf add", () => {
-        const sh = shelljs.exec("sf add component-1");
+    it('exec sf add', () => {
+        const sh = shelljs.exec('sf add component-1');
         assert.strictEqual(sh.code, 0);
     });
 
-    it("check component-1 files", () => {
-        assert.strictEqual(fs.existsSync("packages/component-1/preview/index.html"), true);
-        assert.strictEqual(fs.existsSync("packages/component-1/src/index.js"), true);
-        assert.strictEqual(fs.existsSync("packages/component-1/test/specs/test.js"), true);
-        assert.strictEqual(fs.existsSync("packages/component-1/package.json"), true);
-        assert.strictEqual(fs.existsSync("packages/component-1/README.md"), true);
+    it('check component-1 files', () => {
+        assert.strictEqual(fs.existsSync('packages/component-1/preview/index.html'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/src/index.js'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/test/specs/test.js'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/package.json'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/README.md'), true);
     });
 
-    it("check component-1 package.json", () => {
-        const conf = Util.readJSONSync("packages/component-1/package.json");
+    it('check component-1 package.json', () => {
+        const conf = Util.readJSONSync('packages/component-1/package.json');
         assert.ok(conf);
-        assert.strictEqual(conf.name, "component-1");
-        assert.strictEqual(conf.main, "dist/component-1.js");
-        assert.strictEqual(conf.repository, "npm");
+        assert.strictEqual(conf.name, 'component-1');
+        assert.strictEqual(conf.main, 'dist/component-1.js');
+        assert.strictEqual(conf.repository, 'npm');
         assert.ok(conf.dependencies);
     });
 
