@@ -9,7 +9,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
 * eslint + stylelint
 * mocha + istanbul
 * koa
-* headless chromium
+* playwright
 * vue
 
 ## Install
