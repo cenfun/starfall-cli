@@ -96,7 +96,7 @@ module.exports = {
         'no-constant-condition': ['error', {
             'checkLoops': false
         }],
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
         'no-duplicate-imports': 'error',
         'no-else-return': 'error',
         'no-empty': 'off',
