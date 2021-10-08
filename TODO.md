@@ -1,8 +1,4 @@
-pack：
-inject file path is not right
-
-publicPath
-
+playwright
 
 build only components
 
