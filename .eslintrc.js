@@ -16,16 +16,16 @@ module.exports = {
 
     //should "npm install eslint-plugin-es -g" for VSCode in global
     'plugins': [
+        'sonarjs',
+        'chain',
+        'vue',
         'html'
-        //"sonarjs",
-        //"chain",
-        //"vue"
     ],
 
     'extends': [
-        //"plugin:sonarjs/recommended",
-        //"plugin:chain/recommended",
-        //"plugin:vue/recommended",
+        'plugin:sonarjs/recommended',
+        'plugin:chain/recommended',
+        'plugin:vue/recommended',
         'eslint:recommended'
     ],
 
@@ -117,8 +117,8 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-prototype-builtins': 'off',
         'no-restricted-globals': ['error', 'event', 'fdescribe'],
-        'no-return-assign': 'warn',
-        'no-return-await': 'warn',
+        'no-return-assign': 'error',
+        'no-return-await': 'error',
         'no-sequences': 'error',
         'no-trailing-spaces': ['error', {
             'ignoreComments': true,
@@ -188,6 +188,10 @@ module.exports = {
             'after': true,
             'before': false
         }],
+        'sonarjs/cognitive-complexity': 'off',
+        'sonarjs/no-collapsible-if': 'off',
+        'sonarjs/no-duplicate-string': 'off',
+        'sonarjs/no-identical-functions': 'off',
         'space-before-blocks': ['error', 'always'],
         'space-before-function-paren': ['error', {
             'anonymous': 'never',

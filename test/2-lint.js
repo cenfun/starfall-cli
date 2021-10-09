@@ -16,7 +16,7 @@ describe('sf lint', function() {
         });
 
         Util.editFile('packages/app/src/es-lint.js', function() {
-            return "var a=1 \n var b = '2';";
+            return 'var a=1 \n var b = "2";';
         });
 
         assert.strictEqual(fs.existsSync('packages/app/src/style-lint.css'), true);
@@ -36,7 +36,7 @@ describe('sf lint', function() {
         assert.strictEqual(css.replace(/\r?\n/g, ''), '.my-class {    font-size: 12px;    display: block;}');
 
         const js = Util.readFileContentSync('packages/app/src/es-lint.js');
-        assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = "2";');
+        assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';');
         
 
         Util.editFile('packages/app/src/es-lint.js', function(c) {
@@ -53,7 +53,7 @@ describe('sf lint', function() {
     it('check files after lint - auto format css/js', () => {
 
         const js = Util.readFileContentSync('packages/app/src/es-lint.js');
-        assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = "2";console.log(a + b);');
+        assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';console.log(a + b);');
         
     });
 

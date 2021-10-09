@@ -1,22 +1,28 @@
 <template>
-    <div class="cli-component-name">
-        <div class="cli-component-name-title">
-            <p>{{name}}</p>
-        </div>
-        <div class="cli-component-name-content">{{value}}</div>
-        <div class="cli-component-name-action">
-            <button @click="increment">increment+</button>
-            <button @click="decrement">decrement-</button>
-        </div>
+  <div class="cli-component-name">
+    <div class="cli-component-name-title">
+      <p>{{ name }}</p>
     </div>
+    <div class="cli-component-name-content">
+      {{ value }}
+    </div>
+    <div class="cli-component-name-action">
+      <button @click="increment">
+        increment+
+      </button>
+      <button @click="decrement">
+        decrement-
+      </button>
+    </div>
+  </div>
 </template>
 <script>
 export default {
-    name: "cli-component-name",
+    name: 'CliComponentName',
     data() {
         return {
             value: 0,
-            name: "cli-component-name"
+            name: 'cli-component-name'
         };
     },
     methods: {
