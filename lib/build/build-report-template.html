@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <link rel="icon" href="data:,">
     <title>{title}</title>
     <style>
         html,
@@ -135,46 +136,47 @@
         /*inject:end*/
     </script>
     <script>
-        var Grid = window.turbogrid.Grid;
-        var $ = window.turbogrid.$;
+        const Grid = window.turbogrid.Grid;
+        const $ = window.turbogrid.$;
 
-        var list;
-        var $list = document.querySelector(".list");
+        let list;
+        const $list = document.querySelector('.list');
 
-        var $flyover = $(".flyover");
-        var showReport = function (item) {
+        const $flyover = $('.flyover');
+        const showReport = function(item) {
             if (!item) {
                 return;
             }
 
-            if ($flyover.hasClass("show")) {
+            if ($flyover.hasClass('show')) {
                 return;
             }
 
-            $flyover.html('<iframe class="iframe" src="' + item.output + '"></iframe>');
-            $flyover.addClass("slide-in-right show").one("animationend", function () {
-                $flyover.removeClass("slide-in-right");
+            $flyover.html(`<iframe class="iframe" src="${item.output}"></iframe>`);
+            $flyover.addClass('slide-in-right show').one('animationend', function() {
+                $flyover.removeClass('slide-in-right');
             });
 
             //close event handler
             setTimeout(() => {
-                var holder = $(document).bind("click.flyover", (e) => {
-                    holder.unbind("click.flyover");
-                    $flyover.addClass("slide-out-right").one("animationend", function () {
-                        $flyover.removeClass("slide-out-right show").empty();
+                const holder = $(document).bind('click.flyover', (e) => {
+                    holder.unbind('click.flyover');
+                    $flyover.addClass('slide-out-right').one('animationend', function() {
+                        $flyover.removeClass('slide-out-right show').empty();
                     });
                 });
             }, 100);
 
         };
 
-        var createList = function () {
+        const createList = function() {
             list = new Grid($list);
-            list.bind("onClick", function (e, d) {
+            list.bind('onClick', function(e, d) {
                 this.setSelectedRow(d.row);
                 const rowData = this.getRowItem(d.row);
                 showReport(rowData);
             });
+            const reportData = window.reportData;
             console.log(reportData);
 
             //border for group
@@ -183,15 +185,15 @@
                     return;
                 }
 
-                c.headerClass = "tg-border-left tg-border-right";
+                c.headerClass = 'tg-border-left tg-border-right';
 
-                var first = c.subs[0];
-                first.cellClass = "tg-border-left"
-                first.headerClass = "tg-border-left"
+                const first = c.subs[0];
+                first.cellClass = 'tg-border-left';
+                first.headerClass = 'tg-border-left';
 
-                var last = c.subs[c.subs.length - 1];
-                last.cellClass = "tg-border-right"
-                last.headerClass = "tg-border-right"
+                const last = c.subs[c.subs.length - 1];
+                last.cellClass = 'tg-border-right';
+                last.headerClass = 'tg-border-right';
 
             });
 
@@ -203,23 +205,23 @@
                 textSelectable: true,
                 frozenColumn: 0,
                 sortAsc: false,
-                stringFormat: function (v, rd, cd) {
-                    var id = cd.id;
-                    var label = rd[id + "_label"]
+                stringFormat: function(v, rd, cd) {
+                    const id = cd.id;
+                    const label = rd[`${id}_label`];
                     if (label) {
-                        v = label
+                        v = label;
                     }
-                    var color = rd[id + "_color"];
+                    const color = rd[`${id}_color`];
                     if (color) {
-                        return '<span style="color:' + color + ';">' + v + '</span>';
+                        return `<span style="color:${color};">${v}</span>`;
                     }
                     return v;
                 }
-            });
-            list.render();
-        };
+    });
+    list.render();
+};
 
-        window.onload = function () {
+        window.onload = function() {
             createList();
         };
     </script>

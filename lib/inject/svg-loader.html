@@ -1,19 +1,19 @@
 <script>
     (function() {
 
-        const svg = "svg_content";
+        const svg = 'svg_content';
 
         const injectSvg = function() {
 
-            const id = "svg_id";
+            const id = 'svg_id';
             let holder = document.getElementById(id);
             if (holder) {
                 return true;
             }
 
-            holder = document.createElement("div");
-            holder.setAttribute("id", id);
-            holder.style.display = "none";
+            holder = document.createElement('div');
+            holder.setAttribute('id', id);
+            holder.style.display = 'none';
             holder.innerHTML = svg;
 
             if (document.head) {
@@ -29,7 +29,7 @@
             return false;
         };
 
-        window.addEventListener("load", function() {
+        window.addEventListener('load', function() {
             injectSvg();
         });
 

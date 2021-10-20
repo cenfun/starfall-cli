@@ -3,6 +3,7 @@
 
 <head>
   <title></title>
+  <link rel="icon" href="data:,">
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="http://golden-layout.com/files/latest/js/goldenlayout.min.js"></script>
   <link type="text/css" rel="stylesheet" href="http://golden-layout.com/files/latest/css/goldenlayout-base.css" />
@@ -40,40 +41,40 @@
                 hasHeaders: false
             },
             content: [{
-                type: "row",
+                type: 'row',
                 content: [{
-                    type: "component",
-                    componentName: "component",
+                    type: 'component',
+                    componentName: 'component',
                     width: 20,
                     componentState: {
-                        text: "Component 2"
+                        text: 'Component 2'
                     }
                 }, {
-                    type: "component",
-                    componentName: "component",
+                    type: 'component',
+                    componentName: 'component',
                     width: 20,
                     componentState: {
-                        text: "Component 2"
+                        text: 'Component 2'
                     }
                 }, {
-                    type: "component",
-                    componentName: "component",
+                    type: 'component',
+                    componentName: 'component',
                     componentState: {
-                        text: "Component 2"
+                        text: 'Component 2'
                     }
                 }]
             }]
         };
 
-        const layoutDashboard = new window.GoldenLayout(configDashboard, $(".gui-dashboard"));
+        const layoutDashboard = new window.GoldenLayout(configDashboard, $('.gui-dashboard'));
 
-        layoutDashboard.registerComponent("component", function(container, state) {
-            const input = $("<div>component</div>");
+        layoutDashboard.registerComponent('component', function(container, state) {
+            const input = $('<div>component</div>');
             container.getElement().append(input);
         });
         layoutDashboard.init();
 
-        layout.on("stateChanged", function() {
+        layout.on('stateChanged', function() {
             layoutDashboard.updateSize();
         });
 
@@ -103,67 +104,67 @@
             },
             labels: {
                 //close: 'close',
-                maximise: "最大化",
-                minimise: "还原"
+                maximise: '最大化',
+                minimise: '还原'
                 //popout: 'open in new window'
             },
             content: [{
-                type: "column",
+                type: 'column',
                 content: [{
-                    type: "stack",
+                    type: 'stack',
                     content: [{
-                        type: "component",
-                        componentName: "component",
-                        title: "Console",
+                        type: 'component',
+                        componentName: 'component',
+                        title: 'Console',
                         isClosable: false
                     }, {
-                        type: "component",
-                        componentName: "component",
-                        title: "Readme",
+                        type: 'component',
+                        componentName: 'component',
+                        title: 'Readme',
                         isClosable: false,
                         componentState: {
-                            text: "Component 1"
+                            text: 'Component 1'
                         }
                     }]
                 },
                           {
-                              type: "stack",
+                              type: 'stack',
                               content: [{
-                                  type: "component",
-                                  componentName: "dashboard",
-                                  title: "Dashboard",
+                                  type: 'component',
+                                  componentName: 'dashboard',
+                                  title: 'Dashboard',
                                   isClosable: false
                               }, {
-                                  type: "component",
-                                  componentName: "component",
-                                  title: "Tools",
+                                  type: 'component',
+                                  componentName: 'component',
+                                  title: 'Tools',
                                   isClosable: false,
                                   componentState: {
-                                      text: "Component 2"
+                                      text: 'Component 2'
                                   }
                               }]
                           }]
             }]
         };
 
-        const layout = new window.GoldenLayout(config, $(".gui-container"));
+        const layout = new window.GoldenLayout(config, $('.gui-container'));
 
-        layout.registerComponent("component", function(container, state) {
-            const input = $("<div>component</div>");
+        layout.registerComponent('component', function(container, state) {
+            const input = $('<div>component</div>');
             container.getElement().append(input);
         });
 
-        layout.registerComponent("dashboard", function(container, state) {
+        layout.registerComponent('dashboard', function(container, state) {
             $('<div class="gui-dashboard"></div>').appendTo(container.getElement());
         });
 
         layout.init();
 
-        layout.on("initialised", function() {
+        layout.on('initialised', function() {
             renderDashboard(layout);
         });
 
-        window.addEventListener("resize", function() {
+        window.addEventListener('resize', function() {
             layout.updateSize();
         });
 

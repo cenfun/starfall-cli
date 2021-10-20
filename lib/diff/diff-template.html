@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+    <link rel="icon" href="data:,">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -26,23 +27,23 @@
     {content}
     <div>&nbsp;</div>
     <script>
-        const $onlyChange = document.getElementById("only-change");
-        if (localStorage.getItem("cli-diff-only-change")) {
+        const $onlyChange = document.getElementById('only-change');
+        if (localStorage.getItem('cli-diff-only-change')) {
             $onlyChange.checked = true;
         }
         const onlyChangedHandler = function() {
             const checked = $onlyChange.checked;
-            localStorage.setItem("cli-diff-only-change", checked ? "1" : "");
-            const nodeList = document.querySelectorAll(".diff-no-change,.diff-na");
+            localStorage.setItem('cli-diff-only-change', checked ? '1' : '');
+            const nodeList = document.querySelectorAll('.diff-no-change,.diff-na');
             const l = nodeList.length;
             if (!l) {
                 return;
             }
             for (let i = 0; i < l; i++) {
                 const node = nodeList[i];
-                let display = "";
+                let display = '';
                 if (checked) {
-                    display = "none";
+                    display = 'none';
                 }
                 node.style.display = display;
             }
