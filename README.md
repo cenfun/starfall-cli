@@ -24,63 +24,14 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
   sf -v
   ```
 
+#### Commands
+
+[COMMANDS.md](COMMANDS.md)
+
 ### Troubleshooting
 
 * [Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 * "-bash: sf: command not found" remove and create new symbolic link for Starfall: ln -s /path-to-starfall-cli/lib/cli.js /usr/local/bin/sf 
-
-#### Development commands:
-
-```bash
- 
-  sf start
-
-  sf install
-
-  sf build [component-name[,component-name]]
-  sf watch
-
-  sf preview [component-name]
-
-  sf lint [component-name[,component-name]]
-  sf test [component-name[,component-name]]
-
-  sf precommit [component-name[,component-name]]
-
-  sf add [component-name[,component-name]]
-
-  sf init project-name
-
-  sf init .
-
-  sf -h
-  sf -v
-```
-
-#### Commands detail usage:
-
-* [sf add](lib/add/README.md)
-* [sf blame](lib/blame/README.md)
-* [sf build](lib/build/README.md)
-* [sf clean](lib/clean/README.md)
-* [sf diff](lib/diff/README.md)
-* [sf format](lib/format/README.md)
-* [sf init](lib/init/README.md)
-* [sf install](lib/install/README.md)
-* [sf kill](lib/kill/README.md)
-* [sf link](lib/link/README.md)
-* [sf lint](lib/lint/README.md)
-* [sf list](lib/list/README.md)
-* [sf migrate](lib/migrate/README.md)
-* [sf outdate](lib/outdate/README.md)
-* [sf pack](lib/pack/README.md)
-* [sf precommit](lib/precommit/README.md)
-* [sf preview](lib/preview/README.md)
-* [sf publish](lib/publish/README.md)
-* [sf sonar](lib/sonar/README.md)
-* [sf start](lib/start/README.md)
-* [sf test](lib/test/README.md)
-* [sf version](lib/version/README.md)
 
 #### Clone or create your project with following structure
 
