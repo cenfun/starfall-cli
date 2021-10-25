@@ -26,6 +26,28 @@ sf -h
 sf -v
 ```
 
+- [add](#add)
+- [blame](#blame)
+- [build](#build)
+- [clean](#clean)
+- [diff](#diff)
+- [format](#format)
+- [init](#init)
+- [install](#install)
+- [kill](#kill)
+- [link](#link)
+- [lint](#lint)
+- [list](#list)
+- [migrate](#migrate)
+- [outdate](#outdate)
+- [pack](#pack)
+- [precommit](#precommit)
+- [preview](#preview)
+- [publish](#publish)
+- [sonar](#sonar)
+- [start](#start)
+- [test](#test)
+- [version](#version)
 # add
 
 > add new component(s) to the current project
