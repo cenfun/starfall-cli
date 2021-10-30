@@ -4,12 +4,9 @@
     "version": "1.0.0",
     "main": "",
     "keywords": [
-        "starfall-cli",
         "{projectName}"
     ],
-    "scripts": {
-        "start": "sf start"
-    },
+    "scripts": {},
     "dependencies": {},
     "devDependencies": {
         "eslint": "^8.1.0",
