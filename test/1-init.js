@@ -59,7 +59,6 @@ describe('sf init', function() {
         assert.strictEqual(conf.version, '1.0.0');
 
         assert.ok(conf.scripts);
-        assert.strictEqual(conf.scripts.start, 'sf start');
 
         assert.ok(conf.dependencies);
         assert.ok(conf.devDependencies);
