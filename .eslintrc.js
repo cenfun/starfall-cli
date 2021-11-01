@@ -117,9 +117,12 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-prototype-builtins': 'off',
         'no-restricted-globals': ['error', 'event', 'fdescribe'],
+        'no-promise-executor-return': 'error',
         'no-return-assign': 'error',
         'no-return-await': 'error',
         'no-sequences': 'error',
+        'no-self-compare': 'error',
+        'no-template-curly-in-string': 'error',
         'no-trailing-spaces': ['error', {
             'ignoreComments': true,
             'skipBlankLines': true
@@ -129,7 +132,10 @@ module.exports = {
             'args': 'none',
             'vars': 'local'
         }],
+        'no-unused-private-class-members': 'error',
+        'no-unmodified-loop-condition': 'error',
         'no-useless-return': 'error',
+        'no-unreachable-loop': 'error',
         'no-var': ['warn'],
         'no-whitespace-before-property': 'error',
         'no-with': 'error',
