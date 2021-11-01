@@ -1,6 +1,6 @@
 module.exports = {
     create: function(option) {
-        const service = {
+        return {
 
             default: {
                 '/api': {
@@ -19,8 +19,5 @@ module.exports = {
             stg: {}
 
         };
-
-
-        return service;
     }
 };

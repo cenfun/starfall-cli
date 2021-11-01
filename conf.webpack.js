@@ -128,7 +128,7 @@ module.exports = {
         //console.log("webpack externals:");
         //console.log(externals);
 
-        const defaultWebpackConf = {
+        return {
 
             mode: mode,
 
@@ -204,7 +204,5 @@ module.exports = {
             externals: option.externals
 
         };
-
-        return defaultWebpackConf;
     }
 };
