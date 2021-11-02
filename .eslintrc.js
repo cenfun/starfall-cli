@@ -1,3 +1,192 @@
+//https://eslint.org/docs/rules/
+
+//if the "extends": "eslint:recommended" property in a configuration file enables the rule
+//recommended but special rules
+const recommendedRules = {
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    'no-prototype-builtins': 'off',
+    'no-unused-vars': ['error', {
+        'args': 'none',
+        'vars': 'local'
+    }]
+};
+
+const normalRules = {
+    'complexity': ['error', 8],
+    'line-comment-position': ['error', {
+        'position': 'above'
+    }],
+    'max-depth': ['error', 5],
+    'max-len': ['error', {
+        'code': 550,
+        'ignoreStrings': true,
+        'ignoreTrailingComments': true
+    }],
+    'max-nested-callbacks': ['error', 5],
+    'max-params': ['error', 8],
+    'max-statements': ['error', 50],
+    'new-cap': ['error', {
+        'capIsNew': false,
+        'newIsCap': true,
+        'properties': true
+    }],
+    'no-alert': 'error',
+    'no-array-constructor': 'error',
+    'no-console': 'off',
+    'no-duplicate-imports': 'error',
+    'no-eq-null': 'error',
+    'no-eval': 'error',
+    'no-inline-comments': 'error',
+    'no-multi-assign': 'error',
+    'no-multi-str': 'error',
+    'no-nested-ternary': 'warn',
+    'no-new-object': 'error',
+    'no-param-reassign': 'off',
+    'no-promise-executor-return': 'error',
+    'no-restricted-globals': ['error', 'event', 'fdescribe'],
+    'no-return-assign': 'error',
+    'no-return-await': 'error',
+    'no-self-compare': 'error',
+    'no-sequences': 'error',
+    'no-template-curly-in-string': 'error',
+    'no-unmodified-loop-condition': 'error',
+    'no-unreachable-loop': 'error',
+    'no-unused-private-class-members': 'error',
+    'require-atomic-updates': 'off',
+    'require-await': 'error'
+};
+
+//if some problems reported by the rule are automatically fixable by the --fix command line option
+//formatters
+const fixableRules = {
+    'arrow-spacing': 'error',
+    'block-spacing': 'error',
+    'comma-dangle': ['error', 'never'],
+    'comma-spacing': ['error', {
+        'after': true,
+        'before': false
+    }],
+    'curly': 'error',
+    'dot-location': ['error', 'property'],
+    'dot-notation': 'error',
+    'eqeqeq': ['error', 'always'],
+    'func-call-spacing': ['error', 'never'],
+    'indent': ['error', 4, {
+        'ArrayExpression': 'first',
+        'ObjectExpression': 1,
+        'SwitchCase': 1
+    }],
+    'key-spacing': ['error', {
+        'afterColon': true,
+        'mode': 'strict'
+    }],
+    'keyword-spacing': ['error', {
+        'after': true,
+        'before': true
+    }],
+    'lines-around-comment': ['error', {
+        'beforeBlockComment': true
+    }],
+    'lines-between-class-members': ['error', 'always', {
+        'exceptAfterSingleLine': true
+    }],
+    'no-confusing-arrow': 'error',
+    'no-div-regex': 'error',
+    'no-else-return': 'error',
+    'no-extra-bind': 'error',
+    'no-extra-label': 'error',
+    'no-floating-decimal': 'error',
+    'no-multi-spaces': 'error',
+    'no-multiple-empty-lines': ['error', {
+        'max': 2,
+        'maxBOF': 1,
+        'maxEOF': 1
+    }],
+    'no-trailing-spaces': ['error', {
+        'ignoreComments': true,
+        'skipBlankLines': true
+    }],
+    'no-unneeded-ternary': 'error',
+    'no-useless-return': 'error',
+    'no-var': ['warn'],
+    'no-whitespace-before-property': 'error',
+    'object-curly-newline': ['error', {
+        'ExportDeclaration': {
+            'minProperties': 3,
+            'multiline': true
+        },
+        'ImportDeclaration': {
+            'minProperties': 3,
+            'multiline': true
+        },
+        'ObjectExpression': {
+            'consistent': true,
+            'minProperties': 1,
+            'multiline': true
+        },
+        'ObjectPattern': {
+            'minProperties': 3,
+            'multiline': true
+        }
+    }],
+    'object-curly-spacing': ['error', 'always'],
+    'object-property-newline': ['error', {
+        'allowAllPropertiesOnSameLine': true
+    }],
+    'one-var': ['error', 'never'],
+    'operator-linebreak': ['error', 'before'],
+    'padding-line-between-statements': ['error', {
+        'blankLine': 'always',
+        'next': '*',
+        'prev': 'directive'
+    }, {
+        'blankLine': 'any',
+        'next': 'directive',
+        'prev': 'directive'
+    }, {
+        'blankLine': 'always',
+        'next': 'function',
+        'prev': '*'
+    }, {
+        'blankLine': 'always',
+        'next': 'block',
+        'prev': '*'
+    }],
+    'prefer-const': 'error',
+    'prefer-template': 'error',
+    'quotes': ['error', 'single', {
+        'avoidEscape': true
+    }],
+    'rest-spread-spacing': ['error', 'always'],
+    'semi': ['error', 'always'],
+    'semi-spacing': ['error', {
+        'after': true,
+        'before': false
+    }],
+    'space-before-blocks': ['error', 'always'],
+    'space-before-function-paren': ['error', {
+        'anonymous': 'never',
+        'asyncArrow': 'always',
+        'named': 'never'
+    }],
+    'space-in-parens': 'error',
+    'space-infix-ops': ['error', {
+        'int32Hint': false
+    }],
+    'template-curly-spacing': 'error',
+    'unicode-bom': 'error'
+};
+
+
+//plugin special rules
+const sonarjsRules = {
+    'sonarjs/cognitive-complexity': 'off',
+    'sonarjs/no-collapsible-if': 'off',
+    'sonarjs/no-duplicate-string': 'off',
+    'sonarjs/no-identical-functions': 'off'
+};
+
+
 module.exports = {
     'root': true,
     //system globals
@@ -36,179 +225,10 @@ module.exports = {
         'sourceType': 'module'
     },
 
-
-    //https://eslint.org/docs/4.0.0/rules/
-
     'rules': {
-        'arrow-spacing': 'error',
-        'block-spacing': 'error',
-        'comma-dangle': ['error', 'never'],
-        'comma-spacing': ['error', {
-            'after': true,
-            'before': false
-        }],
-        'complexity': ['error', 8],
-        'curly': 'error',
-        'dot-location': ['error', 'property'],
-        'dot-notation': 'error',
-        'eqeqeq': ['error', 'always'],
-        'func-call-spacing': ['error', 'never'],
-        'indent': ['error', 4, {
-            'ArrayExpression': 'first',
-            'ObjectExpression': 1,
-            'SwitchCase': 1
-        }],
-        'key-spacing': ['error', {
-            'afterColon': true,
-            'mode': 'strict'
-        }],
-        'keyword-spacing': ['error', {
-            'after': true,
-            'before': true
-        }],
-        'line-comment-position': ['error', {
-            'position': 'above'
-        }],
-        'lines-around-comment': ['error', {
-            'beforeBlockComment': true
-        }],
-        'lines-between-class-members': ['error', 'always', {
-            'exceptAfterSingleLine': true
-        }],
-        'max-depth': ['error', 5],
-        'max-len': ['error', {
-            'code': 550,
-            'ignoreStrings': true,
-            'ignoreTrailingComments': true
-        }],
-        'max-nested-callbacks': ['error', 5],
-        'max-params': ['error', 8],
-        'max-statements': ['error', 50],
-        'new-cap': ['error', {
-            'capIsNew': false,
-            'newIsCap': true,
-            'properties': true
-        }],
-        'no-alert': 'error',
-        'no-array-constructor': 'error',
-        'no-confusing-arrow': 'error',
-        'no-console': 'off',
-        'no-constant-condition': ['error', {
-            'checkLoops': false
-        }],
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
-        'no-duplicate-imports': 'error',
-        'no-else-return': 'error',
-        'no-empty': 'off',
-        'no-eq-null': 'error',
-        'no-eval': 'error',
-        'no-floating-decimal': 'error',
-        'no-inline-comments': 'error',
-        'no-multi-assign': 'error',
-        'no-multi-spaces': 'error',
-        'no-multi-str': 'error',
-        'no-multiple-empty-lines': ['error', {
-            'max': 2,
-            'maxBOF': 1,
-            'maxEOF': 1
-        }],
-        'no-nested-ternary': 'warn',
-        'no-new-object': 'error',
-        'no-param-reassign': 'off',
-        'no-promise-executor-return': 'error',
-        'no-prototype-builtins': 'off',
-        'no-restricted-globals': ['error', 'event', 'fdescribe'],
-        'no-return-assign': 'error',
-        'no-return-await': 'error',
-        'no-self-compare': 'error',
-        'no-sequences': 'error',
-        'no-template-curly-in-string': 'error',
-        'no-trailing-spaces': ['error', {
-            'ignoreComments': true,
-            'skipBlankLines': true
-        }],
-        'no-unmodified-loop-condition': 'error',
-        'no-unneeded-ternary': 'error',
-        'no-unreachable-loop': 'error',
-        'no-unused-private-class-members': 'error',
-        'no-unused-vars': ['error', {
-            'args': 'none',
-            'vars': 'local'
-        }],
-        'no-useless-return': 'error',
-        'no-var': ['warn'],
-        'no-whitespace-before-property': 'error',
-        'no-with': 'error',
-        'object-curly-newline': ['error', {
-            'ExportDeclaration': {
-                'minProperties': 3,
-                'multiline': true
-            },
-            'ImportDeclaration': {
-                'minProperties': 3,
-                'multiline': true
-            },
-            'ObjectExpression': {
-                'consistent': true,
-                'minProperties': 1,
-                'multiline': true
-            },
-            'ObjectPattern': {
-                'minProperties': 3,
-                'multiline': true
-            }
-        }],
-        'object-curly-spacing': ['error', 'always'],
-        'object-property-newline': ['error', {
-            'allowAllPropertiesOnSameLine': true
-        }],
-        'one-var': ['error', 'never'],
-        'operator-linebreak': ['error', 'before'],
-        'padding-line-between-statements': ['error', {
-            'blankLine': 'always',
-            'next': '*',
-            'prev': 'directive'
-        }, {
-            'blankLine': 'any',
-            'next': 'directive',
-            'prev': 'directive'
-        }, {
-            'blankLine': 'always',
-            'next': 'function',
-            'prev': '*'
-        }, {
-            'blankLine': 'always',
-            'next': 'block',
-            'prev': '*'
-        }],
-        'prefer-const': 'error',
-        'prefer-template': 'error',
-        'quotes': ['error', 'single', {
-            'avoidEscape': true
-        }],
-        'require-atomic-updates': 'off',
-        'require-await': 'error',
-        'rest-spread-spacing': ['error', 'always'],
-        'semi': ['error', 'always'],
-        'semi-spacing': ['error', {
-            'after': true,
-            'before': false
-        }],
-        'sonarjs/cognitive-complexity': 'off',
-        'sonarjs/no-collapsible-if': 'off',
-        'sonarjs/no-duplicate-string': 'off',
-        'sonarjs/no-identical-functions': 'off',
-        'space-before-blocks': ['error', 'always'],
-        'space-before-function-paren': ['error', {
-            'anonymous': 'never',
-            'asyncArrow': 'always',
-            'named': 'never'
-        }],
-        'space-in-parens': 'error',
-        'space-infix-ops': ['error', {
-            'int32Hint': false
-        }],
-        'template-curly-spacing': 'error',
-        'unicode-bom': 'error'
+        ... recommendedRules,
+        ... normalRules,
+        ... fixableRules,
+        ... sonarjsRules
     }
 };
