@@ -205,6 +205,7 @@ const fixableRules = {
     'space-infix-ops': ['error', {
         'int32Hint': false
     }],
+    'space-unary-ops': 'error',
     'template-curly-spacing': 'error',
     'unicode-bom': 'error'
 };
