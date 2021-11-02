@@ -1,7 +1,7 @@
 //https://eslint.org/docs/rules/
 
-//if the "extends": "eslint:recommended" property in a configuration file enables the rule
-//recommended but special rules
+// if the "extends": "eslint:recommended" property in a configuration file enables the rule
+// recommended but special rules 
 const recommendedRules = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-prototype-builtins': 'off',
@@ -64,52 +64,56 @@ const normalRules = {
     'require-await': 'error'
 };
 
-//if some problems reported by the rule are automatically fixable by the --fix command line option
-//formatters
+// if some problems reported by the rule are automatically fixable by the --fix command line option
+// formatters 
 const fixableRules = {
+    'array-bracket-newline': ['error', 'consistent'],
+    'array-bracket-spacing': ['error', 'never'],
+    'array-element-newline': ['error', 'consistent'],
     'arrow-spacing': 'error',
     'block-spacing': 'error',
+    'brace-style': 'error',
     'comma-dangle': ['error', 'never'],
-    'comma-spacing': [
-        'error', {
-            'after': true,
-            'before': false
-        }
-    ],
+    'comma-spacing': ['error', {
+        'after': true,
+        'before': false
+    }],
+    'comma-style': ['error', 'last'],
+    'computed-property-spacing': ['error', 'never'],
     'curly': 'error',
     'dot-location': ['error', 'property'],
     'dot-notation': 'error',
     'eqeqeq': ['error', 'always'],
     'func-call-spacing': ['error', 'never'],
-    'indent': [
-        'error', 4, {
-            'ArrayExpression': 'first',
-            'ObjectExpression': 1,
-            'SwitchCase': 1
-        }
-    ],
-    'key-spacing': [
-        'error', {
-            'afterColon': true,
-            'mode': 'strict'
-        }
-    ],
-    'keyword-spacing': [
-        'error', {
-            'after': true,
-            'before': true
-        }
-    ],
-    'lines-around-comment': [
-        'error', {
-            'beforeBlockComment': true
-        }
-    ],
-    'lines-between-class-members': [
-        'error', 'always', {
-            'exceptAfterSingleLine': true
-        }
-    ],
+    'function-call-argument-newline': ['error', 'consistent'],
+    'function-paren-newline': ['error', 'consistent'],
+    'generator-star-spacing': ['error', {
+        'after': false,
+        'before': true
+    }],
+    'implicit-arrow-linebreak': ['error', 'beside'],
+    'indent': ['error', 4, {
+        'ArrayExpression': 'first',
+        'ObjectExpression': 1,
+        'SwitchCase': 1
+    }],
+    'jsx-quotes': ['error', 'prefer-double'],
+    'key-spacing': ['error', {
+        'afterColon': true,
+        'mode': 'strict'
+    }],
+    'keyword-spacing': ['error', {
+        'after': true,
+        'before': true
+    }],
+    'lines-around-comment': ['error', {
+        'beforeBlockComment': true
+    }],
+    'lines-between-class-members': ['error', 'always', {
+        'exceptAfterSingleLine': true
+    }],
+    'multiline-ternary': ['error', 'never'],
+    'new-parens': 'error',
     'no-confusing-arrow': 'error',
     'no-div-regex': 'error',
     'no-else-return': 'error',
@@ -117,106 +121,84 @@ const fixableRules = {
     'no-extra-label': 'error',
     'no-floating-decimal': 'error',
     'no-multi-spaces': 'error',
-    'no-multiple-empty-lines': [
-        'error', {
-            'max': 2,
-            'maxBOF': 1,
-            'maxEOF': 1
-        }
-    ],
-    'no-trailing-spaces': [
-        'error', {
-            'ignoreComments': true,
-            'skipBlankLines': true
-        }
-    ],
+    'no-multiple-empty-lines': ['error', {
+        'max': 2,
+        'maxBOF': 1,
+        'maxEOF': 1
+    }],
+    'no-trailing-spaces': ['error', {
+        'ignoreComments': true,
+        'skipBlankLines': true
+    }],
     'no-unneeded-ternary': 'error',
     'no-useless-return': 'error',
     'no-var': ['warn'],
     'no-whitespace-before-property': 'error',
-    'object-curly-newline': [
-        'error', {
-            'ExportDeclaration': {
-                'minProperties': 3,
-                'multiline': true
-            },
-            'ImportDeclaration': {
-                'minProperties': 3,
-                'multiline': true
-            },
-            'ObjectExpression': {
-                'consistent': true,
-                'minProperties': 1,
-                'multiline': true
-            },
-            'ObjectPattern': {
-                'minProperties': 3,
-                'multiline': true
-            }
+    'object-curly-newline': ['error', {
+        'ExportDeclaration': {
+            'minProperties': 3,
+            'multiline': true
+        },
+        'ImportDeclaration': {
+            'minProperties': 3,
+            'multiline': true
+        },
+        'ObjectExpression': {
+            'consistent': true,
+            'minProperties': 1,
+            'multiline': true
+        },
+        'ObjectPattern': {
+            'minProperties': 3,
+            'multiline': true
         }
-    ],
+    }],
     'object-curly-spacing': ['error', 'always'],
-    'object-property-newline': [
-        'error', {
-            'allowAllPropertiesOnSameLine': true
-        }
-    ],
+    'object-property-newline': ['error', {
+        'allowAllPropertiesOnSameLine': true
+    }],
     'one-var': ['error', 'never'],
     'operator-linebreak': ['error', 'before'],
-    'padding-line-between-statements': [
-        'error', {
-            'blankLine': 'always',
-            'next': '*',
-            'prev': 'directive'
-        }, {
-            'blankLine': 'any',
-            'next': 'directive',
-            'prev': 'directive'
-        }, {
-            'blankLine': 'always',
-            'next': 'function',
-            'prev': '*'
-        }, {
-            'blankLine': 'always',
-            'next': 'block',
-            'prev': '*'
-        }
-    ],
+    'padding-line-between-statements': ['error', {
+        'blankLine': 'always',
+        'next': '*',
+        'prev': 'directive'
+    }, {
+        'blankLine': 'any',
+        'next': 'directive',
+        'prev': 'directive'
+    }, {
+        'blankLine': 'always',
+        'next': 'function',
+        'prev': '*'
+    }, {
+        'blankLine': 'always',
+        'next': 'block',
+        'prev': '*'
+    }],
     'prefer-const': 'error',
     'prefer-template': 'error',
-    'quotes': [
-        'error', 'single', {
-            'avoidEscape': true
-        }
-    ],
+    'quotes': ['error', 'single', {
+        'avoidEscape': true
+    }],
     'rest-spread-spacing': ['error', 'always'],
     'semi': ['error', 'always'],
-    'semi-spacing': [
-        'error', {
-            'after': true,
-            'before': false
-        }
-    ],
+    'semi-spacing': ['error', {
+        'after': true,
+        'before': false
+    }],
     'space-before-blocks': ['error', 'always'],
-    'space-before-function-paren': [
-        'error', {
-            'anonymous': 'never',
-            'asyncArrow': 'always',
-            'named': 'never'
-        }
-    ],
+    'space-before-function-paren': ['error', {
+        'anonymous': 'never',
+        'asyncArrow': 'always',
+        'named': 'never'
+    }],
     'space-in-parens': 'error',
-    'space-infix-ops': [
-        'error', {
-            'int32Hint': false
-        }
-    ],
+    'space-infix-ops': ['error', {
+        'int32Hint': false
+    }],
     'template-curly-spacing': 'error',
-    'unicode-bom': 'error',
-    'array-bracket-newline': ['error', 'consistent'],
-    'array-bracket-spacing': ['error', 'never'],
-    'array-element-newline': ['error', 'consistent'],
-    'brace-style': 'error'
+    'unicode-bom': 'error'
 };
 
 
@@ -261,8 +243,9 @@ module.exports = {
     ],
 
     'parserOptions': {
-        //set to 3, 5 (default), 6, 7, 8, 9, or 10 to specify the version of ECMAScript syntax you want to use. 
-        //2015 (same as 6), 2016 (same as 7), 2017 (same as 8), 2018 (same as 9), or 2019 (same as 10) to use the year-based naming.
+
+        // set to 3, 5 (default), 6, 7, 8, 9, or 10 to specify the version of ECMAScript syntax you want to use. 
+        // 2015 (same as 6), 2016 (same as 7), 2017 (same as 8), 2018 (same as 9), or 2019 (same as 10) to use the year-based naming. 
         'ecmaVersion': 2018,
         'sourceType': 'module'
     },
