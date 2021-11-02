@@ -182,6 +182,8 @@ const fixableRules = {
         'prev': '*'
     }],
     'prefer-const': 'error',
+    'prefer-numeric-literals': 'error',
+    'prefer-object-spread': 'error',
     'prefer-template': 'error',
     'quotes': ['error', 'single', {
         'avoidEscape': true
@@ -192,6 +194,7 @@ const fixableRules = {
         'after': true,
         'before': false
     }],
+    'semi-style': ['error', 'last'],
     'space-before-blocks': ['error', 'always'],
     'space-before-function-paren': ['error', {
         'anonymous': 'never',
