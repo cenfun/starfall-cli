@@ -75,12 +75,20 @@ const normalRules = {
     'no-self-compare': 'error',
     'no-sequences': 'error',
     'no-shadow': 'error',
+    'no-tabs': 'error',
     'no-template-curly-in-string': 'error',
+    'no-throw-literal': 'error',
+    'no-undefined': 'error',
     'no-unmodified-loop-condition': 'error',
     'no-unreachable-loop': 'error',
+    'no-unused-expressions': 'error',
     'no-unused-private-class-members': 'error',
+    'no-useless-concat': 'error',
+    'no-useless-constructor': 'error',
+    'prefer-regex-literals': 'error',
     'require-atomic-updates': 'off',
-    'require-await': 'error'
+    'require-await': 'error',
+    'symbol-description': 'error'
 };
 
 // if some problems reported by the rule are automatically fixable by the --fix command line option
