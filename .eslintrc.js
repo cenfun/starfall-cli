@@ -1,43 +1,35 @@
-//https://eslint.org/docs/rules/
+// https://eslint.org/docs/rules/
 
 // if the "extends": "eslint:recommended" property in a configuration file enables the rule
 // recommended but special rules 
 const recommendedRules = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-prototype-builtins': 'off',
-    'no-unused-vars': [
-        'error', {
-            'args': 'none',
-            'vars': 'local'
-        }
-    ]
+    'no-unused-vars': ['error', {
+        'args': 'none',
+        'vars': 'local'
+    }]
 };
 
 const normalRules = {
     'complexity': ['error', 8],
-    'line-comment-position': [
-        'error', {
-            'position': 'above'
-        }
-    ],
+    'line-comment-position': ['error', {
+        'position': 'above'
+    }],
     'max-depth': ['error', 5],
-    'max-len': [
-        'error', {
-            'code': 550,
-            'ignoreStrings': true,
-            'ignoreTrailingComments': true
-        }
-    ],
+    'max-len': ['error', {
+        'code': 550,
+        'ignoreStrings': true,
+        'ignoreTrailingComments': true
+    }],
     'max-nested-callbacks': ['error', 5],
     'max-params': ['error', 8],
     'max-statements': ['error', 50],
-    'new-cap': [
-        'error', {
-            'capIsNew': false,
-            'newIsCap': true,
-            'properties': true
-        }
-    ],
+    'new-cap': ['error', {
+        'capIsNew': false,
+        'newIsCap': true,
+        'properties': true
+    }],
     'no-alert': 'error',
     'no-array-constructor': 'error',
     'no-console': 'off',
@@ -206,12 +198,16 @@ const fixableRules = {
         'int32Hint': false
     }],
     'space-unary-ops': 'error',
+    'switch-colon-spacing': 'error',
     'template-curly-spacing': 'error',
-    'unicode-bom': 'error'
+    'template-tag-spacing': 'error',
+    'unicode-bom': 'error',
+    'wrap-iife': ['error', 'inside'],
+    'wrap-regex': 'error'
 };
 
 
-//plugin special rules
+// plugin special rules
 const sonarjsRules = {
     'sonarjs/cognitive-complexity': 'off',
     'sonarjs/no-collapsible-if': 'off',
@@ -222,7 +218,7 @@ const sonarjsRules = {
 
 module.exports = {
     'root': true,
-    //system globals
+    // system globals
     'env': {
         'node': true,
         'browser': true,
@@ -231,12 +227,12 @@ module.exports = {
         'es6': true,
         'mocha': true
     },
-    //other globals
+    // other globals
     'globals': {
         'assert': true
     },
 
-    //should "npm install eslint-plugin-es -g" for VSCode in global
+    // should "npm install eslint-plugin-es -g" for VSCode in global
     'plugins': [
         'sonarjs',
         'chain',
