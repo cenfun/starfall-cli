@@ -61,6 +61,7 @@ const normalRules = {
     }],
     'no-multi-assign': 'error',
     'no-multi-str': 'error',
+    'no-negated-condition': 'error',
     'no-nested-ternary': 'warn',
     'no-new-object': 'error',
     'no-param-reassign': 'off',
