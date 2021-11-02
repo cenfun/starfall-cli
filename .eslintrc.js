@@ -130,7 +130,10 @@ const fixableRules = {
         'ignoreComments': true,
         'skipBlankLines': true
     }],
+    'no-undef-init': 'error',
     'no-unneeded-ternary': 'error',
+    'no-useless-computed-key': 'error',
+    'no-useless-rename': 'error',
     'no-useless-return': 'error',
     'no-var': ['warn'],
     'no-whitespace-before-property': 'error',
@@ -158,6 +161,8 @@ const fixableRules = {
         'allowAllPropertiesOnSameLine': true
     }],
     'one-var': ['error', 'never'],
+    'one-var-declaration-per-line': ['error', 'always'],
+    'operator-assignment': ['error', 'always'],
     'operator-linebreak': ['error', 'before'],
     'padding-line-between-statements': ['error', {
         'blankLine': 'always',
