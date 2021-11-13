@@ -22,7 +22,8 @@ describe('sf install', function() {
     });
 
     it('exec sf install', () => {
-        const sh = shelljs.exec('sf install');
+        //force install first
+        const sh = shelljs.exec('sf install -f');
         assert.strictEqual(sh.code, 0);
     });
 
