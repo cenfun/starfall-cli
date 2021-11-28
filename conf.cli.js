@@ -10,8 +10,7 @@ module.exports = {
 
     cssExtract: false,
 
-    infoRegistry: 'https://registry.npmjs.org/',
-    publishRegistry: 'https://registry.npmjs.org/',
+    registry: 'https://registry.npmjs.org/',
 
     moduleRootNames: {
         'backbone': 'Backbone',
