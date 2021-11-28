@@ -24,6 +24,8 @@
     "scss.validate": false,
     "stylelint.validate": [
         "css",
-        "scss"
+        "scss",
+        "vue",
+        "html"
     ]
 }

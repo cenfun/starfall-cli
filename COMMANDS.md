@@ -228,10 +228,6 @@ sf lint component-name-1
 #lint multiple components
 sf lint component-name-1,component-name-2
 
-#custom config (no-ie11, no-2018, no-2017, no-2016, no-2015)
-sf lint -c no-ie11
-sf lint --config no-ie11
-
 #verify naming, exit with error if verifying failed
 sf lint -n
 sf lint --naming

@@ -267,7 +267,6 @@ module.exports = {
         'assert': true
     },
 
-    // should "npm install eslint-plugin-es -g" for VSCode in global
     'plugins': [
         'sonarjs',
         'chain',
