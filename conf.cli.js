@@ -140,6 +140,11 @@ module.exports = {
     //custom pack function
     pack: null,
 
+    //clean option
+    clean: {
+        exclude: []
+    },
+
     hooks: {
 
         // beforeAutotest: async (conf, Util) => {

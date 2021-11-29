@@ -69,7 +69,7 @@ const normalRules = {
     'no-param-reassign': 'off',
     'no-promise-executor-return': 'error',
     'no-proto': 'error',
-    'no-restricted-globals': ['error', 'event', 'fdescribe'],
+    'no-restricted-globals': ['error', 'event', 'fdescribe', 'self'],
     'no-return-assign': 'error',
     'no-return-await': 'error',
     'no-self-compare': 'error',
