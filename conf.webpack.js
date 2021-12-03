@@ -101,8 +101,19 @@ module.exports = {
         rules.push({
             test: /\.scss$/,
             use: [styleLoader, cssLoader, {
-                // compiles Sass to CSS
                 loader: 'sass-loader'
+            }]
+        });
+
+        rules.push({
+            test: /\.less$/,
+            use: [styleLoader, cssLoader, {
+                loader: 'less-loader',
+                options: {
+                    lessOptions: {
+                        strictMath: true
+                    }
+                }
             }]
         });
 

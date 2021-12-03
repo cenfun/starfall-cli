@@ -59,6 +59,8 @@
         "koa": "^2.13.4",
         "koa-connect": "^2.1.0",
         "koa-static-resolver": "^1.0.4",
+        "less": "^4.1.2",
+        "less-loader": "^10.2.0",
         "lz-loader": "^1.0.2",
         "marked": "^4.0.5",
         "mini-css-extract-plugin": "^2.4.5",
