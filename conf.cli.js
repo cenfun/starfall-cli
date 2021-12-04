@@ -116,12 +116,12 @@ module.exports = {
 
     stylelint: {
         required: false,
-        ext: '{css,scss}',
+        ext: '{css,scss,less}',
         option: ''
     },
 
     eslint: {
-        ext: 'js',
+        ext: '{js,vue}',
         option: ''
     },
 
