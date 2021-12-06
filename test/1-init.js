@@ -78,7 +78,6 @@ describe('sf init', function() {
         assert.ok(conf);
         assert.strictEqual(conf.name, 'app');
         assert.strictEqual(conf.main, 'dist/app.js');
-        assert.strictEqual(conf.repository, 'npm');
         assert.ok(conf.dependencies);
     });
 
@@ -100,7 +99,6 @@ describe('sf init', function() {
         assert.ok(conf);
         assert.strictEqual(conf.name, 'component-1');
         assert.strictEqual(conf.main, 'dist/component-1.js');
-        assert.strictEqual(conf.repository, 'npm');
         assert.ok(conf.dependencies);
     });
 
