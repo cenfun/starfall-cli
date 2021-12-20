@@ -41,7 +41,10 @@ describe('sf install', function() {
 
         const conf = Util.readJSONSync(projectConfPath);
         assert.ok(conf.dependencies);
-        assert.strictEqual(conf.dependencies['console-grid'], 'latest');
+        //workspaces detected in package.json, ignore child dependencies promotion.
+        if (!conf.workspaces) {
+            assert.strictEqual(conf.dependencies['console-grid'], 'latest');
+        }
         assert.ok(conf.devDependencies);
 
     });
@@ -136,10 +139,11 @@ describe('sf install', function() {
 
         const conf = Util.readJSONSync(projectConfPath);
         assert.ok(conf.dependencies);
-        assert.strictEqual(conf.dependencies['invalid-dependency-a'], '~1.0.1');
-
         assert.ok(conf.devDependencies);
-        assert.strictEqual(conf.devDependencies['invalid-dev-dependency-a'], '^1.0.1');
+        if (!conf.workspaces) {
+            assert.strictEqual(conf.dependencies['invalid-dependency-a'], '~1.0.1');
+            assert.strictEqual(conf.devDependencies['invalid-dev-dependency-a'], '^1.0.1');
+        }
 
     });
 

@@ -46,7 +46,16 @@ module.exports = {
                 options: {
                     cacheDirectory: true,
                     babelrc: false,
-                    plugins: [],
+                    //https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread
+                    // ... to Object.assign()
+                    assumptions: {
+                        setSpreadProperties: true
+                    },
+                    plugins: [
+                        [`${option.nmRoot}/node_modules/@babel/plugin-proposal-object-rest-spread`, {
+                            useBuiltIns: true
+                        }]
+                    ],
                     presets: [
                         [`${option.nmRoot}/node_modules/@babel/preset-env`, {
                             'targets': [
