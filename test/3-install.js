@@ -3,15 +3,16 @@ const assert = require('assert');
 const shelljs = require('shelljs');
 
 const Util = require('../lib/core/util.js');
+const ID = Util.id;
 
 const appConfPath = 'packages/app/package.json';
 const componentConfPath = 'packages/component-1/package.json';
 const projectConfPath = 'package.json';
 
-describe('sf install', function() {
-    this.timeout(60 * 1000);
+describe(`${ID} install`, function() {
+    this.timeout(2 * 60 * 1000);
       
-    it('before sf install', () => {
+    it(`before ${ID} install`, () => {
         Util.editJSON(appConfPath, function(json) {
             json.dependencies['console-grid'] = 'latest';
             //console.log(json);
@@ -21,16 +22,26 @@ describe('sf install', function() {
         assert.strictEqual(conf.dependencies['console-grid'], 'latest');
     });
 
-    it('exec sf install', () => {
+    it(`exec ${ID} install -f`, () => {
+        //remove previous dependencies, no time install
+        Util.editJSON(projectConfPath, function(json) {
+            json.dependencies = {
+                'console-grid': 'latest'
+            };
+            json.devDependencies = {
+                'console-grid': 'latest'
+            };
+            return json;
+        });
         //force install first
-        const sh = shelljs.exec('sf install -f');
+        const sh = shelljs.exec(`${ID} install -f`);
         assert.strictEqual(sh.code, 0);
     });
 
     it('check component package.json', () => {
         assert.strictEqual(fs.existsSync(appConfPath), true);
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.version, '');
+        assert.strictEqual(conf.version, '1.0.0');
         assert.ok(conf.dependencies);
         assert.strictEqual(conf.dependencies['console-grid'], 'latest');
         assert.ok(conf.devDependencies);
@@ -52,16 +63,16 @@ describe('sf install', function() {
     //===================================================================================
     //install module
 
-    it('exec sf install component-1 -c app --remove', () => {
-        const sh = shelljs.exec('sf install component-1 -c app --remove');
+    it(`exec ${ID} install component-1 -c app --remove`, () => {
+        const sh = shelljs.exec(`${ID} install component-1 -c app --remove`);
         assert.strictEqual(sh.code, 0);
 
         const conf = Util.readJSONSync(appConfPath);
         assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
     });
 
-    it('exec sf install component-1 -c app --remove --dev', () => {
-        const sh = shelljs.exec('sf install component-1 -c app --remove --dev');
+    it(`exec ${ID} install component-1 -c app --remove --dev`, () => {
+        const sh = shelljs.exec(`${ID} install component-1 -c app --remove --dev`);
         assert.strictEqual(sh.code, 0);
 
         const conf = Util.readJSONSync(appConfPath);
@@ -70,67 +81,66 @@ describe('sf install', function() {
 
     //===================================================================================
     //dependencies
-    it('exec sf install app,component-1 -c', () => {
-        const sh = shelljs.exec('sf install app,component-1 -c');
+    it(`exec ${ID} install my-components-app,component-1 -c`, () => {
+        const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c`);
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), true);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('app'), true);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), true);
+        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), true);
     });
 
     //devDependencies
-    it('exec sf install app,component-1 -c --dev', () => {
-        const sh = shelljs.exec('sf install app,component-1 -c --dev');
+    it(`exec ${ID} install my-components-app,component-1 -c --dev`, () => {
+        const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c --dev`);
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), true);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('app'), true);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), true);
+        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), true);
     });
 
     //remove all deps
-    it('exec sf install app,component-1 -c -d', () => {
-        let sh = shelljs.exec('sf install app,component-1 -c -d -r');
+    it(`exec ${ID} install app,component-1 -c -d`, () => {
+        let sh = shelljs.exec(`${ID} install my-components-app,component-1 -c -d -r`);
         assert.strictEqual(sh.code, 0);
-        sh = shelljs.exec('sf install app,component-1 -c -r');
+        sh = shelljs.exec(`${ID} install my-components-app,component-1 -c -r`);
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('app'), false);
+        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
         assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
 
     });
 
     //===================================================================================
 
-    it('add invalid dependencies and exec sf install', () => {
+    it(`add invalid dependencies and exec ${ID} install`, () => {
 
         Util.editJSON(appConfPath, function(json) {
-            json.dependencies['component-1'] = '';
             json.dependencies['invalid-dependency-a'] = '~1.0.1';
             json.devDependencies['invalid-dev-dependency-a'] = '^1.0.1';
             //console.log(json);
             return json;
         });
 
-        const sh = shelljs.exec('sf install');
+        const sh = shelljs.exec(`${ID} install -f`);
         assert.strictEqual(sh.code, 1);
     });
 
@@ -155,8 +165,8 @@ describe('sf install', function() {
             //remove invalid first
             delete json.dependencies['invalid-dependency-a'];
             delete json.devDependencies['invalid-dev-dependency-a'];
-            json.dependencies['component-1'] = '2.0.1';
-            json.devDependencies['component-1'] = '2.0.1';
+            json.dependencies['my-components-component-1'] = '2.0.1';
+            json.devDependencies['my-components-component-1'] = '2.0.1';
             //console.log(json);
             return json;
         });
@@ -166,15 +176,15 @@ describe('sf install', function() {
         proConf.devDependencies = {};
         Util.writeJSONSync(projectConfPath, proConf);
 
-        const sh = shelljs.exec('sf install');
+        const sh = shelljs.exec(`${ID} install -f`);
         assert.strictEqual(sh.code, 0);
     });
 
     it('check component formatted dependencies', () => {
 
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies['component-1'], '');
-        assert.strictEqual(conf.devDependencies['component-1'], '');
+        assert.strictEqual(conf.dependencies['my-components-component-1'], '');
+        assert.strictEqual(conf.devDependencies['my-components-component-1'], '');
 
     });
 
@@ -188,14 +198,14 @@ describe('sf install', function() {
     });
 
     it('check link module for internal', () => {
-        const internalModulePath = 'node_modules/component-1';
+        const internalModulePath = 'node_modules/my-components-component-1';
         assert.strictEqual(fs.existsSync(internalModulePath), true);
         const conf = Util.readJSONSync(`${internalModulePath}/package.json`);
-        assert.ok(conf.name, 'component-1');
+        assert.ok(conf.name, 'my-components-component-1');
     });
 
 
-    it('after sf install', () => {
+    it(`after ${ID} install`, () => {
         Util.editJSON(appConfPath, function(json) {
             delete json.dependencies['console-grid'];
             //console.log(json);

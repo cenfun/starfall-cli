@@ -4,13 +4,14 @@ const assert = require('assert');
 const shelljs = require('shelljs');
 
 const Util = require('../lib/core/util.js');
+const ID = Util.id;
 
 const rootPath = path.resolve(__dirname, '../');
 console.log(`rootPath: ${rootPath}`);
 const tempPath = path.resolve(rootPath, '.temp');
 console.log(`tempPath: ${tempPath}`);
 
-describe('sf init', function() {
+describe(`${ID} init`, function() {
     this.timeout(20 * 1000);
 
     before(() => {
@@ -25,15 +26,15 @@ describe('sf init', function() {
         shelljs.cd(tempPath);
 
         console.log('create project folder');
-        shelljs.mkdir('-p', 'my-test-project');
+        shelljs.mkdir('-p', 'my-components');
 
-        console.log('go to my-test-project folder');
-        shelljs.cd('my-test-project');
+        console.log('go to my-components folder');
+        shelljs.cd('my-components');
 
     });
 
-    it('exec sf init -f', () => {
-        const sh = shelljs.exec('sf init -f');
+    it(`exec ${ID} init -f`, () => {
+        const sh = shelljs.exec(`${ID} init -f`);
         assert.strictEqual(sh.code, 0);
     });
 
@@ -55,7 +56,7 @@ describe('sf init', function() {
 
         const conf = Util.readJSONSync(projectConfPath);
         assert.ok(conf);
-        assert.strictEqual(conf.name, 'my-test-project');
+        assert.strictEqual(conf.name, 'my-components');
         assert.strictEqual(conf.version, '1.0.0');
 
         assert.ok(conf.scripts);
@@ -76,13 +77,14 @@ describe('sf init', function() {
     it('check component package.json', () => {
         const conf = Util.readJSONSync('packages/app/package.json');
         assert.ok(conf);
-        assert.strictEqual(conf.name, 'app');
-        assert.strictEqual(conf.main, 'dist/app.js');
+        //added prefix
+        assert.strictEqual(conf.name, 'my-components-app');
+        assert.strictEqual(conf.main, 'dist/my-components-app.js');
         assert.ok(conf.dependencies);
     });
 
-    it('exec sf add', () => {
-        const sh = shelljs.exec('sf add component-1');
+    it(`exec ${ID} add`, () => {
+        const sh = shelljs.exec(`${ID} add component-1`);
         assert.strictEqual(sh.code, 0);
     });
 
@@ -97,8 +99,8 @@ describe('sf init', function() {
     it('check component-1 package.json', () => {
         const conf = Util.readJSONSync('packages/component-1/package.json');
         assert.ok(conf);
-        assert.strictEqual(conf.name, 'component-1');
-        assert.strictEqual(conf.main, 'dist/component-1.js');
+        assert.strictEqual(conf.name, 'my-components-component-1');
+        assert.strictEqual(conf.main, 'dist/my-components-component-1.js');
         assert.ok(conf.dependencies);
     });
 

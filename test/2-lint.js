@@ -3,11 +3,12 @@ const assert = require('assert');
 const shelljs = require('shelljs');
 
 const Util = require('../lib/core/util.js');
+const ID = Util.id;
 
-describe('sf lint', function() {
+describe(`${ID} lint`, function() {
     this.timeout(10 * 1000);
 
-    it('before sf lint', () => {
+    it(`before ${ID} lint`, () => {
         assert.strictEqual(fs.existsSync('packages/app/src/style-lint.css'), false);
         assert.strictEqual(fs.existsSync('packages/app/src/es-lint.js'), false);
 
@@ -24,8 +25,8 @@ describe('sf lint', function() {
     });
 
 
-    it('exec sf lint', () => {
-        const sh = shelljs.exec('sf lint');
+    it(`exec ${ID} lint`, () => {
+        const sh = shelljs.exec(`${ID} lint`);
         // no-unused-vars
         assert.strictEqual(sh.code, 1);
     });
@@ -45,8 +46,8 @@ describe('sf lint', function() {
         
     });
 
-    it('exec sf lint', () => {
-        const sh = shelljs.exec('sf lint');
+    it(`exec ${ID} lint`, () => {
+        const sh = shelljs.exec(`${ID} lint`);
         assert.strictEqual(sh.code, 0);
     });
 

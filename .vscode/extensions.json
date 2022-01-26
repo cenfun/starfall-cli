@@ -3,9 +3,9 @@
 		"dbaeumer.vscode-eslint",
 		"eamodio.gitlens",
 		"gruntfuggly.todo-tree",
+		"johnsoncodehk.volar",
 		"streetsidesoftware.code-spell-checker",
 		"stylelint.vscode-stylelint",
-		"zengxingxin.sort-js-object-keys",
-		"octref.vetur"
+		"zengxingxin.sort-js-object-keys"
 	]
 }

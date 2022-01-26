@@ -3,11 +3,14 @@ const fs = require('fs');
 const assert = require('assert');
 const shelljs = require('shelljs');
 
-describe('sf test', function() {
+const Util = require('../lib/core/util.js');
+const ID = Util.id;
+
+describe(`${ID} test`, function() {
     this.timeout(30 * 1000);
 
-    it('exec sf test', () => {
-        const sh = shelljs.exec('sf test');
+    it(`exec ${ID} test`, () => {
+        const sh = shelljs.exec(`${ID} test`);
         assert.strictEqual(sh.code, 0);
     });
 

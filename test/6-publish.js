@@ -2,13 +2,13 @@ const assert = require('assert');
 const shelljs = require('shelljs');
 
 const Util = require('../lib/core/util.js');
+const ID = Util.id;
 
-
-describe('sf publish', function() {
+describe(`${ID} publish`, function() {
     this.timeout(50 * 1000);
 
-    it('exec sf publish patch -d', () => {
-        const sh = shelljs.exec('sf publish patch -d');
+    it(`exec ${ID} publish patch -d`, () => {
+        const sh = shelljs.exec(`${ID} publish patch -d`);
         assert.strictEqual(sh.code, 0);
     });
 
@@ -21,7 +21,7 @@ describe('sf publish', function() {
 
         const confApp = Util.readJSONSync('packages/app/package.json');
         assert.strictEqual(confApp.version, '1.0.1');
-        assert.ok(confApp.dependencies['component-1'], '~1.0.1');
+        assert.ok(confApp.dependencies['my-components-component-1'], '~1.0.1');
 
         const confComponent1 = Util.readJSONSync('packages/component-1/package.json');
         assert.strictEqual(confComponent1.version, '1.0.1');
@@ -29,8 +29,8 @@ describe('sf publish', function() {
     });
 
 
-    it('exec sf publish minor -d', () => {
-        const sh = shelljs.exec('sf publish minor -d');
+    it(`exec ${ID} publish minor -d`, () => {
+        const sh = shelljs.exec(`${ID} publish minor -d`);
         assert.strictEqual(sh.code, 0);
     });
 
@@ -43,7 +43,7 @@ describe('sf publish', function() {
 
         const confApp = Util.readJSONSync('packages/app/package.json');
         assert.strictEqual(confApp.version, '1.1.0');
-        assert.ok(confApp.dependencies['component-1'], '~1.1.0');
+        assert.ok(confApp.dependencies['my-components-component-1'], '~1.1.0');
 
         const confComponent1 = Util.readJSONSync('packages/component-1/package.json');
         assert.strictEqual(confComponent1.version, '1.1.0');
