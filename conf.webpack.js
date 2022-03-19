@@ -28,9 +28,11 @@ module.exports = {
 
         const ruleVUE = {
             test: /\.vue$/,
-            loader: 'vue-loader',
-            options: {
-                hotReload: false
+            use: {
+                loader: 'vue-loader',
+                options: {
+                    hotReload: false
+                }
             }
         };
         rules.push(ruleVUE);
@@ -75,14 +77,15 @@ module.exports = {
                 attributes: {
                     //Add custom attrs to style for debug
                     context: option.componentName || ''
-                }
+                },
+                esModule: option.esModule
             }
         };
 
         const cssLoader = {
             loader: 'css-loader',
             options: {
-                esModule: false,
+                esModule: option.esModule,
                 //import: false,
                 sourceMap: false
             }
@@ -91,7 +94,7 @@ module.exports = {
         // const lzLoader = {
         //     loader: "lz-loader",
         //     options: {
-        //         esModule: false,
+        //         esModule: option.esModule,
         //         compressor: "css-loader"
         //     }
         // };
@@ -108,18 +111,6 @@ module.exports = {
             }]
         });
 
-        rules.push({
-            test: /\.less$/,
-            use: [styleLoader, cssLoader, {
-                loader: 'less-loader',
-                options: {
-                    lessOptions: {
-                        strictMath: true
-                    }
-                }
-            }]
-        });
-
         //========================================================================
 
         rules.push({
@@ -132,8 +123,9 @@ module.exports = {
             type: 'asset/inline'
         });
 
+        //do NOT add "css" as asset string, use css-loader toString()
         rules.push({
-            test: /\.(html|txt)$/,
+            test: /\.(html|txt|md)$/,
             type: 'asset/source'
         });
 

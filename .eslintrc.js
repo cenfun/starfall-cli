@@ -246,7 +246,9 @@ const sonarjsRules = {
     'sonarjs/cognitive-complexity': 'off',
     'sonarjs/no-collapsible-if': 'off',
     'sonarjs/no-duplicate-string': 'off',
-    'sonarjs/no-identical-functions': 'off'
+    'sonarjs/no-identical-functions': 'off',
+    'sonarjs/no-nested-template-literals': 'warn',
+    'sonarjs/prefer-single-boolean-return': 'off'
 };
 
 module.exports = {
@@ -280,10 +282,7 @@ module.exports = {
     ],
 
     'parserOptions': {
-
-        // set to 3, 5 (default), 6, 7, 8, 9, or 10 to specify the version of ECMAScript syntax you want to use. 
-        // 2015 (same as 6), 2016 (same as 7), 2017 (same as 8), 2018 (same as 9), or 2019 (same as 10) to use the year-based naming. 
-        'ecmaVersion': 2018,
+        'ecmaVersion': 'latest',
         'sourceType': 'module'
     },
 

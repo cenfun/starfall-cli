@@ -23,7 +23,7 @@
 
         .header {
             font-size: 18px;
-            padding: 5px 5px;
+            padding: 5px;
         }
 
         .main {
@@ -62,7 +62,7 @@
 
         .flyover::before {
             pointer-events: none;
-            content: '';
+            content: "";
             position: absolute;
             left: -15px;
             top: 0;
@@ -70,7 +70,7 @@
             display: block;
             height: 100%;
             width: 15px;
-            background-image: linear-gradient(to left, #eee, rgba(255, 255, 255, 0));
+            background-image: linear-gradient(to left, #eee, rgb(255 255 255 / 0%));
         }
 
         .show {
@@ -119,7 +119,7 @@
         }
 
         .about {
-            padding: 5px 5px;
+            padding: 5px;
         }
     </style>
 </head>
@@ -204,8 +204,10 @@
                 bindWindowResize: true,
                 textSelectable: true,
                 frozenColumn: 0,
-                sortAsc: false,
-                stringFormat: function(v, rd, cd) {
+                sortAsc: false
+            });
+            list.setFilter({
+                string: function(v, rd, cd) {
                     const id = cd.id;
                     const label = rd[`${id}_label`];
                     if (label) {
@@ -217,9 +219,9 @@
                     }
                     return v;
                 }
-    });
-    list.render();
-};
+            });
+            list.render();
+        };
 
         window.onload = function() {
             createList();

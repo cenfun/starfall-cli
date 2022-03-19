@@ -5,10 +5,14 @@ module.exports = {
 
     buildPath: 'dist',
     previewPath: 'preview',
+    previewApi: null,
     publicPath: 'public',
     srcEntry: 'index.js',
 
+    esModule: false,
+    // true (MiniCssExtractPlugin), string (no style-loader)
     cssExtract: false,
+    externals: [],
 
     registry: 'https://registry.npmjs.org/',
 
@@ -81,6 +85,8 @@ module.exports = {
 
     staticFiles: [],
 
+    vendors: ['vendor', 'app'],
+
     testFrameworkOption: {
         timeout: 60 * 1000
     },
@@ -116,7 +122,7 @@ module.exports = {
 
     stylelint: {
         required: false,
-        ext: '{css,scss,less}',
+        ext: '{css,scss}',
         option: ''
     },
 
@@ -143,6 +149,18 @@ module.exports = {
     //clean option
     clean: {
         exclude: []
+    },
+
+    outdate: {
+        exclude: [
+            //'vue-loader'
+        ]
+    },
+
+    blame: {
+        authorAlias: {
+        
+        }
     },
 
     hooks: {

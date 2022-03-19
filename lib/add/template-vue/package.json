@@ -5,11 +5,9 @@
     "files": [
         "cli-build-path"
     ],
-    "cssExtract": true,
     "dependencies": {
-        "axios": "^0.23.0",
-        "vue": "^2.6.14",
-        "vue-router": "^3.5.2"
+        "axios": "^0.26.1",
+        "vue": "^3.2.31"
     },
     "devDependencies": {}
 }
