@@ -165,23 +165,34 @@ module.exports = {
 
     hooks: {
 
-        // beforeAutotest: async (conf, Util) => {
+        // beforeBuildAll: (conf, Util) => {
+        //     console.log('beforeBuildAll');
         //     return 0;
         // },
 
-        // afterAutotest: async (conf, Util) => {
+        // afterBuildAll: (conf, Util) => {
+        //     console.log('afterBuildAll');
+        //     return 0;
+        // }
+
+        // beforeBuild: (item, Util) => {
+        //     console.log('beforeBuild');
         //     return 0;
         // },
 
-        // "component-name": {
-        //     beforeBuild: async (item, Util) => {
-        //         console.log(item);
-        //         item.beforeBuild = true;
+        // afterBuild: (item, Util) => {
+        //     console.log('afterBuild');
+        //     return 0;
+        // }
+
+        // 'component-name': {
+        //     beforeBuild: (item, Util) => {
+        //         console.log('beforeBuild');
         //         return 0;
         //     },
 
-        //     afterBuild: async (item, Util) => {
-        //         console.log(item);
+        //     afterBuild: (item, Util) => {
+        //         console.log('afterBuild');
         //         return 0;
         //     }
         // }
