@@ -5,7 +5,7 @@ module.exports = {
 
     buildPath: 'dist',
     previewPath: 'preview',
-    previewApi: null,
+    previewApiCallback: null,
     publicPath: 'public',
     srcEntry: 'index.js',
 
