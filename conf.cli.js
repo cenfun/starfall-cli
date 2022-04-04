@@ -153,7 +153,8 @@ module.exports = {
 
     outdate: {
         exclude: [
-            //'vue-loader'
+            //vue-loader": "^15.9.8 for vue2
+            'vue-loader'
         ]
     },
 
