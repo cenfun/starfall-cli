@@ -4,8 +4,11 @@ module.exports = {
     tempPath: '.temp',
 
     buildPath: 'dist',
+    
     previewPath: 'preview',
     previewApiCallback: null,
+    previewApiWatch: '',
+
     publicPath: 'public',
     srcEntry: 'index.js',
 
@@ -85,7 +88,7 @@ module.exports = {
 
     staticFiles: [],
 
-    vendors: ['vendor', 'app'],
+    vendors: ['vendor', 'lib', 'app'],
 
     testFrameworkOption: {
         timeout: 60 * 1000
