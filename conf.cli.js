@@ -17,8 +17,6 @@ module.exports = {
     cssExtract: false,
     externals: [],
 
-    registry: 'https://registry.npmjs.org/',
-
     moduleRootNames: {
         'backbone': 'Backbone',
         'exceljs': 'ExcelJS',
