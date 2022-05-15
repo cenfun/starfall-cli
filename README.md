@@ -10,11 +10,10 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
 * mocha + istanbul
 * koa
 * playwright
-* vue
 
 ## Install
 
-#### Install [Node.js 14+](https://nodejs.org/en/)
+#### Install [Node.js 16+](https://nodejs.org/en/)
 
 #### Install [starfall-cli]  
   ```bash
@@ -33,9 +32,9 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
 * [Resolving EACCES permissions errors when installing packages globally](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)
 * "-bash: sf: command not found" remove and create new symbolic link for Starfall: ln -s /path-to-starfall-cli/lib/cli.js /usr/local/bin/sf 
 
-#### Clone or create your project with following structure
+#### Project structure
 
-* Multi-components project (monorepos)
+* Monorepos (multiple packages)
   
   ```js
   local-path/your-project/
@@ -61,7 +60,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
           test.js
   ```
 
-* Single component project
+* Single package
   
   ```js
   local-path/your-project/
@@ -75,7 +74,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
       test.js
   ```
 
-#### Getting Start new Project (monorepos)
+#### Getting start with new project (monorepos)
 
 ```bash
 sf init
@@ -85,24 +84,7 @@ sf build
 sf test
 ```
 
-#### Publish Components
-
-```bash
-npm i starfall-cli -D --timing
-npx sf install
-npx sf publish
-npx sf sonar
-```
-
-#### Deploy Package
-
-```bash
-sf pack [component-name]
-sf pack [component-name] -b -m
-```
-
 ## Configuration
-
 Copy to project root path or use CLI default.
 
 * [conf.cli.js](conf.cli.js)
