@@ -1,6 +1,6 @@
 module.exports = {
 
-    subsPath: 'packages',
+    packagesPath: 'packages',
     tempPath: '.temp',
 
     buildPath: 'dist',
