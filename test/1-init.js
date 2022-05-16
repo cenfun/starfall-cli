@@ -67,7 +67,7 @@ describe(`${ID} init`, function() {
     });
 
     it('check component files', () => {
-        assert.strictEqual(fs.existsSync('packages/app/preview/index.html'), true);
+        assert.strictEqual(fs.existsSync('packages/app/public/index.html'), true);
         assert.strictEqual(fs.existsSync('packages/app/src/index.js'), true);
         assert.strictEqual(fs.existsSync('packages/app/test/specs/test.js'), true);
         assert.strictEqual(fs.existsSync('packages/app/package.json'), true);
@@ -89,7 +89,7 @@ describe(`${ID} init`, function() {
     });
 
     it('check component-1 files', () => {
-        assert.strictEqual(fs.existsSync('packages/component-1/preview/index.html'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/public/index.html'), true);
         assert.strictEqual(fs.existsSync('packages/component-1/src/index.js'), true);
         assert.strictEqual(fs.existsSync('packages/component-1/test/specs/test.js'), true);
         assert.strictEqual(fs.existsSync('packages/component-1/package.json'), true);

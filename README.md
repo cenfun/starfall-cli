@@ -42,7 +42,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
   packages/
     component-name-1/
       package.json
-      preview/
+      public/
         index.html
       src/
         index.js
@@ -51,7 +51,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
           test.js
     component-name-2/
       package.json
-      preview/
+      public/
         index.html
       src/
         index.js
@@ -65,7 +65,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
   ```js
   local-path/your-project/
   package.json
-  preview/
+  public/
     index.html
   src/
     index.js

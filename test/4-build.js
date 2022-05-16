@@ -10,7 +10,7 @@ describe(`${ID} build`, function() {
 
     const getInjectContent = function(name) {
         //check inject
-        const indexPath = `packages/${name}/preview/index.html`;
+        const indexPath = `packages/${name}/public/index.html`;
         let content = Util.readFileContentSync(indexPath);
         assert.ok(content);
 

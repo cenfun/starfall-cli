@@ -2,8 +2,8 @@ module.exports = {
 
     tempPath: '.temp',
     
-    preview: {
-        path: 'preview',
+    dev: {
+        path: 'public',
         apiCallback: null,
         apiWatch: ''
     },

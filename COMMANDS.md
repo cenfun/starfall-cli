@@ -9,7 +9,7 @@ sf install
 sf build [component-name[,component-name]]
 sf watch
 
-sf preview [component-name]
+sf dev [component-name]
 
 sf lint [component-name[,component-name]]
 sf test [component-name[,component-name]]
@@ -42,7 +42,7 @@ sf -v
 - [outdate](#outdate)
 - [pack](#pack)
 - [precommit](#precommit)
-- [preview](#preview)
+- [dev](#dev)
 - [publish](#publish)
 - [sonar](#sonar)
 - [start](#start)
@@ -310,14 +310,14 @@ sf precommit component-name-1 --pass
 
 ```
 
-# preview
-> preview a component
+# dev
+> dev a component
 ```sh
-sf preview component-name-1
+sf dev component-name-1
 
-#preview with proxy env
-sf preview component-name-1 -e STG
-sf preview component-name-1 --env STG
+#dev with proxy env
+sf dev component-name-1 -e STG
+sf dev component-name-1 --env STG
 
 ```
 
