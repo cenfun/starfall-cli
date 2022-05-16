@@ -12,130 +12,6 @@ module.exports = {
     publicPath: 'public',
     srcEntry: 'index.js',
 
-    esModule: false,
-    // true (MiniCssExtractPlugin), string (no style-loader)
-    cssExtract: false,
-    externals: [],
-
-    moduleRootNames: {
-        'backbone': 'Backbone',
-        'exceljs': 'ExcelJS',
-        'file-saver': 'saveAs',
-        'golden-layout': 'GoldenLayout',
-        'jquery': 'jQuery',
-        'lodash': '_',
-        'pdfjs-dist': 'PDFJS',
-        'underscore': '_',
-        'vue': 'Vue',
-        'vue-custom-element': 'VueCustomElement',
-        'vue-router': 'VueRouter',
-        'vuex': 'Vuex'
-    },
-
-    moduleAlias: {
-
-    },
-
-    moduleOverrides: {
-
-        'core-js': {
-            main: [
-                'client/core.min.js'
-            ],
-            dependencies: {}
-        },
-
-        'select2': {
-            main: [
-                'dist/css/select2.css',
-                'dist/js/select2.full.js'
-            ],
-            dependencies: {}
-        },
-
-        'i18next': {
-            main: ['i18next.min.js'],
-            dependencies: {}
-        },
-
-        'vue': {
-            main: ['dist/vue.min.js']
-        },
-
-        'vue-router': {
-            main: ['dist/vue-router.min.js']
-        },
-
-        'axios': {
-            browser: {
-                axios: 'dist/axios.min.js'
-            },
-            dependencies: {}
-        },
-
-        'xlsx': {
-            browser: {},
-            dependencies: {},
-            main: 'xlsx.mini.js'
-        }
-    },
-
-    webpackConfig: (conf, Util) => {
-        return conf;
-    },
-
-    staticFiles: [],
-
-    vendors: ['vendor', 'lib', 'app'],
-
-    //default to auto, depends on CPUs
-    multiprocessing: {
-        // lint: false,
-        // build: false,
-        // test: false
-    },
-
-    //default to true
-    failFast: {
-        // lint: false,
-        // build: false,
-        // test: false
-    },
-
-    //default to true
-    preCommit: {
-        // lint: false,
-        // build: false,
-        // test: false
-    },
-
-    addPreCommitHook: true,
-
-    injectIgnore: {},
-
-    lint: {
-        naming: {
-            required: false
-        },
-    
-        stylelint: {
-            required: false,
-            ext: '{css,scss}',
-            option: ''
-        },
-    
-        eslint: {
-            ext: '{js,vue}',
-            option: ''
-        }
-    },
-
-    test: {
-        mocha: {
-            timeout: 60 * 1000
-        }
-    },
-
     start: {
         port: 3000,
         history: 2000,
@@ -168,6 +44,110 @@ module.exports = {
     blame: {
         authorAlias: {
         
+        }
+    },
+
+    lint: {
+        naming: {
+            required: false
+        },
+    
+        stylelint: {
+            required: false,
+            ext: '{css,scss}',
+            option: ''
+        },
+    
+        eslint: {
+            ext: '{js,vue}',
+            option: ''
+        }
+    },
+
+    test: {
+        mocha: {
+            timeout: 60 * 1000
+        }
+    },
+
+    precommit: {
+        gitHook: true,
+        enable: 'lint + build + test'
+    },
+
+    build: {
+        exclude: [],
+        include: [],
+        overrides: {
+
+            'core-js': {
+                main: [
+                    'client/core.min.js'
+                ],
+                dependencies: {}
+            },
+        
+            'select2': {
+                main: [
+                    'dist/css/select2.css',
+                    'dist/js/select2.full.js'
+                ],
+                dependencies: {}
+            },
+        
+            'i18next': {
+                main: ['i18next.min.js'],
+                dependencies: {}
+            },
+        
+            'vue': {
+                main: ['dist/vue.min.js']
+            },
+        
+            'vue-router': {
+                main: ['dist/vue-router.min.js']
+            },
+        
+            'axios': {
+                browser: {
+                    axios: 'dist/axios.min.js'
+                },
+                dependencies: {}
+            },
+        
+            'xlsx': {
+                browser: {},
+                dependencies: {},
+                main: 'xlsx.mini.js'
+            }
+        },
+        rootNames: {
+            'backbone': 'Backbone',
+            'exceljs': 'ExcelJS',
+            'file-saver': 'saveAs',
+            'golden-layout': 'GoldenLayout',
+            'jquery': 'jQuery',
+            'lodash': '_',
+            'pdfjs-dist': 'PDFJS',
+            'underscore': '_',
+            'vue': 'Vue',
+            'vue-custom-element': 'VueCustomElement',
+            'vue-router': 'VueRouter',
+            'vuex': 'Vuex'
+        },
+        vendors: ['vendor', 'lib', 'app'],
+
+        alias: {
+
+        },
+        esModule: false,
+
+        // true (MiniCssExtractPlugin), string (no style-loader)
+        cssExtract: false,
+        externals: [],
+
+        webpackConfig: (conf, Util) => {
+            return conf;
         }
     },
 
