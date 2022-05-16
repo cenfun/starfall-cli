@@ -132,17 +132,19 @@ module.exports = {
         option: ''
     },
 
-    guiHistory: 2000,
-    guiPort: 10000,
-    guiTabs: [
-        // {
-        //     title: "Custom Page 1",
-        //     content: "<h1>Custom content 1</h1>"
-        // }, {
-        //     title: "Custom Page 2",
-        //     content: "<h1>Custom content 2<h2>"
-        // }
-    ],
+    start: {
+        port: 3000,
+        history: 2000,
+        tabs: [
+            // {
+            //     title: "Custom Page 1",
+            //     content: "<h1>Custom content 1</h1>"
+            // }, {
+            //     title: "Custom Page 2",
+            //     content: "<h1>Custom content 2<h2>"
+            // }
+        ]
+    },
 
     //custom pack function
     pack: null,
