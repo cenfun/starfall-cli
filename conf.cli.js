@@ -1,6 +1,5 @@
 module.exports = {
 
-    packagesPath: 'packages',
     tempPath: '.temp',
 
     buildPath: 'dist',
