@@ -3,6 +3,7 @@ module.exports = {
     tempPath: '.temp',
     
     dev: {
+        port: 8080,
         path: 'public',
         apiCallback: null,
         apiWatch: ''
