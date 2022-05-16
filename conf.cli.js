@@ -88,10 +88,6 @@ module.exports = {
 
     vendors: ['vendor', 'lib', 'app'],
 
-    testFrameworkOption: {
-        timeout: 60 * 1000
-    },
-
     //default to auto, depends on CPUs
     multiprocessing: {
         // lint: false,
@@ -117,19 +113,27 @@ module.exports = {
 
     injectIgnore: {},
 
-    naming: {
-        required: false
+    lint: {
+        naming: {
+            required: false
+        },
+    
+        stylelint: {
+            required: false,
+            ext: '{css,scss}',
+            option: ''
+        },
+    
+        eslint: {
+            ext: '{js,vue}',
+            option: ''
+        }
     },
 
-    stylelint: {
-        required: false,
-        ext: '{css,scss}',
-        option: ''
-    },
-
-    eslint: {
-        ext: '{js,vue}',
-        option: ''
+    test: {
+        mocha: {
+            timeout: 60 * 1000
+        }
     },
 
     start: {
