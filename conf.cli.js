@@ -1,15 +1,12 @@
 module.exports = {
 
     tempPath: '.temp',
-
-    buildPath: 'dist',
     
-    previewPath: 'preview',
-    previewApiCallback: null,
-    previewApiWatch: '',
-
-    publicPath: 'public',
-    srcEntry: 'index.js',
+    preview: {
+        path: 'preview',
+        apiCallback: null,
+        apiWatch: ''
+    },
 
     start: {
         port: 3000,
@@ -25,10 +22,6 @@ module.exports = {
         ]
     },
 
-    //custom pack function
-    pack: null,
-
-    //clean option
     clean: {
         exclude: []
     },
@@ -72,6 +65,12 @@ module.exports = {
     precommit: {
         gitHook: true,
         enable: 'lint + build + test'
+    },
+
+    pack: {
+        path: 'public',
+        //custom pack function
+        handler: null
     },
 
     build: {
@@ -121,16 +120,12 @@ module.exports = {
             }
         },
         rootNames: {
-            'backbone': 'Backbone',
-            'exceljs': 'ExcelJS',
             'file-saver': 'saveAs',
             'golden-layout': 'GoldenLayout',
             'jquery': 'jQuery',
             'lodash': '_',
             'pdfjs-dist': 'PDFJS',
-            'underscore': '_',
             'vue': 'Vue',
-            'vue-custom-element': 'VueCustomElement',
             'vue-router': 'VueRouter',
             'vuex': 'Vuex'
         },
@@ -141,49 +136,59 @@ module.exports = {
         },
         esModule: false,
 
+        path: 'dist',
+        entryFile: 'index.js',
         // true (MiniCssExtractPlugin), string (no style-loader)
         cssExtract: false,
-        externals: [],
+        externals: []
 
-        webpackConfig: (conf, Util) => {
-            return conf;
-        }
-    },
+        // webpackConfig: (conf, Util) => {
 
-    hooks: {
-
-        // beforeBuildAll: (conf, Util) => {
-        //     console.log('beforeBuildAll');
-        //     return 0;
-        // },
-
-        // afterBuildAll: (conf, Util) => {
-        //     console.log('afterBuildAll');
-        //     return 0;
+        //     conf.module.rules.forEach(rule => {
+        //         if (rule.use && Array.isArray(rule.use)) {
+        //             rule.use.forEach(item => {
+        //                 if (item.loader === 'sass-loader') {
+        //                     if (!item.options) {
+        //                         item.options = {};
+        //                     }
+        //                     item.options.additionalData = '';
+        //                 } else if (item.loader === 'css-loader') {
+        //                     if (!item.options) {
+        //                         item.options = {};
+        //                     }
+        //                     item.options.modules = {
+        //                         localIdentName: '[local]'
+        //                     };
+        //                 }
+        //             });
+        //         }
+        //         if (rule.use && rule.use.loader === 'babel-loader') {
+        //             //delete rule.exclude;
+        //         }
+        //     });
+    
+        //     return conf;
         // }
 
-        // beforeBuild: (item, Util) => {
+        // before: (item, Util) => {
         //     console.log('beforeBuild');
         //     return 0;
         // },
 
-        // afterBuild: (item, Util) => {
+        // after: (item, Util) => {
         //     console.log('afterBuild');
         //     return 0;
         // }
 
-        // 'component-name': {
-        //     beforeBuild: (item, Util) => {
-        //         console.log('beforeBuild');
-        //         return 0;
-        //     },
+        // beforeAll: (jobList, Util) => {
+        //     console.log('beforeBuildAll');
+        //     return 0;
+        // },
 
-        //     afterBuild: (item, Util) => {
-        //         console.log('afterBuild');
-        //         return 0;
-        //     }
+        // afterAll: (option, Util) => {
+        //     console.log('afterBuildAll');
+        //     return 0;
         // }
-
     }
 
 };
