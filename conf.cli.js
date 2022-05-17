@@ -75,51 +75,43 @@ module.exports = {
     },
 
     build: {
+        //for flatdep
         exclude: [],
         include: [],
         overrides: {
-
-            'core-js': {
-                main: [
-                    'client/core.min.js'
-                ],
-                dependencies: {}
-            },
-        
-            'select2': {
-                main: [
-                    'dist/css/select2.css',
-                    'dist/js/select2.full.js'
-                ],
-                dependencies: {}
-            },
-        
-            'i18next': {
-                main: ['i18next.min.js'],
-                dependencies: {}
-            },
-        
-            'vue': {
-                main: ['dist/vue.min.js']
-            },
-        
-            'vue-router': {
-                main: ['dist/vue-router.min.js']
-            },
-        
             'axios': {
                 browser: {
                     axios: 'dist/axios.min.js'
                 },
                 dependencies: {}
             },
-        
+            'core-js': {
+                dependencies: {},
+                main: ['client/core.min.js']
+            },
+            'i18next': {
+                dependencies: {},
+                main: ['i18next.min.js']
+            },
+            'select2': {
+                dependencies: {},
+                main: ['dist/css/select2.css', 'dist/js/select2.full.js']
+            },
+            'vue': {
+                main: ['dist/vue.min.js']
+            },
+            'vue-router': {
+                main: ['dist/vue-router.min.js']
+            },
             'xlsx': {
                 browser: {},
                 dependencies: {},
                 main: 'xlsx.mini.js'
             }
         },
+        
+        //for webpack externals matched root names
+        //if externals is jquery, then it will be replaced with jQuery also
         rootNames: {
             'file-saver': 'saveAs',
             'golden-layout': 'GoldenLayout',
@@ -130,6 +122,7 @@ module.exports = {
             'vue-router': 'VueRouter',
             'vuex': 'Vuex'
         },
+        
         vendors: ['vendor', 'lib', 'app'],
 
         alias: {
