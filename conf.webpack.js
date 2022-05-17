@@ -48,16 +48,6 @@ module.exports = {
                 options: {
                     cacheDirectory: true,
                     babelrc: false,
-                    //https://babeljs.io/docs/en/babel-plugin-proposal-object-rest-spread
-                    // ... to Object.assign()
-                    assumptions: {
-                        setSpreadProperties: true
-                    },
-                    plugins: [
-                        [`${option.nmRoot}/node_modules/@babel/plugin-proposal-object-rest-spread`, {
-                            useBuiltIns: true
-                        }]
-                    ],
                     presets: [
                         `${option.nmRoot}/node_modules/@babel/preset-env`,
                         `${option.nmRoot}/node_modules/@babel/preset-typescript`
@@ -159,7 +149,7 @@ module.exports = {
             //https://webpack.js.org/configuration/other-options/#cache
             cache: true,
 
-            target: ['web', 'es5'],
+            target: ['web'],
             
             //https://webpack.js.org/configuration/devtool/#devtool
             devtool: 'source-map',
