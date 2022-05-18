@@ -85,23 +85,13 @@ module.exports = {
                 },
                 dependencies: {}
             },
-            'core-js': {
-                dependencies: {},
-                main: ['client/core.min.js']
-            },
             'i18next': {
                 dependencies: {},
                 main: ['i18next.min.js']
             },
-            'select2': {
-                dependencies: {},
-                main: ['dist/css/select2.css', 'dist/js/select2.full.js']
-            },
             'vue': {
-                main: ['dist/vue.min.js']
-            },
-            'vue-router': {
-                main: ['dist/vue-router.min.js']
+                dependencies: {},
+                main: 'dist/vue.runtime.global.prod.js'
             },
             'xlsx': {
                 browser: {},
