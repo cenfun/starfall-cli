@@ -30,7 +30,7 @@ module.exports = {
     outdate: {
         exclude: [
             //vue-loader": "^15.9.8 for vue2
-            'vue-loader'
+            //'vue-loader'
         ]
     },
 
