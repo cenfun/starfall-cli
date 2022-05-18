@@ -1,14 +1,7 @@
 // https://eslint.org/docs/rules/
 
 const coveredRules = {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
-    'no-lonely-if': 'off',
-    'no-mixed-operators': 'off',
-    'no-prototype-builtins': 'off',
-    'no-unused-vars': ['error', {
-        'args': 'none',
-        'vars': 'local'
-    }]
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
 };
 
 // plugin special rules
