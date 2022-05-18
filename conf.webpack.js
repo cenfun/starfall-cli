@@ -49,7 +49,13 @@ module.exports = {
                     cacheDirectory: true,
                     babelrc: false,
                     presets: [
-                        `${option.nmRoot}/node_modules/@babel/preset-env`,
+                        [`${option.nmRoot}/node_modules/@babel/preset-env`, {
+                            targets: [
+                                'defaults',
+                                'not IE 11',
+                                'maintained node versions'
+                            ]
+                        }],
                         `${option.nmRoot}/node_modules/@babel/preset-typescript`
                     ]
                 }

@@ -13,6 +13,7 @@
     "dependencies": {},
     "devDependencies": {
         "eslint": "^8.11.0",
+        "eslint-config-plus": "^1.0.2",
         "eslint-plugin-chain": "^2.0.0",
         "eslint-plugin-html": "^6.2.0",
         "eslint-plugin-sonarjs": "^0.12.0",

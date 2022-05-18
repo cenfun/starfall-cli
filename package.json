@@ -53,7 +53,6 @@
         "gauge": "^4.0.4",
         "github-markdown-css": "^5.1.0",
         "http-proxy-middleware": "^2.0.6",
-        "ie-polyfill": "^1.0.2",
         "ignore": "^5.2.0",
         "inquirer": "^8.2.4",
         "istanbul-lib-coverage": "^3.2.0",

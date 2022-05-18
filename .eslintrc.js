@@ -1,19 +1,4 @@
 // https://eslint.org/docs/rules/
-
-const coveredRules = {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
-};
-
-// plugin special rules
-const sonarjsRules = {
-    'sonarjs/cognitive-complexity': 'off',
-    'sonarjs/no-collapsible-if': 'off',
-    'sonarjs/no-duplicate-string': 'off',
-    'sonarjs/no-identical-functions': 'off',
-    'sonarjs/no-nested-template-literals': 'warn',
-    'sonarjs/prefer-single-boolean-return': 'off'
-};
-
 module.exports = {
     'root': true,
     // system globals
@@ -50,7 +35,12 @@ module.exports = {
     },
 
     'rules': {
-        ... coveredRules,
-        ... sonarjsRules
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+        'sonarjs/cognitive-complexity': 'off',
+        'sonarjs/no-collapsible-if': 'off',
+        'sonarjs/no-duplicate-string': 'off',
+        'sonarjs/no-identical-functions': 'off',
+        'sonarjs/no-nested-template-literals': 'warn',
+        'sonarjs/prefer-single-boolean-return': 'off'
     }
 };
