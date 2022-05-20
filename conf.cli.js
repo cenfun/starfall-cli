@@ -69,9 +69,18 @@ module.exports = {
     },
 
     pack: {
-        path: 'public',
-        //custom pack function
-        handler: null
+        // before: (item, Util) => {
+        //     console.log('before pack');
+        //     return 0;
+        // },
+        
+        //customize handler
+        //handler: null,
+
+        // after: (item, Util) => {
+        //     console.log('after pack');
+        //     return 0;
+        // }
     },
 
     build: {
@@ -155,22 +164,22 @@ module.exports = {
         // }
 
         // before: (item, Util) => {
-        //     console.log('beforeBuild');
+        //     console.log('before build');
         //     return 0;
         // },
 
         // after: (item, Util) => {
-        //     console.log('afterBuild');
+        //     console.log('after build');
         //     return 0;
         // }
 
         // beforeAll: (jobList, Util) => {
-        //     console.log('beforeBuildAll');
+        //     console.log('before build all');
         //     return 0;
         // },
 
         // afterAll: (option, Util) => {
-        //     console.log('afterBuildAll');
+        //     console.log('after build all');
         //     return 0;
         // }
     }
