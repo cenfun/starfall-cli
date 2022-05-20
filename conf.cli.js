@@ -77,6 +77,9 @@ module.exports = {
         //customize handler
         //handler: null,
 
+        //output path
+        //output: './docs'
+
         // after: (item, Util) => {
         //     console.log('after pack');
         //     return 0;
