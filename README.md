@@ -24,8 +24,10 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
   ```
 
 #### Commands
-
-[COMMANDS.md](COMMANDS.md)
+  ```bash
+  # show all commands
+  sf --help
+  ```
 
 ### Troubleshooting
 
