@@ -103,7 +103,8 @@ module.exports = {
             },
             'vue': {
                 dependencies: {},
-                main: 'dist/vue.runtime.global.prod.js'
+                main: 'dist/vue.runtime.global.prod.js',
+                main_development: 'dist/vue.runtime.global.js'
             },
             'xlsx': {
                 browser: {},
