@@ -84,7 +84,7 @@
         "sass-loader": "^12.6.0",
         "semver": "^7.3.7",
         "shelljs": "^0.8.5",
-        "socket-livereload": "^1.0.1",
+        "socket-livereload": "^2.0.0",
         "socket.io": "^4.5.1",
         "style-loader": "^3.3.1",
         "stylelint": "^14.8.2",
