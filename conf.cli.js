@@ -129,7 +129,7 @@ module.exports = {
             'vuex': 'Vuex'
         },
         
-        vendors: ['vendor', 'lib', 'app'],
+        vendors: ['vendor', 'bundle', 'app'],
 
         alias: {
 
