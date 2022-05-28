@@ -38,12 +38,12 @@ describe(`${ID} lint`, function() {
 
         const js = Util.readFileContentSync('packages/app/src/es-lint.js');
         assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';');
-        
+
 
         Util.editFile('packages/app/src/es-lint.js', function(c) {
             return `${c} \n console.log(a+b)`;
         });
-        
+
     });
 
     it(`exec ${ID} lint`, () => {
@@ -55,7 +55,7 @@ describe(`${ID} lint`, function() {
 
         const js = Util.readFileContentSync('packages/app/src/es-lint.js');
         assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';console.log(a + b);');
-        
+
     });
 
 });

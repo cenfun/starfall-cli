@@ -16,10 +16,10 @@ describe(`${ID} test`, function() {
 
     it('check component test folder', () => {
         assert.strictEqual(fs.existsSync('.temp/test/app/app.js'), true);
-        assert.strictEqual(fs.existsSync('.temp/test/app/app-test.js'), true);
+        assert.strictEqual(fs.existsSync('.temp/test/app/app.test.js'), true);
 
         assert.strictEqual(fs.existsSync('.temp/test/component-1/component-1.js'), true);
-        assert.strictEqual(fs.existsSync('.temp/test/component-1/component-1-test.js'), true);
+        assert.strictEqual(fs.existsSync('.temp/test/component-1/component-1.test.js'), true);
     });
 
     it('check component coverage folder', () => {

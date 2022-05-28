@@ -11,7 +11,7 @@ const projectConfPath = 'package.json';
 
 describe(`${ID} install`, function() {
     this.timeout(2 * 60 * 1000);
-      
+
     it(`before ${ID} install`, () => {
         Util.editJSON(appConfPath, function(json) {
             json.dependencies['console-grid'] = 'latest';
@@ -68,7 +68,7 @@ describe(`${ID} install`, function() {
         assert.strictEqual(sh.code, 0);
 
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
     });
 
     it(`exec ${ID} install component-1 -c app --remove --dev`, () => {
@@ -76,7 +76,7 @@ describe(`${ID} install`, function() {
         assert.strictEqual(sh.code, 0);
 
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
     });
 
     //===================================================================================
@@ -86,12 +86,12 @@ describe(`${ID} install`, function() {
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), true);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), true);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), true);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), true);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), true);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), true);
     });
 
     //devDependencies
@@ -100,12 +100,12 @@ describe(`${ID} install`, function() {
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), true);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), true);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), true);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), true);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), true);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), true);
     });
 
     //remove all deps
@@ -116,16 +116,16 @@ describe(`${ID} install`, function() {
         assert.strictEqual(sh.code, 0);
 
         let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
 
         conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.dependencies.hasOwnProperty('component-1'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('my-components-app'), false);
-        assert.strictEqual(conf.devDependencies.hasOwnProperty('component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
+        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
 
     });
 
@@ -160,7 +160,7 @@ describe(`${ID} install`, function() {
     //===================================================================================
 
     it('add internal dependencies and install', () => {
-        
+
         Util.editJSON(appConfPath, function(json) {
             //remove invalid first
             delete json.dependencies['invalid-dependency-a'];
@@ -189,7 +189,7 @@ describe(`${ID} install`, function() {
     });
 
     it('check project package.json for internal', () => {
-        
+
         assert.strictEqual(fs.existsSync(projectConfPath), true);
 
         const conf = Util.readJSONSync(projectConfPath);

@@ -66,14 +66,8 @@ describe(`${ID} build`, function() {
 
     it('check component dist folder and build js', () => {
         assert.strictEqual(fs.existsSync('packages/app/dist'), true);
-
         assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), true);
         assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
-
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.min.js'), false);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.min.js.map'), false);
-
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.bundle.js'), false);
     });
 
     it(`exec ${ID} build app -m`, () => {
@@ -84,9 +78,6 @@ describe(`${ID} build`, function() {
     it('check component build folder and build js', () => {
         assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), true);
         assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
-
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.min.js'), false);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.min.js.map'), false);
     });
 
     it('check component inject content app', () => {
@@ -108,9 +99,6 @@ describe(`${ID} build`, function() {
     it('check component-1 build folder and build js', () => {
         assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.js'), true);
         assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.js.map'), true);
-
-        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.min.js'), false);
-        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.min.js.map'), false);
     });
 
     it('check component inject content component-1', () => {
@@ -118,38 +106,6 @@ describe(`${ID} build`, function() {
         console.log(`inject content component-1: [${contentComponent1}]`);
         //no dependencies
         assert.strictEqual(contentComponent1, '<script src="../dist/my-components-component-1.js"></script>');
-    });
-
-    //require build dependencies first because bundle require it
-    it(`exec ${ID} build app -b`, () => {
-        const sh = shelljs.exec(`${ID} build app -b`);
-        assert.strictEqual(sh.code, 0);
-    });
-
-    it('check component build folder and bundle js', () => {
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), false);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), false);
-
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.bundle.js'), true);
-    });
-
-    //reset to default for publish, because -b -a will remove dependencies
-
-    it('reset dependencies to default after build to bundle', () => {
-
-        const componentConfPath = 'packages/app/package.json';
-        const conf = Util.readJSONSync(componentConfPath);
-        conf.dependencies = {
-            'my-components-component-1': ''
-        };
-        Util.writeJSONSync(componentConfPath, conf);
-        const sh = shelljs.exec(`${ID} build app`);
-        assert.strictEqual(sh.code, 0);
-
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), true);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.bundle.js'), false);
-
     });
 
 });
