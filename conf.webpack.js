@@ -9,7 +9,7 @@ module.exports = {
     create: function(option) {
 
         //========================================================================
-        
+
         const modes = {
             production: 'production',
             development: 'development'
@@ -156,7 +156,7 @@ module.exports = {
             cache: true,
 
             target: ['web'],
-            
+
             //https://webpack.js.org/configuration/devtool/#devtool
             devtool: 'source-map',
 

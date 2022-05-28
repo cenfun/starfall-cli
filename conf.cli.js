@@ -4,7 +4,7 @@
 module.exports = {
 
     tempPath: '.temp',
-    
+
     dev: {
         port: 8080,
         path: 'public',
@@ -39,7 +39,7 @@ module.exports = {
 
     blame: {
         authorAlias: {
-        
+
         }
     },
 
@@ -47,13 +47,13 @@ module.exports = {
         naming: {
             required: false
         },
-    
+
         stylelint: {
             required: false,
             ext: '{css,scss}',
             option: ''
         },
-    
+
         eslint: {
             ext: '{js,vue}',
             option: ''
@@ -76,7 +76,7 @@ module.exports = {
         //     console.log('before pack');
         //     return 0;
         // },
-        
+
         //customize handler
         //handler: null,
 
@@ -90,6 +90,7 @@ module.exports = {
     },
 
     build: {
+        esModule: false,
         //for DefinePlugin
         define: {
             __VUE_OPTIONS_API__: true,
@@ -120,7 +121,7 @@ module.exports = {
                 main: 'xlsx.mini.js'
             }
         },
-        
+
         //for webpack externals matched root names
         //if externals is jquery, then it will be replaced with jQuery also
         rootNames: {
@@ -133,13 +134,12 @@ module.exports = {
             'vue-router': 'VueRouter',
             'vuex': 'Vuex'
         },
-        
+
         vendors: ['vendor', 'bundle', 'app'],
 
         alias: {
 
         },
-        esModule: false,
 
         path: 'dist',
         entryFile: 'index.js',
@@ -171,7 +171,7 @@ module.exports = {
         //             //delete rule.exclude;
         //         }
         //     });
-    
+
         //     return conf;
         // }
 
