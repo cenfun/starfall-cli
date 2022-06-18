@@ -1,5 +1,10 @@
-build only components
 
-publish need build minify
+use webpack dev server for dev, hot reload
 
-use webpack dev server for preview, hot reload
+update css minify to @parcel/css
+
+add more unit test, pack -b
+
+puppeteer-screen-recorder
+
+generate cli docker image
