@@ -15,12 +15,14 @@
     }
 </style>
 <script src="/node_modules/socket.io/client-dist/socket.io.min.js"></script>
+<script src="/node_modules/mouse-helper/dist/mouse-helper.js"></script>
 <script src="/node_modules/mocha/mocha.js"></script>
 {placeholder-component-dependencies}
 <script src="/client.js"></script>
 </head>
 <body>
 <script>
+window['mouse-helper']();
 const config = JSON.parse('{placeholder-config}');
 window.T.start(config);
 </script>

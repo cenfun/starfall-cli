@@ -68,6 +68,7 @@
         "marked": "^4.0.16",
         "mini-css-extract-plugin": "^2.6.0",
         "mocha": "^10.0.0",
+        "mouse-helper": "^1.0.5",
         "multi-process-worker": "^2.0.6",
         "nmls": "^3.0.2",
         "open": "^8.4.0",
