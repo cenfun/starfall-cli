@@ -12,7 +12,9 @@ module.exports = {
     },
     // other globals
     'globals': {
-        'assert': true
+        'assert': true,
+        'delay': true,
+        'page': true
     },
 
     'plugins': [
