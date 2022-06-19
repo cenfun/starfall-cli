@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{title}</title>
+<title>{placeholder-title}</title>
 <link rel="icon" href="data:,">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -14,9 +14,15 @@
         height: 100%;
     }
 </style>
-{deps}
+<script src="/node_modules/socket.io/client-dist/socket.io.min.js"></script>
+<script src="/node_modules/mocha/mocha.js"></script>
+{placeholder-component-dependencies}
+<script src="/client.js"></script>
 </head>
 <body>
-{boot}
+<script>
+const config = JSON.parse('{placeholder-config}');
+window.T.start(config);
+</script>
 </body>
 </html>
