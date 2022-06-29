@@ -40,82 +40,16 @@
             overflow: hidden;
         }
 
-        .list .tg-turbogrid .tg-border-left {
+        .main .list .tg-border-left {
             border-left: 1px solid #ccc;
         }
 
-        .list .tg-turbogrid .tg-border-right {
+        .main .list .tg-border-right {
             border-right: 1px solid #ccc;
         }
 
-        .flyover {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 100;
-            height: 100%;
-            width: 80%;
-            display: none;
-            background-color: #fff;
-            border-left: 1px solid #eee;
-        }
-
-        .flyover::before {
-            pointer-events: none;
-            content: "";
-            position: absolute;
-            left: -15px;
-            top: 0;
-            z-index: 10;
-            display: block;
-            height: 100%;
-            width: 15px;
-            background-image: linear-gradient(to left, #eee, rgb(255 255 255 / 0%));
-        }
-
-        .show {
-            display: block;
-        }
-
-        .animate {
-            animation-duration: 0.2s;
-            animation-fill-mode: both;
-        }
-
-        @keyframes slide-in-right {
-            from {
-                transform: translate3d(100%, 0, 0);
-                visibility: visible;
-            }
-
-            to {
-                transform: translate3d(0, 0, 0);
-            }
-        }
-
-        .slide-in-right {
-            animation-name: slide-in-right;
-        }
-
-        @keyframes slide-out-right {
-            from {
-                transform: translate3d(0, 0, 0);
-            }
-
-            to {
-                visibility: hidden;
-                transform: translate3d(100%, 0, 0);
-            }
-        }
-
-        .slide-out-right {
-            animation-name: slide-out-right;
-        }
-
-        .iframe {
-            border: none;
-            height: 100%;
-            width: 100%;
+        .tg-name-link {
+            cursor: pointer;
         }
 
         .about {
@@ -129,7 +63,6 @@
     <div class="main">
         <div class="list"></div>
     </div>
-    <div class="flyover animate"></div>
     {about}
     <script>
         /*inject:start*/
@@ -137,44 +70,16 @@
     </script>
     <script>
         const Grid = window.turbogrid.Grid;
-        const $ = window.turbogrid.$;
 
         let list;
         const $list = document.querySelector('.list');
 
-        const $flyover = $('.flyover');
-        const showReport = function(item) {
-            if (!item) {
-                return;
-            }
-
-            if ($flyover.hasClass('show')) {
-                return;
-            }
-
-            $flyover.html(`<iframe class="iframe" src="${item.output}"></iframe>`);
-            $flyover.addClass('slide-in-right show').one('animationend', function() {
-                $flyover.removeClass('slide-in-right');
-            });
-
-            //close event handler
-            setTimeout(() => {
-                const holder = $(document).bind('click.flyover', (e) => {
-                    holder.unbind('click.flyover');
-                    $flyover.addClass('slide-out-right').one('animationend', function() {
-                        $flyover.removeClass('slide-out-right show').empty();
-                    });
-                });
-            }, 100);
-
-        };
-
         const createList = function() {
             list = new Grid($list);
             list.bind('onClick', function(e, d) {
-                this.setRowSelected(d.row);
-                const rowData = this.getRowItem(d.row);
-                showReport(rowData);
+                if (d.rowItem && d.rowItem.output && d.columnItem && d.columnItem.id === 'name') {
+                    window.open(d.rowItem.output);
+                }
             });
             const reportData = window.reportData;
             console.log(reportData);
@@ -185,28 +90,26 @@
                     return;
                 }
 
-                c.headerClass = 'tg-border-left tg-border-right';
+                c.headerClassMap = 'tg-border-left tg-border-right';
 
                 const first = c.subs[0];
-                first.cellClass = 'tg-border-left';
-                first.headerClass = 'tg-border-left';
+                first.classMap = 'tg-border-left';
+                first.headerClassMap = 'tg-border-left';
 
                 const last = c.subs[c.subs.length - 1];
-                last.cellClass = 'tg-border-right';
-                last.headerClass = 'tg-border-right';
+                last.classMap = 'tg-border-right';
+                last.headerClassMap = 'tg-border-right';
 
             });
 
 
             list.setData(reportData);
             list.setOption({
-                multiSelect: false,
                 bindWindowResize: true,
-                textSelectable: true,
                 frozenColumn: 0,
                 sortAsc: false
             });
-            list.setFilter({
+            list.setFormatter({
                 string: function(v, rd, cd) {
                     const id = cd.id;
                     const label = rd[`${id}_label`];
