@@ -6,8 +6,8 @@
         "cli-build-path"
     ],
     "dependencies": {
-        "axios": "^0.26.1",
-        "vue": "^3.2.31"
+        "axios": "^0.27.2",
+        "vue": "^3.2.37"
     },
     "devDependencies": {}
 }
