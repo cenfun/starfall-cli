@@ -105,12 +105,8 @@
                     <select class="group-list"></select>
                 </div>
                 <div class="toolbar-item">
-                    Row Filter
+                    Filter
                     <input type="text" class="keywords" placeholder="keywords"></input>
-                    <label>
-                        <input type="checkbox" class="filter-selected"></input>
-                        Filter Selected
-                    </label>
                 </div>
             </div>
         </div>
@@ -128,9 +124,12 @@
     </script>
     <script>
         const Grid = window.turbogrid.Grid;
-        const $ = window.turbogrid.$;
         let grid;
         let rowFilterKeywords;
+
+        const $ = function(s) {
+            return document.querySelector(s);
+        };
 
         const isMatchKeywords = function(value, keywords) {
             if (!value || !keywords) {
@@ -158,10 +157,10 @@
 
             data = JSON.parse(JSON.stringify(data));
 
-            const groupId = $('.group-list').val();
+            const groupId = $('.group-list').value;
 
             if (groupId) {
-                data.columns = data.columns.filter(c => {
+                data.columns = data.columns.filter((c) => {
                     if (!c.subs) {
                         return true;
                     }
@@ -173,7 +172,7 @@
                     return true;
                 });
             } else {
-                data.columns.forEach(c => {
+                data.columns.forEach((c) => {
                     if (!c.subs) {
                         return;
                     }
@@ -191,7 +190,7 @@
                 });
             }
 
-            const totalRow = data.rows.find(item => item.name === 'Total');
+            const totalRow = data.rows.find((item) => item.name === 'Total');
             if (totalRow) {
                 totalRow.rowType = 'total';
             }
@@ -203,16 +202,16 @@
         //=======================================================================================================================================
 
         const renderGrid = function(gitBlameData) {
-            const dateRangeId = $('.date-range').val();
+            const dateRangeId = $('.date-range').value;
             console.log(`dateRangeId: ${dateRangeId}`);
-            let dateRange = gitBlameData.dateRangeList.find(d => {
+            let dateRange = gitBlameData.dateRangeList.find((d) => {
                 if (d.id === dateRangeId) {
                     return true;
                 }
             });
             dateRange = dateRange || gitBlameData.dateRangeList[0];
 
-            const gb = $('.group-by').val();
+            const gb = $('.group-by').value;
             let data = dateRange.authorData;
             if (gb === 'author') {
                 data = dateRange.groupData;
@@ -225,25 +224,29 @@
 
         const initDataRange = function(gitBlameData) {
             const optionList = [];
-            gitBlameData.dateRangeList.forEach(d => {
+            gitBlameData.dateRangeList.forEach((d) => {
                 optionList.push(`<option value="${d.id}">${d.name}</option>`);
             });
-            $('.date-range')
-                .html(optionList.join(''))
-                .bind('change', function(e) {
-                    renderGrid(gitBlameData);
-                    localStorage.setItem(`${gitBlameData.name}-dateRange`, this.val());
-                });
+
+            const dataRange = $('.date-range');
+
+            dataRange.innerHTML = optionList.join('');
+
+            dataRange.addEventListener('change', function(e) {
+                renderGrid(gitBlameData);
+                localStorage.setItem(`${gitBlameData.name}-dateRange`, this.value);
+            });
+
 
             const dateRange = localStorage.getItem(`${gitBlameData.name}-dateRange`);
             if (dateRange) {
-                $('.date-range').val(dateRange);
+                dataRange.value = dateRange;
             }
 
         };
 
         const renderGroupList = function(gitBlameData) {
-            const gb = $('.group-by').val();
+            const gb = $('.group-by').value;
             //console.log(gb);
             const dateRange = gitBlameData.dateRangeList[0];
             const glList = [];
@@ -251,7 +254,7 @@
             if (gb === 'author') {
                 data = dateRange.groupData;
             }
-            data.columns.forEach(g => {
+            data.columns.forEach((g) => {
                 if (g.subs) {
                     glList.push(`<option value="${g.id}">${g.name}</option>`);
                 }
@@ -259,12 +262,12 @@
             if (glList.length > 1) {
                 glList.push('<option value=""></option>');
             }
-            $('.group-list').html(glList.join(''));
+            $('.group-list').innerHTML = glList.join('');
             return glList;
         };
 
         const initGroup = function(gitBlameData) {
-            $('.group-list').bind('change', function(e) {
+            $('.group-list').addEventListener('change', function(e) {
                 renderGrid(gitBlameData);
             });
             const gbList = [];
@@ -272,83 +275,66 @@
             if (gitBlameData.dateRangeList[0].authorData.columns.length > 2) {
                 gbList.push('<option value="author">Author</option>');
             }
-            $('.group-by')
-                .html(gbList.join(''))
-                .bind('change', function(e) {
-                    renderGroupList(gitBlameData);
-                    renderGrid(gitBlameData);
-                });
+            const groupBy = $('.group-by');
+            groupBy.innerHTML = gbList.join('');
+            groupBy.addEventListener('change', function(e) {
+                renderGroupList(gitBlameData);
+                renderGrid(gitBlameData);
+            });
+            renderGroupList(gitBlameData);
         };
 
         const initRowFilter = function(gitBlameData) {
             rowFilterKeywords = localStorage.getItem(`${gitBlameData.name}-rowFilterKeywords`);
+            const keywords = $('.keywords');
             if (rowFilterKeywords) {
-                $('.keywords').val(rowFilterKeywords);
-                $('.filter-selected').attr('checked', 'checked');
+                keywords.value = rowFilterKeywords;
             }
-            $('.keywords').bind('focus', function(e) {
-                $(this).select();
-            }).bind('blur keyup change', function(e) {
-                rowFilterKeywords = (`${$(this).val()}`).trim();
+            keywords.addEventListener('focus', function(e) {
+                this.select();
+            });
+            keywords.addEventListener('input', function(e) {
+                rowFilterKeywords = (`${this.value}`).trim();
                 localStorage.setItem(`${gitBlameData.name}-rowFilterKeywords`, rowFilterKeywords);
                 if (!grid) {
                     return;
                 }
-                clearTimeout(grid.timeout_filter);
-                grid.timeout_filter = setTimeout(function() {
-                    grid.render();
-                }, 200);
+                grid.update();
             });
-            $('.filter-selected').bind('change', function() {
-                let ks = '';
-                if (this.get(0).checked) {
-                    if (grid) {
-                        const selectedRows = grid.getSelectedRows();
-                        if (selectedRows.length) {
-                            ks = selectedRows.map(item => item.name).join(', ');
-                        }
-                    }
-                }
-                $('.keywords').val(ks).trigger('change');
-            });
+        
         };
 
         const initGrid = function(gitBlameData) {
             grid = new Grid('.grid');
             grid.bind('onClick', function(e, d) {
-                const rowData = this.getRowItem(d.row);
-                if (this.isRowSelectable(rowData)) {
-                    this.setSelectedRow(d.row, d.e);
-                }
+                this.setRowSelected(d.rowData, d.e);
                 const selectedRows = this.getSelectedRows();
-                localStorage.setItem(`${gitBlameData.name}-selectedRows`, selectedRows.map(item => item.name));
+                localStorage.setItem(`${gitBlameData.name}-selectedRows`, selectedRows.map((item) => item.name));
             });
-            grid.bind('onRenderComplete', function() {
+            grid.bind('onFirstUpdated', function() {
                 const selectedRows = localStorage.getItem(`${gitBlameData.name}-selectedRows`);
                 if (!selectedRows) {
                     return;
                 }
                 console.log(selectedRows);
-                selectedRows.split(',').forEach(item => {
+                selectedRows.split(',').forEach((item) => {
                     //console.log(item);
-                    const row = grid.getRowItemBy({
-                        name: item
-                    });
+                    const row = grid.getRowItemBy('name', item);
                     if (row) {
-                        grid.setSelectedRow(row.tg_index);
+                        grid.setRowSelected(row.tg_index);
                     }
                 });
             });
-            grid.setFormatter('header', function(v, row, column) {
-                if (column.from) {
-                    const from = new Date(column.from).toLocaleDateString();
-                    const till = new Date(column.till).toLocaleDateString();
-                    const time = ` (${from} - ${till})`;
-                    v += time;
-                }
-                return v;
-            });
-            grid.setFilter({
+            grid.setFormatter({
+                header: function(v, row, column) {
+                    if (column.from) {
+                        const from = new Date(column.from).toLocaleDateString();
+                        const till = new Date(column.till).toLocaleDateString();
+                        const time = ` (${from} - ${till})`;
+                        v += time;
+                    }
+                    return v;
+                },
                 percent: function(v, rowData, columnData) {
                     if (typeof (v) === 'number') {
                         const pv = (v * 100).toFixed(2);
@@ -362,7 +348,7 @@
                     }
                     return v;
                 }
-    });
+            });
             grid.setOption({
                 frozenRow: 0,
                 frozenColumn: 0,

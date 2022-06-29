@@ -172,7 +172,7 @@
         const createList = function() {
             list = new Grid($list);
             list.bind('onClick', function(e, d) {
-                this.setSelectedRow(d.row);
+                this.setRowSelected(d.row);
                 const rowData = this.getRowItem(d.row);
                 showReport(rowData);
             });
@@ -180,7 +180,7 @@
             console.log(reportData);
 
             //border for group
-            reportData.columns.forEach(c => {
+            reportData.columns.forEach((c) => {
                 if (!c.subs) {
                     return;
                 }
