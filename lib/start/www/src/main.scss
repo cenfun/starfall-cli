@@ -30,8 +30,8 @@ html,
 body {
     width: 100%;
     height: 100%;
-    padding: 0 0;
-    margin: 0 0;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
     font-size: 14px;
     font-family: arial, sans-serif;
@@ -74,7 +74,7 @@ button {
     padding: 2px 8px;
     line-height: 1.5;
     border-radius: 5px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
     color: #6c757d;
     border-color: #6c757d;
     min-width: 75px;
@@ -88,7 +88,7 @@ button {
 button:focus,
 button.focus {
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
 
 button.disabled,
@@ -116,7 +116,7 @@ button.gui-button-primary:hover {
 
 button.gui-button-primary:focus,
 button.gui-button-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgb(38 143 255 / 50%);
 }
 
 button.gui-button-primary.disabled,
@@ -162,7 +162,7 @@ a:hover {
     background-color: #fff;
     border-color: #80bdff;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
 
 .gui-control-input {
@@ -199,7 +199,7 @@ a:hover {
 }
 
 .gui-control-input:focus ~ .gui-control-label::before {
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
 
 .gui-control-input:focus:not(:checked) ~ .gui-control-label::before {
@@ -265,11 +265,11 @@ a:hover {
 }
 
 .gui-checkbox .gui-control-input:disabled:checked ~ .gui-control-label::before {
-    background-color: rgba(0, 123, 255, 0.5);
+    background-color: rgb(0 123 255 / 50%);
 }
 
 .gui-checkbox .gui-control-input:disabled:indeterminate ~ .gui-control-label::before {
-    background-color: rgba(0, 123, 255, 0.5);
+    background-color: rgb(0 123 255 / 50%);
 }
 
 .gui-spec-combox,
@@ -327,7 +327,7 @@ gui-table
 }
 
 .gui-table td {
-    padding: 5px 5px;
+    padding: 5px;
     border: 1px solid #ccc;
 }
 
@@ -419,7 +419,7 @@ gui-container
 
 .gui-title-icon-list {
     padding-left: 30px;
-    background-image: url(images/list.svg);
+    background-image: url("images/list.svg");
     background-repeat: no-repeat;
     background-position: 7px center;
     background-size: 16px 16px;
@@ -429,7 +429,7 @@ gui-container
 
 .gui-title-icon-open {
     padding-left: 25px;
-    background-image: url(images/open.svg);
+    background-image: url("images/open.svg");
     background-repeat: no-repeat;
     background-position: 2px center;
     background-size: 18px 18px;
@@ -468,7 +468,7 @@ gui-output
     font-weight: 100;
     font-family: Menlo, Consolas;
     font-size: 14px;
-    padding: 5px 5px;
+    padding: 5px;
 }
 
 .gui-output-line {
@@ -488,7 +488,7 @@ gui loading
     position: relative;
     pointer-events: none;
     height: 16px;
-    margin: 0 5px 5px 5px;
+    margin: 0 5px 5px;
     overflow: hidden;
     display: none;
 }
@@ -531,7 +531,7 @@ gui loading
     left: 0;
     top: 0;
     content: "";
-    background-image: repeating-linear-gradient(-45deg, rgba(0, 128, 0, 0.3), rgba(0, 128, 0, 0.3) 10px, transparent 10px, transparent 15px);
+    background-image: repeating-linear-gradient(-45deg, rgb(0 128 0 / 30%), rgb(0 128 0 / 30%) 10px, transparent 10px, transparent 15px);
     animation: gui-button-loading-bg 3s linear infinite;
 }
 
@@ -702,11 +702,11 @@ gui-modal
     max-width: 90%;
     max-height: 90%;
     z-index: 10;
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 .gui-modal-head {
-    padding: 0 0 10px 0;
+    padding: 0 0 10px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -758,7 +758,7 @@ gui-browse
 .gui-browse-filter {
     width: 200px;
     padding-left: 25px;
-    background-image: url(images/search.svg);
+    background-image: url("images/search.svg");
     background-repeat: no-repeat;
     background-position: 5px center;
     background-size: 16px 16px;
@@ -773,7 +773,7 @@ gui-icon
 */
 
 .gui-tab-icon-dashboard {
-    background-image: url(images/dashboard.svg);
+    background-image: url("images/dashboard.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
@@ -781,7 +781,7 @@ gui-icon
 }
 
 .gui-tab-icon-tools {
-    background-image: url(images/tools.svg);
+    background-image: url("images/tools.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
@@ -789,7 +789,7 @@ gui-icon
 }
 
 .gui-tab-icon-readme {
-    background-image: url(images/info.svg);
+    background-image: url("images/info.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
@@ -798,7 +798,7 @@ gui-icon
 
 .gui-input-icon-cmd {
     padding-left: 25px;
-    background-image: url(images/terminal.svg);
+    background-image: url("images/terminal.svg");
     background-repeat: no-repeat;
     background-position: 7px center;
     background-size: 16px 16px;
@@ -814,15 +814,15 @@ gui-icon
 }
 
 .gui-browse-icon-up {
-    background-image: url(images/up.svg);
+    background-image: url("images/up.svg");
 }
 
 .gui-browse-icon-dir {
-    background-image: url(images/dir.svg);
+    background-image: url("images/dir.svg");
 }
 
 .gui-browse-icon-json {
-    background-image: url(images/check.svg);
+    background-image: url("images/check.svg");
 }
 
 /*
@@ -836,7 +836,7 @@ gui-body
 
 .gui-body-item {
     display: none;
-    padding: 5px 5px;
+    padding: 5px;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -848,7 +848,7 @@ gui-body
 
 .gui-body-readme {
     height: 100%;
-    padding: 20px 20px;
+    padding: 20px;
     overflow-y: auto;
 }
 
@@ -890,7 +890,7 @@ gui-dashboard
     cursor: pointer;
     border-radius: 15px;
     border: 1px solid #aaa;
-    background-image: url(images/plus.svg);
+    background-image: url("images/plus.svg");
     background-repeat: no-repeat;
     background-position: 8px center;
     background-size: 16px 16px;
@@ -909,7 +909,7 @@ gui-dashboard
     cursor: pointer;
     border-radius: 15px;
     border: 1px solid #aaa;
-    background-image: url(images/restart.svg);
+    background-image: url("images/restart.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 16px 16px;
@@ -934,7 +934,7 @@ gui-component
 
 .gui-component-filter {
     padding-left: 25px;
-    background-image: url(images/search.svg);
+    background-image: url("images/search.svg");
     background-repeat: no-repeat;
     background-position: 5px center;
     background-size: 16px 16px;
@@ -987,7 +987,7 @@ gui-project-branch
 */
 
 .gui-project-version {
-    background-image: url(images/at.svg);
+    background-image: url("images/at.svg");
     background-repeat: no-repeat;
     background-position: 0 center;
     background-size: 16px 16px;
@@ -996,7 +996,7 @@ gui-project-branch
 }
 
 .gui-project-branch {
-    background-image: url(images/branch.svg);
+    background-image: url("images/branch.svg");
     background-repeat: no-repeat;
     background-position: 0 center;
     background-size: 16px 16px;
@@ -1046,90 +1046,95 @@ gui-context-menu
 
 .gui-style-star {
     padding-left: 25px;
+    position: relative;
 }
 
 .gui-style-star::before {
-    content: '';
+    content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-clip: padding-box;
-    background-image: url('images/star.svg');
+    background-image: url("images/star.svg");
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 15px;
+    left: 0;
     top: 5px;
 }
 
 .gui-style-heart {
     padding-left: 25px;
     font-weight: bold;
+    position: relative;
 }
 
 .gui-style-heart::before {
-    content: '';
+    content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-clip: padding-box;
-    background-image: url('images/heart.svg');
+    background-image: url("images/heart.svg");
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 15px;
+    left: 0;
     top: 6px;
 }
 
 .gui-style-check {
     padding-left: 25px;
     color: #008000;
+    position: relative;
 }
 
 .gui-style-check::before {
-    content: '';
+    content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-clip: padding-box;
-    background-image: url('images/check.svg');
+    background-image: url("images/check.svg");
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 15px;
+    left: 0;
     top: 6px;
 }
 
 .gui-style-error {
     padding-left: 25px;
     color: #c00;
+    position: relative;
 }
 
 .gui-style-error::before {
-    content: '';
+    content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-clip: padding-box;
-    background-image: url('images/error.svg');
+    background-image: url("images/error.svg");
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 15px;
+    left: 0;
     top: 6px;
 }
 
 .gui-style-question {
     padding-left: 25px;
     color: #007acc;
+    position: relative;
 }
 
 .gui-style-question::before {
-    content: '';
+    content: "";
     position: absolute;
     background-repeat: no-repeat;
     background-clip: padding-box;
-    background-image: url('images/question.svg');
+    background-image: url("images/question.svg");
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 15px;
+    left: 0;
     top: 6px;
 }
 
