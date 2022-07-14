@@ -127,6 +127,11 @@ module.exports = {
                 main: 'umd/react-dom.production.min.js',
                 main_development: 'umd/react-dom.development.js'
             },
+            'prop-types': {
+                dependencies: {},
+                main: 'prop-types.min.js',
+                main_development: 'prop-types.js'
+            },
             'xlsx': {
                 browser: {},
                 dependencies: {},
@@ -146,7 +151,8 @@ module.exports = {
             'vue-router': 'VueRouter',
             'vuex': 'Vuex',
             'react': 'React',
-            'react-dom': 'ReactDOM'
+            'react-dom': 'ReactDOM',
+            'prop-types': 'PropTypes'
         },
 
         vendors: ['vendor', 'bundle', 'app'],
