@@ -21,14 +21,16 @@ module.exports = {
         'sonarjs',
         'chain',
         'vue',
+        'react',
         'html'
     ],
 
     'extends': [
-        'plus',
         'plugin:sonarjs/recommended',
         'plugin:chain/recommended',
-        'plugin:vue/recommended'
+        'plugin:vue/recommended',
+        'plugin:react/recommended',
+        'plus'
     ],
 
     'parserOptions': {

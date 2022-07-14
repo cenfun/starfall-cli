@@ -56,6 +56,9 @@ module.exports = {
                                 'maintained node versions'
                             ]
                         }],
+                        [`${option.nmRoot}/node_modules/@babel/preset-react`, {
+
+                        }],
                         `${option.nmRoot}/node_modules/@babel/preset-typescript`
                     ]
                 }

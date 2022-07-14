@@ -116,6 +116,17 @@ module.exports = {
                 main: 'dist/vue.runtime.global.prod.js',
                 main_development: 'dist/vue.runtime.global.js'
             },
+            'react': {
+                dependencies: {},
+                main: 'umd/react.production.min.js',
+                main_development: 'umd/react.development.js'
+            },
+            'react-dom': {
+                dependencies: {},
+                browser: {},
+                main: 'umd/react-dom.production.min.js',
+                main_development: 'umd/react-dom.development.js'
+            },
             'xlsx': {
                 browser: {},
                 dependencies: {},
@@ -133,7 +144,9 @@ module.exports = {
             'pdfjs-dist': 'PDFJS',
             'vue': 'Vue',
             'vue-router': 'VueRouter',
-            'vuex': 'Vuex'
+            'vuex': 'Vuex',
+            'react': 'React',
+            'react-dom': 'ReactDOM'
         },
 
         vendors: ['vendor', 'bundle', 'app'],
