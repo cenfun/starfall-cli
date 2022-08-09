@@ -70,8 +70,8 @@ describe(`${ID} build`, function() {
         assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
     });
 
-    it(`exec ${ID} build app -m`, () => {
-        const sh = shelljs.exec(`${ID} build app -m`);
+    it(`exec ${ID} build app -p`, () => {
+        const sh = shelljs.exec(`${ID} build app -p`);
         assert.strictEqual(sh.code, 0);
     });
 
