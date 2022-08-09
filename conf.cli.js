@@ -81,8 +81,8 @@ module.exports = {
         //customize handler
         //handler: null,
 
-        //path of pack
-        //path: './docs'
+        //output path of pack
+        //output: './docs'
 
         // after: (item, Util) => {
         //     console.log('after pack');
