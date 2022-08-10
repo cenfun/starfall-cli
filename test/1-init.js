@@ -45,7 +45,6 @@ describe(`${ID} init`, function() {
         assert.strictEqual(fs.existsSync('.npmrc'), true);
         assert.strictEqual(fs.existsSync('.stylelintignore'), true);
         assert.strictEqual(fs.existsSync('.stylelintrc.js'), true);
-        assert.strictEqual(fs.existsSync('conf.cli.js'), true);
         assert.strictEqual(fs.existsSync('package.json'), true);
         assert.strictEqual(fs.existsSync('README.md'), true);
     });

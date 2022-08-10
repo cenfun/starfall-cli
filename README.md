@@ -89,9 +89,9 @@ sf test
 ## Configuration
 Copy to project root path or use CLI default.
 
-* [conf.cli.js](conf.cli.js)
-* [conf.webpack.js](conf.webpack.js)
-* [conf.proxy.js](conf.proxy.js)
+* [/scripts/conf.cli.js](/scripts/conf.cli.js)
+* [/scripts/conf.webpack.js](/scripts/conf.webpack.js)
+* [/scripts/conf.proxy.js](/scripts/conf.proxy.js)
 
 
 ## Changelog
