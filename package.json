@@ -31,7 +31,7 @@
         "babel-plugin-istanbul": "^6.1.1",
         "chokidar": "^3.5.3",
         "commander": "^9.4.0",
-        "console-grid": "^1.0.17",
+        "console-grid": "^2.0.0",
         "css-loader": "^6.7.1",
         "css-minimizer-webpack-plugin": "^4.0.0",
         "cssnano": "^5.1.13",
