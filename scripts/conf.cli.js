@@ -93,9 +93,11 @@ module.exports = {
     build: {
         esModule: false,
         //for DefinePlugin
-        define: {
-            __VUE_OPTIONS_API__: true,
-            __VUE_PROD_DEVTOOLS__: false
+        define: (env) => {
+            return {
+                __VUE_OPTIONS_API__: true,
+                __VUE_PROD_DEVTOOLS__: false
+            };
         },
         //for flatdep
         exclude: [],
