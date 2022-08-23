@@ -113,24 +113,20 @@ module.exports = {
             },
             'vue': {
                 dependencies: {},
-                main: 'dist/vue.runtime.global.prod.js',
-                main_development: 'dist/vue.runtime.global.js'
+                main: (mode) => (mode === 'production' ? 'dist/vue.runtime.global.prod.js' : 'dist/vue.runtime.global.js')
             },
             'react': {
                 dependencies: {},
-                main: 'umd/react.production.min.js',
-                main_development: 'umd/react.development.js'
+                main: (mode) => (mode === 'production' ? 'umd/react.production.min.js' : 'umd/react.development.js')
             },
             'react-dom': {
                 dependencies: {},
                 browser: {},
-                main: 'umd/react-dom.production.min.js',
-                main_development: 'umd/react-dom.development.js'
+                main: (mode) => (mode === 'production' ? 'umd/react-dom.production.min.js' : 'umd/react-dom.development.js')
             },
             'prop-types': {
                 dependencies: {},
-                main: 'prop-types.min.js',
-                main_development: 'prop-types.js'
+                main: (mode) => (mode === 'production' ? 'prop-types.min.js' : 'prop-types.js')
             },
             'xlsx': {
                 browser: {},
