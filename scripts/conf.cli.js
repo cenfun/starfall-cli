@@ -51,7 +51,7 @@ module.exports = {
 
         stylelint: {
             required: false,
-            ext: '{css,scss}',
+            ext: '{css,scss,vue}',
             option: ''
         },
 
