@@ -9,3 +9,11 @@ add more unit test, pack -b
 puppeteer-screen-recorder
 
 generate cli docker image
+
+
+
+
+## esbuild
+- vue3
+- unit test: babel-plugin-istanbul
+- sass?
