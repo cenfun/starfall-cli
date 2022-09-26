@@ -128,6 +128,11 @@ module.exports = {
             type: 'asset/source'
         });
 
+        rules.push({
+            test: /\.wasm$/,
+            type: 'webassembly/async'
+        });
+
         //========================================================================
 
         //console.log("webpack externals:");
@@ -184,6 +189,10 @@ module.exports = {
                         }
                     })
                 ]
+            },
+
+            experiments: {
+                asyncWebAssembly: true
             },
 
             //for webpack loader path
