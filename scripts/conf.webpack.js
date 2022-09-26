@@ -130,7 +130,7 @@ module.exports = {
 
         rules.push({
             test: /\.wasm$/,
-            type: 'webassembly/async'
+            type: 'asset/inline'
         });
 
         //========================================================================
@@ -192,7 +192,7 @@ module.exports = {
             },
 
             experiments: {
-                asyncWebAssembly: true
+                syncWebAssembly: true
             },
 
             //for webpack loader path
