@@ -138,6 +138,14 @@ module.exports = {
         //console.log("webpack externals:");
         //console.log(externals);
 
+        const library = option.esModule ? {
+            type: 'module'
+        } : {
+            name: option.componentName,
+            type: 'umd',
+            umdNamedDefine: true
+        };
+
         return {
 
             mode: mode,
@@ -153,11 +161,7 @@ module.exports = {
                 // the filename template for entry chunks
                 filename: '',
                 // the name of the exported library
-                library: {
-                    name: option.componentName,
-                    type: 'umd',
-                    umdNamedDefine: true
-                }
+                library: library
 
             },
 
@@ -193,7 +197,8 @@ module.exports = {
             },
 
             experiments: {
-                syncWebAssembly: true
+                syncWebAssembly: true,
+                outputModule: option.esModule
             },
 
             //for webpack loader path
@@ -216,6 +221,7 @@ module.exports = {
 
             plugins: plugins,
 
+            externalsType: library.type,
             externals: option.externals
 
         };
