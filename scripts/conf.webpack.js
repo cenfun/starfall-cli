@@ -41,7 +41,7 @@ module.exports = {
         //babel-loader
         //https://babeljs.io/
         const ruleJS = {
-            test: /\.(js|ts)$/,
+            test: /\.m?js$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
