@@ -5,7 +5,6 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
 
-    /* eslint-disable max-statements */
     create: function(option) {
 
         //========================================================================
@@ -146,6 +145,9 @@ module.exports = {
             umdNamedDefine: true
         };
 
+        //es module no need source map
+        const devtool = option.esModule ? false : 'source-map';
+
         return {
 
             mode: mode,
@@ -171,7 +173,7 @@ module.exports = {
             target: ['web'],
 
             //https://webpack.js.org/configuration/devtool/#devtool
-            devtool: 'source-map',
+            devtool: devtool,
 
             optimization: {
                 //minimize: true, auto enabled with production mode
