@@ -145,6 +145,7 @@ module.exports = {
             //replace with component entry
             entry: '',
 
+            //https://webpack.js.org/configuration/output/
             output: {
 
                 // the target directory for all output files
@@ -152,12 +153,12 @@ module.exports = {
                 // the filename template for entry chunks
                 filename: '',
                 // the name of the exported library
-                library: option.componentName,
+                library: {
+                    name: option.componentName,
+                    type: 'umd',
+                    umdNamedDefine: true
+                }
 
-                // the type of the exported library
-                libraryTarget: 'umd',
-                // use a named AMD module in UMD library
-                umdNamedDefine: true
             },
 
             //https://webpack.js.org/configuration/other-options/#cache
