@@ -69,6 +69,7 @@
         "koa-bodyparser": "^4.3.0",
         "koa-connect": "^2.1.0",
         "koa-static-resolver": "^1.0.4",
+        "lighthouse": "^9.6.7",
         "lz-loader": "^1.0.5",
         "marked": "^4.1.0",
         "mini-css-extract-plugin": "^2.6.1",
