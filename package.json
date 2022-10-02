@@ -30,6 +30,7 @@
         "babel-loader": "^8.2.5",
         "babel-plugin-istanbul": "^6.1.1",
         "chokidar": "^3.5.3",
+        "chrome-launcher": "^0.15.1",
         "commander": "^9.4.0",
         "console-grid": "^2.0.1",
         "css-loader": "^6.7.1",
