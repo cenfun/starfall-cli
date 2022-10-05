@@ -41,6 +41,9 @@ module.exports = {
         //https://babeljs.io/
         const ruleJS = {
             test: /\.m?js$/,
+            resourceQuery: {
+                not: [/url/, /raw/, /file/]
+            },
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
@@ -130,6 +133,30 @@ module.exports = {
         rules.push({
             test: /\.wasm$/,
             type: 'asset/inline'
+        });
+
+        //========================================================================
+        //resourceQuery
+
+        //asset/inline exports a data URI of the asset.
+        //Previously achievable by using url-loader.
+        rules.push({
+            resourceQuery: /url/,
+            type: 'asset/inline'
+        });
+
+        //asset/source exports the source code of the asset.
+        //Previously achievable by using raw-loader.
+        rules.push({
+            resourceQuery: /raw/,
+            type: 'asset/source'
+        });
+
+        //asset/resource emits a separate file and exports the URL.
+        //Previously achievable by using file-loader.
+        rules.push({
+            resourceQuery: /file/,
+            type: 'asset/resource'
         });
 
         //========================================================================
