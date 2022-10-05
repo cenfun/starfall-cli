@@ -5,6 +5,7 @@ module.exports = {
     'env': {
         'node': true,
         'browser': true,
+        'worker': true,
         'amd': true,
         'commonjs': true,
         'es6': true,

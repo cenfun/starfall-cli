@@ -137,6 +137,7 @@ module.exports = {
 
         //========================================================================
         //resourceQuery
+        //https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
 
         //asset/inline exports a data URI of the asset.
         //Previously achievable by using url-loader.
