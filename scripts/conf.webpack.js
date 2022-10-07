@@ -260,11 +260,11 @@ module.exports = {
                     `${option.nmRoot}/node_modules`
                 ],
                 alias: option.alias,
-                extensions: ['.js', '.vue', '.json', '.ts', '.tsx'],
-                extensionAlias: {
-                    '.ts': ['.js', '.ts'],
-                    '.js': ['.ts', '.js']
-                }
+                extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
+                // extensionAlias: {
+                //     '.ts': ['.js', '.ts'],
+                //     '.js': ['.ts', '.js']
+                // }
             },
 
             plugins: plugins,
