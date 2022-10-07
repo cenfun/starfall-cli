@@ -70,6 +70,20 @@ module.exports = {
 
         //========================================================================
 
+        rules.push({
+            test: /\.tsx?$/,
+            use: [{
+                loader: 'ts-loader',
+                options: {
+                    transpileOnly: true,
+                    allowTsInNodeModules: true,
+                    configFile: `${option.root}/tsconfig.json`
+                }
+            }]
+        });
+
+        //========================================================================
+
         const styleLoader = {
             loader: 'style-loader',
             options: {
@@ -246,7 +260,7 @@ module.exports = {
                     `${option.nmRoot}/node_modules`
                 ],
                 alias: option.alias,
-                extensions: ['.js', '.vue', '.json']
+                extensions: ['.js', '.vue', '.json', '.ts', '.tsx']
             },
 
             plugins: plugins,

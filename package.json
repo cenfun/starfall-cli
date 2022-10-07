@@ -99,6 +99,7 @@
         "stylelint-config-standard": "^28.0.0",
         "tar": "^6.1.11",
         "terser": "^5.15.0",
+        "ts-loader": "^9.4.1",
         "turbogrid": "^3.0.1",
         "vue": "^3.2.40",
         "vue-loader": "^17.0.0",
