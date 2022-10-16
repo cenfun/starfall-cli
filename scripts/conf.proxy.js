@@ -3,10 +3,10 @@ module.exports = {
         return {
 
             default: {
-                '/api': {
+                '/my-api-name': {
                     target: 'http://localhost:8080',
                     pathRewrite: {
-                        '^/api/': '/'
+                        '^/my-api-name/': '/'
                     },
                     headers: {
 
