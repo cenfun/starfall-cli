@@ -4,8 +4,6 @@ node_modules
 /.upgrade.json
 /package-lock.json
 /.temp
-/packages/*/build
-/build
 /packages/*/dist
 /dist
 *.map
