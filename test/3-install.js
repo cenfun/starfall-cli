@@ -15,7 +15,7 @@ describe(`${ID} install`, function() {
     it(`before ${ID} install`, () => {
         Util.editJSON(appConfPath, function(json) {
             json.dependencies['console-grid'] = 'latest';
-            //console.log(json);
+            // console.log(json);
             return json;
         });
         const conf = Util.readJSONSync(appConfPath);
@@ -23,7 +23,7 @@ describe(`${ID} install`, function() {
     });
 
     it(`exec ${ID} install -f`, () => {
-        //remove previous dependencies, no time install
+        // remove previous dependencies, no time install
         Util.editJSON(projectConfPath, function(json) {
             json.dependencies = {
                 'console-grid': 'latest'
@@ -33,7 +33,7 @@ describe(`${ID} install`, function() {
             };
             return json;
         });
-        //force install first
+        // force install first
         const sh = shelljs.exec(`${ID} install -f`);
         assert.strictEqual(sh.code, 0);
     });
@@ -52,7 +52,7 @@ describe(`${ID} install`, function() {
 
         const conf = Util.readJSONSync(projectConfPath);
         assert.ok(conf.dependencies);
-        //workspaces detected in package.json, ignore child dependencies promotion.
+        // workspaces detected in package.json, ignore child dependencies promotion.
         if (!conf.workspaces) {
             assert.strictEqual(conf.dependencies['console-grid'], 'latest');
         }
@@ -60,8 +60,8 @@ describe(`${ID} install`, function() {
 
     });
 
-    //===================================================================================
-    //install module
+    // ===================================================================================
+    // install module
 
     it(`exec ${ID} install component-1 -c app --remove`, () => {
         const sh = shelljs.exec(`${ID} install component-1 -c app --remove`);
@@ -79,8 +79,8 @@ describe(`${ID} install`, function() {
         assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
     });
 
-    //===================================================================================
-    //dependencies
+    // ===================================================================================
+    // dependencies
     it(`exec ${ID} install my-components-app,component-1 -c`, () => {
         const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c`);
         assert.strictEqual(sh.code, 0);
@@ -94,7 +94,7 @@ describe(`${ID} install`, function() {
         assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), true);
     });
 
-    //devDependencies
+    // devDependencies
     it(`exec ${ID} install my-components-app,component-1 -c --dev`, () => {
         const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c --dev`);
         assert.strictEqual(sh.code, 0);
@@ -108,7 +108,7 @@ describe(`${ID} install`, function() {
         assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), true);
     });
 
-    //remove all deps
+    // remove all deps
     it(`exec ${ID} install app,component-1 -c -d`, () => {
         let sh = shelljs.exec(`${ID} install my-components-app,component-1 -c -d -r`);
         assert.strictEqual(sh.code, 0);
@@ -129,14 +129,14 @@ describe(`${ID} install`, function() {
 
     });
 
-    //===================================================================================
+    // ===================================================================================
 
     it(`add invalid dependencies and exec ${ID} install`, () => {
 
         Util.editJSON(appConfPath, function(json) {
             json.dependencies['invalid-dependency-a'] = '~1.0.1';
             json.devDependencies['invalid-dev-dependency-a'] = '^1.0.1';
-            //console.log(json);
+            // console.log(json);
             return json;
         });
 
@@ -157,21 +157,21 @@ describe(`${ID} install`, function() {
 
     });
 
-    //===================================================================================
+    // ===================================================================================
 
     it('add internal dependencies and install', () => {
 
         Util.editJSON(appConfPath, function(json) {
-            //remove invalid first
+            // remove invalid first
             delete json.dependencies['invalid-dependency-a'];
             delete json.devDependencies['invalid-dev-dependency-a'];
             json.dependencies['my-components-component-1'] = '2.0.1';
             json.devDependencies['my-components-component-1'] = '2.0.1';
-            //console.log(json);
+            // console.log(json);
             return json;
         });
 
-        //reset project conf
+        // reset project conf
         const proConf = Util.readJSONSync(projectConfPath);
         proConf.devDependencies = {};
         Util.writeJSONSync(projectConfPath, proConf);
@@ -208,7 +208,7 @@ describe(`${ID} install`, function() {
     it(`after ${ID} install`, () => {
         Util.editJSON(appConfPath, function(json) {
             delete json.dependencies['console-grid'];
-            //console.log(json);
+            // console.log(json);
             return json;
         });
         const conf = Util.readJSONSync(appConfPath);

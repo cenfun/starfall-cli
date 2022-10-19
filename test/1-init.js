@@ -15,7 +15,7 @@ describe(`${ID} init`, function() {
     this.timeout(20 * 1000);
 
     before(() => {
-        //create .temp folder for test
+        // create .temp folder for test
         if (fs.existsSync(tempPath)) {
             shelljs.rm('-rf', tempPath);
         }
@@ -76,7 +76,7 @@ describe(`${ID} init`, function() {
     it('check component package.json', () => {
         const conf = Util.readJSONSync('packages/app/package.json');
         assert.ok(conf);
-        //added prefix
+        // added prefix
         assert.strictEqual(conf.name, 'my-components-app');
         assert.strictEqual(conf.main, 'dist/my-components-app.js');
         assert.ok(conf.dependencies);

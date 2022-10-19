@@ -9,7 +9,7 @@ describe(`${ID} build`, function() {
     this.timeout(20 * 1000);
 
     const getInjectContent = function(name) {
-        //check inject
+        // check inject
         const indexPath = `packages/${name}/public/index.html`;
         let content = Util.readFileContentSync(indexPath);
         assert.ok(content);
@@ -35,7 +35,7 @@ describe(`${ID} build`, function() {
 
     });
 
-    //build failed test
+    // build failed test
     it(`exec ${ID} build app failed`, () => {
 
         const indexPath = 'packages/app/src/index.js';
@@ -52,7 +52,7 @@ describe(`${ID} build`, function() {
 
         console.log('=========================================================');
         console.log(`build failed code: ${sh.code}`);
-        //write old content back to index.js
+        // write old content back to index.js
         Util.writeFileContentSync(indexPath, oldContent, true);
 
         assert.strictEqual(sh.code, 1);
@@ -104,7 +104,7 @@ describe(`${ID} build`, function() {
     it('check component inject content component-1', () => {
         const contentComponent1 = getInjectContent('component-1');
         console.log(`inject content component-1: [${contentComponent1}]`);
-        //no dependencies
+        // no dependencies
         assert.strictEqual(contentComponent1, '<script src="../dist/my-components-component-1.js"></script>');
     });
 
