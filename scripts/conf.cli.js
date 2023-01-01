@@ -1,5 +1,5 @@
-//starfall-cli config
-//https://github.com/cenfun/starfall-cli
+// starfall-cli config
+// https://github.com/cenfun/starfall-cli
 
 module.exports = {
 
@@ -33,8 +33,8 @@ module.exports = {
     outdate: {
         exclude: [
             'inquirer'
-            //vue-loader": "^15.9.8 for vue2
-            //'vue-loader'
+            // vue-loader": "^15.9.8 for vue2
+            // 'vue-loader'
         ]
     },
 
@@ -84,11 +84,11 @@ module.exports = {
         //     return 0;
         // },
 
-        //customize handler
-        //handler: null,
+        // customize handler
+        // handler: null,
 
-        //output path of pack
-        //output: './docs'
+        // output path of pack
+        // output: './docs'
 
         // after: (item, Util) => {
         //     console.log('after pack');
@@ -98,14 +98,14 @@ module.exports = {
 
     build: {
         esModule: false,
-        //for DefinePlugin
+        // for DefinePlugin
         define: (env) => {
             return {
                 __VUE_OPTIONS_API__: true,
                 __VUE_PROD_DEVTOOLS__: false
             };
         },
-        //for flatdep
+        // for flatdep
         exclude: [],
         include: [],
         overrides: {
@@ -143,8 +143,8 @@ module.exports = {
             }
         },
 
-        //for webpack externals matched root names
-        //if externals is jquery, then it will be replaced with jQuery also
+        // for webpack externals matched root names
+        // if externals is jquery, then it will be replaced with jQuery also
         rootNames: {
             'file-saver': 'saveAs',
             'golden-layout': 'GoldenLayout',
