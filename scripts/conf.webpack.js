@@ -1,13 +1,13 @@
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-//https://webpack.js.org/configuration/
+// https://webpack.js.org/configuration/
 
 module.exports = {
 
     create: function(option) {
 
-        //========================================================================
+        // ========================================================================
 
         const modes = {
             production: 'production',
@@ -19,8 +19,8 @@ module.exports = {
         const plugins = [];
         const rules = [];
 
-        //========================================================================
-        //vue loader
+        // ========================================================================
+        // vue loader
 
         const VueLoaderPlugin = require(`${option.nmRoot}/node_modules/vue-loader`).VueLoaderPlugin;
         plugins.push(new VueLoaderPlugin());
@@ -36,9 +36,9 @@ module.exports = {
         };
         rules.push(ruleVUE);
 
-        //========================================================================
-        //babel-loader
-        //https://babeljs.io/
+        // ========================================================================
+        // babel-loader
+        // https://babeljs.io/
         const ruleJS = {
             test: /\.m?js$/,
             resourceQuery: {
@@ -68,7 +68,7 @@ module.exports = {
         };
         rules.push(ruleJS);
 
-        //========================================================================
+        // ========================================================================
 
         rules.push({
             test: /\.tsx?$/,
@@ -82,15 +82,15 @@ module.exports = {
             }]
         });
 
-        //========================================================================
+        // ========================================================================
 
         const styleLoader = {
             loader: 'style-loader',
             options: {
-                //Reuses a single style element
+                // Reuses a single style element
                 injectType: 'singletonStyleTag',
                 attributes: {
-                    //Add custom attrs to style for debug
+                    // Add custom attrs to style for debug
                     context: option.componentName || ''
                 },
                 esModule: option.esModule
@@ -101,7 +101,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
                 esModule: option.esModule,
-                //import: false,
+                // import: false,
                 sourceMap: false
             }
         };
@@ -126,7 +126,7 @@ module.exports = {
             }]
         });
 
-        //========================================================================
+        // ========================================================================
 
         rules.push({
             test: /\.(ttf|eot|woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
@@ -138,7 +138,7 @@ module.exports = {
             type: 'asset/inline'
         });
 
-        //do NOT add "css" as asset string, use css-loader toString()
+        // do NOT add "css" as asset string, use css-loader toString()
         rules.push({
             test: /\.(html|txt|md)$/,
             type: 'asset/source'
@@ -149,35 +149,35 @@ module.exports = {
             type: 'asset/inline'
         });
 
-        //========================================================================
-        //resourceQuery
-        //https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
+        // ========================================================================
+        // resourceQuery
+        // https://webpack.js.org/guides/asset-modules/#replacing-inline-loader-syntax
 
-        //asset/inline exports a data URI of the asset.
-        //Previously achievable by using url-loader.
+        // asset/inline exports a data URI of the asset.
+        // Previously achievable by using url-loader.
         rules.push({
             resourceQuery: /url/,
             type: 'asset/inline'
         });
 
-        //asset/source exports the source code of the asset.
-        //Previously achievable by using raw-loader.
+        // asset/source exports the source code of the asset.
+        // Previously achievable by using raw-loader.
         rules.push({
             resourceQuery: /raw/,
             type: 'asset/source'
         });
 
-        //asset/resource emits a separate file and exports the URL.
-        //Previously achievable by using file-loader.
+        // asset/resource emits a separate file and exports the URL.
+        // Previously achievable by using file-loader.
         rules.push({
             resourceQuery: /file/,
             type: 'asset/resource'
         });
 
-        //========================================================================
+        // ========================================================================
 
-        //console.log("webpack externals:");
-        //console.log(externals);
+        // console.log("webpack externals:");
+        // console.log(externals);
 
         const library = option.esModule ? {
             type: 'module'
@@ -187,17 +187,14 @@ module.exports = {
             umdNamedDefine: true
         };
 
-        //es module no need source map
-        const devtool = option.esModule ? false : 'source-map';
-
         return {
 
             mode: mode,
 
-            //replace with component entry
+            // replace with component entry
             entry: '',
 
-            //https://webpack.js.org/configuration/output/
+            // https://webpack.js.org/configuration/output/
             output: {
 
                 // the target directory for all output files
@@ -209,16 +206,16 @@ module.exports = {
 
             },
 
-            //https://webpack.js.org/configuration/other-options/#cache
+            // https://webpack.js.org/configuration/other-options/#cache
             cache: true,
 
             target: ['web'],
 
-            //https://webpack.js.org/configuration/devtool/#devtool
-            devtool: devtool,
+            // https://webpack.js.org/configuration/devtool/#devtool
+            devtool: option.devtool,
 
             optimization: {
-                //minimize: true, auto enabled with production mode
+                // minimize: true, auto enabled with production mode
                 minimizer: [
                     new TerserPlugin({
                         terserOptions: {
@@ -245,7 +242,7 @@ module.exports = {
                 outputModule: option.esModule
             },
 
-            //for webpack loader path
+            // for webpack loader path
             resolveLoader: {
                 modules: [`${option.nmRoot}/node_modules`]
             },

@@ -7,5 +7,10 @@
     ],
     "dependencies": {},
     "devDependencies": {},
-    "private": true
+    "private": true,
+    "cssExtract": true,
+    "browser": {
+        "starfall-app-css": "dist/starfall-app.css",
+        "starfall-app": "dist/starfall-app.js"
+    }
 }
