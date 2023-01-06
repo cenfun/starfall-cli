@@ -1,3 +1,37 @@
+@keyframes gui-output-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gui-button-loading {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes gui-button-loading-bg {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100px;
+    }
+}
+
 *,
 *::before,
 *::after {
@@ -30,11 +64,11 @@ html,
 body {
     width: 100%;
     height: 100%;
-    padding: 0;
     margin: 0;
-    overflow: hidden;
+    padding: 0;
     font-size: 14px;
     font-family: arial, sans-serif;
+    overflow: hidden;
 }
 
 input,
@@ -43,8 +77,8 @@ select,
 optgroup,
 textarea {
     margin: 0;
-    font-family: arial, sans-serif;
     font-size: inherit;
+    font-family: arial, sans-serif;
     line-height: inherit;
 }
 
@@ -63,22 +97,22 @@ select {
 }
 
 button {
-    cursor: pointer;
     display: inline-block;
+    min-width: 75px;
+    padding: 2px 8px;
+    color: #6c757d;
     font-weight: 400;
+    line-height: 1.5;
+    white-space: nowrap;
     text-align: center;
     vertical-align: middle;
-    user-select: none;
-    background-color: #f5f5f5;
     border: 1px solid transparent;
-    padding: 2px 8px;
-    line-height: 1.5;
-    border-radius: 5px;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-    color: #6c757d;
     border-color: #6c757d;
-    min-width: 75px;
-    white-space: nowrap;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 .gui-version button {
@@ -98,20 +132,20 @@ button:disabled {
 
 button:not(.gui-button-loading):hover {
     color: #fff;
-    background-color: #6c757d;
     border-color: #6c757d;
+    background-color: #6c757d;
 }
 
 button.gui-button-primary {
     color: #fff;
-    background-color: #007bff;
     border-color: #007bff;
+    background-color: #007bff;
 }
 
 button.gui-button-primary:hover {
     color: #fff;
-    background-color: #0069d9;
     border-color: #0062cc;
+    background-color: #0069d9;
 }
 
 button.gui-button-primary:focus,
@@ -121,10 +155,10 @@ button.gui-button-primary.focus {
 
 button.gui-button-primary.disabled,
 button.gui-button-primary:disabled {
-    opacity: 0.65;
     color: #fff;
-    background-color: #6c757d;
     border-color: #6c757d;
+    background-color: #6c757d;
+    opacity: 0.65;
 }
 
 a:link,
@@ -141,15 +175,15 @@ a:hover {
 
 .gui-input {
     display: inline-block;
-    padding: 2px 15px;
     height: 30px;
+    padding: 2px 15px;
+    color: #495057;
     font-weight: 400;
     line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 15px;
+    background-color: #fff;
+    background-clip: padding-box;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -159,8 +193,8 @@ a:hover {
 
 .gui-input:focus {
     color: #495057;
-    background-color: #fff;
     border-color: #80bdff;
+    background-color: #fff;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
@@ -175,13 +209,13 @@ a:hover {
     position: absolute;
     top: 7px;
     left: -20px;
+    content: "";
     display: block;
     width: 16px;
     height: 16px;
-    pointer-events: none;
-    content: "";
-    background-color: #fff;
     border: #adb5bd solid 1px;
+    background-color: #fff;
+    pointer-events: none;
 }
 
 .gui-checkbox .gui-control-label::before {
@@ -208,11 +242,11 @@ a:hover {
 
 .gui-control-label {
     position: relative;
-    margin-bottom: 0;
-    vertical-align: top;
-    height: 30px;
     display: inline-block;
+    height: 30px;
+    margin-bottom: 0;
     white-space: nowrap;
+    vertical-align: top;
 }
 
 .gui-control-input:disabled ~ .gui-control-label {
@@ -221,29 +255,29 @@ a:hover {
 
 .gui-control-input:not(:disabled):active ~ .gui-control-label::before {
     color: #fff;
-    background-color: #b3d7ff;
     border-color: #b3d7ff;
+    background-color: #b3d7ff;
 }
 
 .gui-control-label::after {
     position: absolute;
     top: 7px;
     left: -20px;
+    content: "";
     display: block;
     width: 16px;
     height: 16px;
-    content: "";
-    background-position: center center;
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: 10px 10px;
     background-clip: border-box;
 }
 
 .gui-checkbox {
     display: inline-block;
-    padding-left: 22px;
-    padding-right: 2px;
     height: 30px;
+    padding-right: 2px;
+    padding-left: 22px;
     line-height: 30px;
 }
 
@@ -285,16 +319,16 @@ gui-tooltip
 
 .gui-tooltip {
     position: absolute;
-    color: #fff;
-    background-color: #333;
     z-index: 10001;
-    word-wrap: break-word;
-    margin: 0;
-    border-radius: 5px;
     max-width: 200px;
     max-height: 500px;
-    text-overflow: ellipsis;
+    margin: 0;
     padding: 5px 10px;
+    color: #fff;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    border-radius: 5px;
+    background-color: #333;
     opacity: 0;
     transition: opacity 0.5s;
 }
@@ -303,13 +337,13 @@ gui-tooltip
     position: absolute;
     top: 100%;
     left: 50%;
-    margin-left: -5px;
+    content: "";
     width: 10px;
     height: 5px;
-    content: "";
+    margin-left: -5px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 5'%3e%3cpath fill='%23333333' d='M0,0 L5,5 L10,0z'/%3e%3c/svg%3e");
     opacity: 0;
     transition: opacity 0.5s;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 5'%3e%3cpath fill='%23333333' d='M0,0 L5,5 L10,0z'/%3e%3c/svg%3e");
 }
 
 .gui-tooltip.gui-tooltip-down::after {
@@ -358,16 +392,16 @@ gui-flex
 }
 
 .gui-flex-row {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
-    position: relative;
 }
 
 .gui-flex-column {
+    position: relative;
     display: flex;
     flex-direction: column;
-    position: relative;
 }
 
 .gui-flex-auto {
@@ -399,14 +433,14 @@ gui-container
 }
 
 .gui-dragger {
-    background: #888;
+    position: absolute;
+    top: -3px;
+    z-index: 10000;
     width: 100%;
     height: 5px;
+    background: #888;
     cursor: ns-resize;
     opacity: 0;
-    position: absolute;
-    z-index: 10000;
-    top: -3px;
 }
 
 .gui-dragger:hover {
@@ -418,23 +452,23 @@ gui-container
 }
 
 .gui-title-icon-list {
+    padding-right: 10px;
     padding-left: 30px;
+    font-weight: bold;
     background-image: url("images/list.svg");
     background-repeat: no-repeat;
     background-position: 7px center;
     background-size: 16px 16px;
-    padding-right: 10px;
-    font-weight: bold;
 }
 
 .gui-title-icon-open {
+    padding-right: 8px;
     padding-left: 25px;
+    font-weight: bold;
     background-image: url("images/open.svg");
     background-repeat: no-repeat;
     background-position: 2px center;
     background-size: 18px 18px;
-    padding-right: 8px;
-    font-weight: bold;
 }
 
 /*
@@ -443,14 +477,14 @@ gui-output
 
 .gui-output {
     position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
     width: 100%;
     height: 100%;
-    color: #eee8d5;
-    background: #073642;
     margin: 0;
     padding: 0;
+    color: #eee8d5;
+    background: #073642;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .gui-output a:link,
@@ -465,10 +499,10 @@ gui-output
 
 .gui-output-content {
     position: relative;
-    font-weight: 100;
-    font-family: Menlo, Consolas;
-    font-size: 14px;
     padding: 5px;
+    font-weight: 100;
+    font-size: 14px;
+    font-family: Menlo, Consolas;
 }
 
 .gui-output-line {
@@ -486,77 +520,43 @@ gui loading
 
 .gui-output-loading {
     position: relative;
-    pointer-events: none;
+    display: none;
     height: 16px;
     margin: 0 5px 5px;
     overflow: hidden;
-    display: none;
+    pointer-events: none;
 }
 
 .gui-output-loading::after {
-    display: block;
-    opacity: 0.8;
-    width: 16px;
-    height: 16px;
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    animation: 1s gui-output-loading linear infinite;
+    content: "";
+    display: block;
+    width: 16px;
+    height: 16px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath d='M1,8 A7 7 0 1 1 8 15' stroke='%23fff' stroke-width='2' stroke-linecap='round' fill='none' /%3e%3c/svg%3e");
-}
-
-@keyframes gui-output-loading {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    opacity: 0.8;
+    animation: 1s gui-output-loading linear infinite;
 }
 
 .gui-button-loading {
+    position: relative;
     color: #008000;
     border-color: #008000;
-    animation: gui-button-loading 2s linear infinite;
-    position: relative;
     overflow: hidden;
+    animation: gui-button-loading 2s linear infinite;
 }
 
 .gui-button-loading::after {
     position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
     width: 500px;
     height: 100%;
-    left: 0;
-    top: 0;
-    content: "";
     background-image: repeating-linear-gradient(-45deg, rgb(0 128 0 / 30%), rgb(0 128 0 / 30%) 10px, transparent 10px, transparent 15px);
     animation: gui-button-loading-bg 3s linear infinite;
-}
-
-@keyframes gui-button-loading {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes gui-button-loading-bg {
-    0% {
-        left: 0;
-    }
-
-    100% {
-        left: -100px;
-    }
 }
 
 /*
@@ -564,65 +564,65 @@ gui-head
 */
 
 .gui-head {
-    background: #dee1e6;
+    position: relative;
+    z-index: 10;
     width: 100%;
     height: 40px;
-    position: relative;
     border-top: 1px solid #fff;
-    z-index: 10;
+    background: #dee1e6;
 }
 
 .gui-tab {
     position: relative;
+    align-items: flex-end;
     height: 100%;
     margin-left: 10px;
-    align-items: flex-end;
 }
 
 .gui-tab-item {
     position: relative;
-    padding: 0 20px;
     height: 36px;
-    line-height: 36px;
-    cursor: pointer;
+    min-width: 80px;
+    padding: 0 20px;
+    color: #002b36;
     font-weight: bold;
+    line-height: 36px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    min-width: 80px;
+    cursor: pointer;
     user-select: none;
-    color: #002b36;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .gui-tab-item:hover {
-    background-color: #ebecef;
     z-index: 2;
+    background-color: #ebecef;
 }
 
 .gui-tab-item::after {
-    background-color: #a4a7ab;
-    display: block;
     position: absolute;
     left: 100%;
     bottom: 8px;
+    content: "";
+    display: block;
     width: 1px;
     height: 20px;
-    content: "";
+    background-color: #a4a7ab;
 }
 
 .gui-tab-item:hover::before,
 .gui-tab-item:hover::after {
-    background-repeat: no-repeat;
-    background-color: transparent;
     position: absolute;
-    bottom: 0;
     left: -10px;
+    bottom: 0;
+    content: "";
     display: block;
     width: 10px;
     height: 10px;
+    background-color: transparent;
+    background-repeat: no-repeat;
     pointer-events: none;
-    content: "";
 }
 
 .gui-tab-item:hover::before {
@@ -635,26 +635,26 @@ gui-head
 }
 
 .gui-tab-item.selected {
-    background-color: #fff;
-    height: 38px;
-    line-height: 38px;
-    margin-bottom: -1px;
     position: relative;
     z-index: 3;
+    height: 38px;
+    margin-bottom: -1px;
+    line-height: 38px;
+    background-color: #fff;
 }
 
 .gui-tab-item.selected::before,
 .gui-tab-item.selected::after {
-    background-repeat: no-repeat;
-    background-color: transparent;
     position: absolute;
-    bottom: 0;
     left: -10px;
+    bottom: 0;
+    content: "";
     display: block;
     width: 10px;
     height: 10px;
+    background-color: transparent;
+    background-repeat: no-repeat;
     pointer-events: none;
-    content: "";
 }
 
 .gui-tab-item.selected::before {
@@ -672,37 +672,37 @@ gui-modal
 
 .gui-modal {
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
     z-index: 11000;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     color: #333;
 }
 
 .gui-modal::before {
     position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
     width: 100%;
     height: 100%;
-    left: 0;
-    top: 0;
-    content: "";
-    opacity: 0.3;
     background-color: #000;
+    opacity: 0.3;
 }
 
 .gui-modal-main {
     position: relative;
-    border: 1px solid #eee;
-    background-color: #fff;
-    border-radius: 10px;
+    z-index: 10;
     max-width: 90%;
     max-height: 90%;
-    z-index: 10;
     padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    background-color: #fff;
 }
 
 .gui-modal-head {
@@ -718,13 +718,13 @@ gui-modal
 }
 
 .gui-modal-close {
-    font-weight: bold;
-    color: #666;
-    padding: 0 10px;
     height: 100%;
+    padding: 0 10px;
+    color: #666;
+    font-weight: bold;
+    font-size: 20px;
     text-align: center;
     cursor: pointer;
-    font-size: 20px;
 }
 
 .gui-modal-close:hover {
@@ -773,36 +773,36 @@ gui-icon
 */
 
 .gui-tab-icon-dashboard {
+    padding-left: 40px;
     background-image: url("images/dashboard.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
-    padding-left: 40px;
 }
 
 .gui-tab-icon-tools {
+    padding-left: 40px;
     background-image: url("images/tools.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
-    padding-left: 40px;
 }
 
 .gui-tab-icon-readme {
+    padding-left: 40px;
     background-image: url("images/info.svg");
     background-repeat: no-repeat;
     background-position: 20px center;
     background-size: 16px 16px;
-    padding-left: 40px;
 }
 
 .gui-input-icon-cmd {
+    width: 200px;
     padding-left: 25px;
     background-image: url("images/terminal.svg");
     background-repeat: no-repeat;
     background-position: 7px center;
     background-size: 16px 16px;
-    width: 200px;
 }
 
 .gui-browse-icon {
@@ -836,9 +836,9 @@ gui-body
 
 .gui-body-item {
     display: none;
-    padding: 5px;
     width: 100%;
     height: 100%;
+    padding: 5px;
     overflow: hidden;
 }
 
@@ -863,8 +863,8 @@ gui-dashboard
 
 .gui-project {
     height: 100%;
-    border-right: 1px solid #ccc;
     padding-right: 5px;
+    border-right: 1px solid #ccc;
 }
 
 .gui-project-combox {
@@ -877,24 +877,24 @@ gui-dashboard
 }
 
 .gui-project-body {
-    margin-top: 5px;
     align-items: flex-start;
+    margin-top: 5px;
     overflow-y: auto;
 }
 
 .gui-project-open {
-    min-width: 30px;
     height: 30px;
-    line-height: 28px;
+    min-width: 30px;
     padding: 0 10px 0 30px;
-    cursor: pointer;
-    border-radius: 15px;
+    line-height: 28px;
+    white-space: nowrap;
     border: 1px solid #aaa;
+    border-radius: 15px;
     background-image: url("images/plus.svg");
     background-repeat: no-repeat;
     background-position: 8px center;
     background-size: 16px 16px;
-    white-space: nowrap;
+    cursor: pointer;
 }
 
 .gui-project-open:hover {
@@ -903,17 +903,17 @@ gui-dashboard
 
 .gui-project-restart {
     width: 30px;
-    min-width: 30px;
     height: 30px;
+    min-width: 30px;
     line-height: 30px;
-    cursor: pointer;
-    border-radius: 15px;
+    white-space: nowrap;
     border: 1px solid #aaa;
+    border-radius: 15px;
     background-image: url("images/restart.svg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 16px 16px;
-    white-space: nowrap;
+    cursor: pointer;
 }
 
 .gui-project-restart:hover {
@@ -947,8 +947,8 @@ gui-component
 }
 
 .gui-component-list .tg-row .gui-grid-name {
-    cursor: pointer;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .gui-component-list .tg-row .tg-checkbox .tg-icon {
@@ -973,9 +973,9 @@ gui-action
 
 .gui-action {
     position: relative;
-    overflow-y: auto;
     width: 100%;
     height: 100%;
+    overflow-y: auto;
 }
 
 .gui-action .gui-selected-names {
@@ -987,20 +987,20 @@ gui-project-branch
 */
 
 .gui-project-version {
+    padding-left: 18px;
+    color: #002b36;
     background-image: url("images/at.svg");
     background-repeat: no-repeat;
     background-position: 0 center;
     background-size: 16px 16px;
-    padding-left: 18px;
-    color: #002b36;
 }
 
 .gui-project-branch {
+    padding-left: 18px;
     background-image: url("images/branch.svg");
     background-repeat: no-repeat;
     background-position: 0 center;
     background-size: 16px 16px;
-    padding-left: 18px;
 }
 
 .gui-about a:link,
@@ -1015,29 +1015,29 @@ gui-context-menu
 .gui-context-menu {
     position: absolute;
     z-index: 100;
-    background: #fff;
+    padding: 0 2px;
     border: 1px solid #ccc;
     border-radius: 1px;
-    padding: 0 2px;
+    background: #fff;
     box-shadow: 3px 3px 5px #888;
 }
 
 .gui-context-head {
-    padding: 0 15px;
     height: 35px;
-    line-height: 35px;
+    padding: 0 15px;
     font-weight: bold;
+    line-height: 35px;
     border-bottom: 1px solid #ccc;
     cursor: default;
 }
 
 .gui-context-item {
-    padding: 0 15px;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
     position: relative;
+    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
     border-bottom: 1px solid #f5f5f5;
+    cursor: pointer;
 }
 
 .gui-context-item:hover {
@@ -1045,97 +1045,97 @@ gui-context-menu
 }
 
 .gui-style-star {
-    padding-left: 25px;
     position: relative;
+    padding-left: 25px;
 }
 
 .gui-style-star::before {
-    content: "";
     position: absolute;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-image: url("images/star.svg");
+    top: 5px;
+    left: 0;
+    content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 0;
-    top: 5px;
+    background-image: url("images/star.svg");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
 .gui-style-heart {
+    position: relative;
     padding-left: 25px;
     font-weight: bold;
-    position: relative;
 }
 
 .gui-style-heart::before {
-    content: "";
     position: absolute;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-image: url("images/heart.svg");
+    top: 6px;
+    left: 0;
+    content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 0;
-    top: 6px;
+    background-image: url("images/heart.svg");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
 .gui-style-check {
+    position: relative;
     padding-left: 25px;
     color: #008000;
-    position: relative;
 }
 
 .gui-style-check::before {
-    content: "";
     position: absolute;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-image: url("images/check.svg");
+    top: 6px;
+    left: 0;
+    content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 0;
-    top: 6px;
+    background-image: url("images/check.svg");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
 .gui-style-error {
+    position: relative;
     padding-left: 25px;
     color: #c00;
-    position: relative;
 }
 
 .gui-style-error::before {
-    content: "";
     position: absolute;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-image: url("images/error.svg");
+    top: 6px;
+    left: 0;
+    content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 0;
-    top: 6px;
+    background-image: url("images/error.svg");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
 .gui-style-question {
+    position: relative;
     padding-left: 25px;
     color: #007acc;
-    position: relative;
 }
 
 .gui-style-question::before {
-    content: "";
     position: absolute;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
-    background-image: url("images/question.svg");
+    top: 6px;
+    left: 0;
+    content: "";
     display: inline-block;
     width: 20px;
     height: 20px;
-    left: 0;
-    top: 6px;
+    background-image: url("images/question.svg");
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
 /*
@@ -1143,9 +1143,9 @@ colors
 */
 
 .inline {
+    display: inline-block;
     width: 20px;
     height: 1em;
-    display: inline-block;
 }
 
 .bold {

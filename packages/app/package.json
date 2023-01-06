@@ -1,0 +1,11 @@
+{
+    "name": "starfall-app",
+    "version": "1.0.0",
+    "main": "dist/starfall-app.js",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {},
+    "devDependencies": {},
+    "private": true
+}

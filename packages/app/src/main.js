@@ -3,6 +3,9 @@ import './main.scss';
 
 import $ from 'jquery';
 import { Grid } from 'turbogrid';
+import { io } from 'socket.io-client';
+
+
 import Util from './util.js';
 import ComBox from './combox.js';
 
@@ -38,7 +41,7 @@ Main.prototype = {
     initSocket: function() {
         this.socket_list = [];
         const self = this;
-        this.socket = window.io.connect('/');
+        this.socket = io.connect('/');
         this.socket.on('data', function(data) {
             self.socketDataHandler(data);
         });

@@ -8,8 +8,8 @@
     },
     "scripts": {
         "test": "npm run lint && npx mocha --bail",
-        "lint": "npx eslint -c .eslintrc.js lib/**/*.js test/*.js --env browser --fix --color && npx stylelint --config .stylelintrc.js lib/**/*.css --allow-empty-input --color --fix",
-        "build": "npx webpack --config lib/start/www/gui.config.js"
+        "lint": "npx eslint -c .eslintrc.js lib/**/*.js test/*.js --env browser --fix --color",
+        "build": "sf pack -o lib/start/www"
     },
     "keywords": [
         "sf",
@@ -17,7 +17,7 @@
     ],
     "license": "MIT",
     "dependencies": {
-        "@babel/core": "^7.20.7",
+        "@babel/core": "^7.20.12",
         "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
         "@babel/preset-env": "^7.20.2",
         "@babel/preset-react": "^7.18.6",
@@ -27,7 +27,7 @@
         "archiver": "^5.3.1",
         "assert": "^2.0.0",
         "axios": "^1.2.2",
-        "babel-loader": "^9.1.0",
+        "babel-loader": "^9.1.2",
         "babel-plugin-istanbul": "^6.1.1",
         "chokidar": "^3.5.3",
         "chrome-launcher": "^0.15.1",
@@ -39,7 +39,7 @@
         "diff": "^5.1.0",
         "diff2html": "^3.4.22",
         "eight-colors": "^1.0.2",
-        "esbuild": "^0.16.12",
+        "esbuild": "^0.16.14",
         "escodegen": "^2.0.0",
         "eslint": "^8.31.0",
         "eslint-config-plus": "^1.0.5",
@@ -90,6 +90,7 @@
         "shelljs": "^0.8.5",
         "socket-livereload": "^2.0.0",
         "socket.io": "^4.5.4",
+        "socket.io-client": "^4.5.4",
         "style-loader": "^3.3.1",
         "stylelint": "^14.16.1",
         "stylelint-config-plus": "^1.0.0",
