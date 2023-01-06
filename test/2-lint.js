@@ -13,7 +13,7 @@ describe(`${ID} lint`, function() {
         assert.strictEqual(fs.existsSync('packages/app/src/es-lint.js'), false);
 
         Util.editFile('packages/app/src/style-lint.css', function() {
-            return '.my-class{\nfont-size:12px;display:block\n}';
+            return '.my-class{\ndisplay:block;font-size:12px\n}';
         });
 
         Util.editFile('packages/app/src/es-lint.js', function() {
@@ -34,7 +34,7 @@ describe(`${ID} lint`, function() {
     it('check files after lint - auto format css/js', () => {
 
         const css = Util.readFileContentSync('packages/app/src/style-lint.css');
-        assert.strictEqual(css.replace(/\r?\n/g, ''), '.my-class {    font-size: 12px;    display: block;}');
+        assert.strictEqual(css.replace(/\r?\n/g, ''), '.my-class {    display: block;    font-size: 12px;}');
 
         const js = Util.readFileContentSync('packages/app/src/es-lint.js');
         assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';');
