@@ -75,7 +75,7 @@ describe(`${ID} install`, function() {
         assert.strictEqual(conf.devDependencies['invalid-dev-dependency-a'], '^1.0.1');
 
         const sh = shelljs.exec(`${ID} install -f`);
-        assert.strictEqual(sh.code, 0);
+        assert.strictEqual(sh.code, 1);
 
     });
 
