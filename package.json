@@ -1,6 +1,6 @@
 {
     "name": "starfall-cli",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "description": "Starfall CLI - Building Your Components Easier and Faster",
     "main": "./lib/cli.js",
     "bin": {
@@ -97,7 +97,7 @@
         "tar": "^6.1.13",
         "terser": "^5.16.3",
         "ts-loader": "^9.4.2",
-        "turbogrid": "^3.0.3",
+        "turbogrid": "^3.0.4",
         "vue": "^3.2.47",
         "vue-loader": "^17.0.1",
         "webpack": "^5.75.0",
