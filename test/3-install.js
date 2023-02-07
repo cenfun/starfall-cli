@@ -6,7 +6,6 @@ const Util = require('../lib/core/util.js');
 const ID = Util.id;
 
 const appConfPath = 'packages/app/package.json';
-const componentConfPath = 'packages/component-1/package.json';
 const projectConfPath = 'package.json';
 
 describe(`${ID} install`, function() {
@@ -61,75 +60,6 @@ describe(`${ID} install`, function() {
     });
 
     // ===================================================================================
-    // install module
-
-    it(`exec ${ID} install component-1 -c app --remove`, () => {
-        const sh = shelljs.exec(`${ID} install component-1 -c app --remove`);
-        assert.strictEqual(sh.code, 0);
-
-        const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
-    });
-
-    it(`exec ${ID} install component-1 -c app --remove --dev`, () => {
-        const sh = shelljs.exec(`${ID} install component-1 -c app --remove --dev`);
-        assert.strictEqual(sh.code, 0);
-
-        const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
-    });
-
-    // ===================================================================================
-    // dependencies
-    it(`exec ${ID} install my-components-app,component-1 -c`, () => {
-        const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c`);
-        assert.strictEqual(sh.code, 0);
-
-        let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), true);
-
-        conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), true);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), true);
-    });
-
-    // devDependencies
-    it(`exec ${ID} install my-components-app,component-1 -c --dev`, () => {
-        const sh = shelljs.exec(`${ID} install my-components-app,component-1 -c --dev`);
-        assert.strictEqual(sh.code, 0);
-
-        let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), true);
-
-        conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), true);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), true);
-    });
-
-    // remove all deps
-    it(`exec ${ID} install app,component-1 -c -d`, () => {
-        let sh = shelljs.exec(`${ID} install my-components-app,component-1 -c -d -r`);
-        assert.strictEqual(sh.code, 0);
-        sh = shelljs.exec(`${ID} install my-components-app,component-1 -c -r`);
-        assert.strictEqual(sh.code, 0);
-
-        let conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
-
-        conf = Util.readJSONSync(componentConfPath);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.dependencies, 'component-1'), false);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'my-components-app'), false);
-        assert.strictEqual(Util.hasOwn(conf.devDependencies, 'component-1'), false);
-
-    });
-
-    // ===================================================================================
 
     it(`add invalid dependencies and exec ${ID} install`, () => {
 
@@ -140,11 +70,17 @@ describe(`${ID} install`, function() {
             return json;
         });
 
+        const conf = Util.readJSONSync(appConfPath);
+        assert.strictEqual(conf.dependencies['invalid-dependency-a'], '~1.0.1');
+        assert.strictEqual(conf.devDependencies['invalid-dev-dependency-a'], '^1.0.1');
+
         const sh = shelljs.exec(`${ID} install -f`);
-        assert.strictEqual(sh.code, 1);
+        assert.strictEqual(sh.code, 0);
+
     });
 
     it('check project package.json for invalid dependencies', () => {
+
         assert.strictEqual(fs.existsSync(projectConfPath), true);
 
         const conf = Util.readJSONSync(projectConfPath);

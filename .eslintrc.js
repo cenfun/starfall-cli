@@ -22,7 +22,7 @@ module.exports = {
         'sonarjs',
         'chain',
         'vue',
-        'react',
+        // 'react',
         'html'
     ],
 
@@ -30,7 +30,7 @@ module.exports = {
         'plugin:sonarjs/recommended',
         'plugin:chain/recommended',
         'plugin:vue/recommended',
-        'plugin:react/recommended',
+        // 'plugin:react/recommended',
         'plus'
     ],
 

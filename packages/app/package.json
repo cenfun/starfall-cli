@@ -1,16 +1,16 @@
 {
     "name": "starfall-app",
-    "version": "1.0.0",
+    "version": "2.0.4",
     "main": "dist/starfall-app.js",
+    "browser": {
+        "starfall-app-css": "dist/starfall-app.css",
+        "starfall-app": "dist/starfall-app.js"
+    },
     "files": [
         "dist"
     ],
     "dependencies": {},
     "devDependencies": {},
     "private": true,
-    "cssExtract": true,
-    "browser": {
-        "starfall-app-css": "dist/starfall-app.css",
-        "starfall-app": "dist/starfall-app.js"
-    }
+    "cssExtract": true
 }

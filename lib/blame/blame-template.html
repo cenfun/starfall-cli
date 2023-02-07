@@ -7,11 +7,11 @@
     <style>
         html,
         body {
-            font-family: Helvetica, Arial, sans-serif;
-            height: 100%;
             width: 100%;
-            padding: 0;
+            height: 100%;
             margin: 0;
+            padding: 0;
+            font-family: Helvetica, Arial, sans-serif;
         }
 
         .flex-column {
@@ -44,10 +44,10 @@
         }
 
         .title {
-            font-size: 18px;
             padding: 5px;
-            background: #f5f5f5;
+            font-size: 18px;
             border-bottom: 1px solid #ccc;
+            background: #f5f5f5;
         }
 
         .toolbar {
@@ -69,9 +69,9 @@
         .grid {
             position: absolute;
             top: 5px;
-            right: 5px;
-            bottom: 5px;
             left: 5px;
+            bottom: 5px;
+            right: 5px;
         }
 
         .grid .tg-row .tg-column-group-name {
@@ -79,8 +79,8 @@
         }
 
         .grid .tg-pane .bg-gray {
-            background-color: #eee;
             border-right: 1px solid #fff;
+            background-color: #eee;
         }
 
         .grid .tg-pane .border-right {
@@ -118,8 +118,8 @@
         </div>
     </div>
     <script>
-        /*inject:start*/
-        /*inject:end*/
+        /* inject:start*/
+        /* inject:end*/
 
     </script>
     <script>
@@ -199,7 +199,7 @@
 
         };
 
-        //=======================================================================================================================================
+        // =======================================================================================================================================
 
         const renderGrid = function(gitBlameData) {
             const dateRangeId = $('.date-range').value;
@@ -247,7 +247,7 @@
 
         const renderGroupList = function(gitBlameData) {
             const gb = $('.group-by').value;
-            //console.log(gb);
+            // console.log(gb);
             const dateRange = gitBlameData.dateRangeList[0];
             const glList = [];
             let data = dateRange.authorData;
@@ -318,7 +318,7 @@
                 }
                 console.log(selectedRows);
                 selectedRows.split(',').forEach((item) => {
-                    //console.log(item);
+                    // console.log(item);
                     const row = grid.getRowItemBy('name', item);
                     if (row) {
                         grid.setRowSelected(row.tg_index);

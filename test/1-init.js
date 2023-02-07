@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert');
 const shelljs = require('shelljs');
+const EC = require('eight-colors');
 
 const Util = require('../lib/core/util.js');
 const ID = Util.id;
@@ -18,15 +19,17 @@ describe(`${ID} init`, function() {
         // create .temp folder for test
         if (fs.existsSync(tempPath)) {
             shelljs.rm('-rf', tempPath);
+            EC.logGreen(`removed previous .temp: ${tempPath}`);
         }
-        console.log('create .temp folder for test');
+
         shelljs.mkdir('-p', tempPath);
+        EC.logGreen('created .temp folder for test');
 
         console.log('go to .temp folder');
         shelljs.cd(tempPath);
 
-        console.log('create project folder');
         shelljs.mkdir('-p', 'my-components');
+        EC.logGreen('created project folder');
 
         console.log('go to my-components folder');
         shelljs.cd('my-components');
