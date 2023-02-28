@@ -123,6 +123,10 @@ module.exports = {
                 dependencies: {},
                 main: (mode) => (mode === 'production' ? 'dist/vue.runtime.global.prod.js' : 'dist/vue.runtime.global.js')
             },
+            'vue-router': {
+                dependencies: {},
+                main: (mode) => (mode === 'production' ? 'dist/vue-router.global.prod.js' : 'dist/vue-router.global.js')
+            },
             'react': {
                 dependencies: {},
                 main: (mode) => (mode === 'production' ? 'umd/react.production.min.js' : 'umd/react.development.js')
