@@ -32,6 +32,7 @@
         "chokidar": "^3.5.3",
         "chrome-launcher": "^0.15.1",
         "commander": "^10.0.0",
+        "commander-help": "^1.0.0",
         "console-grid": "^2.0.1",
         "css-loader": "^6.7.3",
         "css-minimizer-webpack-plugin": "^4.2.2",
