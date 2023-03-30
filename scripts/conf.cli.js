@@ -165,6 +165,7 @@ module.exports = {
         },
 
         vendors: ['vendor', 'bundle', 'app'],
+        safeModules: [],
 
         alias: {
 
