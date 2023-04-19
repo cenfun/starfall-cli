@@ -1,6 +1,7 @@
 {
     "name": "starfall-app",
     "version": "2.0.5",
+    "private": true,
     "main": "dist/starfall-app.js",
     "browser": {
         "starfall-app-css": "dist/starfall-app.css",
@@ -12,6 +13,5 @@
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {},
-    "private": true,
     "cssExtract": true
 }
