@@ -33,10 +33,10 @@ describe(`${ID} lint`, function() {
 
     it('check files after lint - auto format css/js', () => {
 
-        const css = Util.readFileContentSync('packages/app/src/style-lint.css');
+        const css = Util.readFileSync('packages/app/src/style-lint.css');
         assert.strictEqual(css.replace(/\r?\n/g, ''), '.my-class {    display: block;    font-size: 12px;}');
 
-        const js = Util.readFileContentSync('packages/app/src/es-lint.js');
+        const js = Util.readFileSync('packages/app/src/es-lint.js');
         assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';');
 
 
@@ -53,7 +53,7 @@ describe(`${ID} lint`, function() {
 
     it('check files after lint - auto format css/js', () => {
 
-        const js = Util.readFileContentSync('packages/app/src/es-lint.js');
+        const js = Util.readFileSync('packages/app/src/es-lint.js');
         assert.strictEqual(js.replace(/\r?\n/g, ''), 'const a = 1;const b = \'2\';console.log(a + b);');
 
     });
