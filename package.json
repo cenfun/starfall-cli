@@ -9,7 +9,8 @@
     "scripts": {
         "test": "npm run lint && npx mocha --bail",
         "lint": "npx eslint -c .eslintrc.js lib/**/*.js test/*.js --env browser --fix --color",
-        "build": "sf pack -o lib/start/www"
+        "build": "sf pack -o lib/start/www",
+        "patch": "npm run test && sf publish patch -r"
     },
     "keywords": [
         "sf",
