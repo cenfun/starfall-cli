@@ -32,7 +32,7 @@ module.exports = {
 
     outdate: {
         exclude: [
-            'inquirer'
+
         ]
     },
 
