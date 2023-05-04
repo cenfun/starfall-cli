@@ -32,10 +32,7 @@ module.exports = {
 
     outdate: {
         exclude: [
-            'inquirer',
-            'open'
-            // vue-loader": "^15.9.8 for vue2
-            // 'vue-loader'
+            'inquirer'
         ]
     },
 
