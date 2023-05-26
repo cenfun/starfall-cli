@@ -36,12 +36,6 @@ module.exports = {
         ]
     },
 
-    audit: {
-        lighthouseConfig: {
-            extends: 'lighthouse:default'
-        }
-    },
-
     blame: {
         authorAlias: {
 
