@@ -70,20 +70,6 @@ module.exports = {
 
         // ========================================================================
 
-        rules.push({
-            test: /\.tsx?$/,
-            use: [{
-                loader: 'ts-loader',
-                options: {
-                    transpileOnly: true,
-                    allowTsInNodeModules: true,
-                    configFile: `${option.root}/tsconfig.json`
-                }
-            }]
-        });
-
-        // ========================================================================
-
         const styleLoader = {
             loader: 'style-loader',
             options: {
