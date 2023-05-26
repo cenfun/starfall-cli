@@ -101,8 +101,8 @@ describe(`${ID} install`, function() {
             // remove invalid first
             delete json.dependencies['invalid-dependency-a'];
             delete json.devDependencies['invalid-dev-dependency-a'];
-            json.dependencies['my-components-component-1'] = '2.0.1';
-            json.devDependencies['my-components-component-1'] = '2.0.1';
+            json.dependencies['my-component-1'] = '2.0.1';
+            json.devDependencies['my-component-1'] = '2.0.1';
             // console.log(json);
             return json;
         });
@@ -119,8 +119,8 @@ describe(`${ID} install`, function() {
     it('check component formatted dependencies', () => {
 
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies['my-components-component-1'], '');
-        assert.strictEqual(conf.devDependencies['my-components-component-1'], '');
+        assert.strictEqual(conf.dependencies['my-component-1'], '');
+        assert.strictEqual(conf.devDependencies['my-component-1'], '');
 
     });
 
@@ -134,10 +134,10 @@ describe(`${ID} install`, function() {
     });
 
     it('check link module for internal', () => {
-        const internalModulePath = 'node_modules/my-components-component-1';
+        const internalModulePath = 'node_modules/my-component-1';
         assert.strictEqual(fs.existsSync(internalModulePath), true);
         const conf = Util.readJSONSync(`${internalModulePath}/package.json`);
-        assert.ok(conf.name, 'my-components-component-1');
+        assert.ok(conf.name, 'my-component-1');
     });
 
 

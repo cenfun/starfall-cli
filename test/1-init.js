@@ -80,8 +80,8 @@ describe(`${ID} init`, function() {
         const conf = Util.readJSONSync('packages/app/package.json');
         assert.ok(conf);
         // added prefix
-        assert.strictEqual(conf.name, 'my-components-app');
-        assert.strictEqual(conf.main, 'dist/my-components-app.js');
+        assert.strictEqual(conf.name, 'my-app');
+        assert.strictEqual(conf.main, 'dist/my-app.js');
         assert.ok(conf.dependencies);
     });
 
@@ -101,8 +101,8 @@ describe(`${ID} init`, function() {
     it('check component-1 package.json', () => {
         const conf = Util.readJSONSync('packages/component-1/package.json');
         assert.ok(conf);
-        assert.strictEqual(conf.name, 'my-components-component-1');
-        assert.strictEqual(conf.main, 'dist/my-components-component-1.js');
+        assert.strictEqual(conf.name, 'my-component-1');
+        assert.strictEqual(conf.main, 'dist/my-component-1.js');
         assert.ok(conf.dependencies);
     });
 

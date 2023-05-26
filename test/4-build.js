@@ -66,8 +66,8 @@ describe(`${ID} build`, function() {
 
     it('check component dist folder and build js', () => {
         assert.strictEqual(fs.existsSync('packages/app/dist'), true);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), true);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
+        assert.strictEqual(fs.existsSync('packages/app/dist/my-app.js'), true);
+        assert.strictEqual(fs.existsSync('packages/app/dist/my-app.js.map'), true);
     });
 
     it(`exec ${ID} build app -p`, () => {
@@ -76,8 +76,8 @@ describe(`${ID} build`, function() {
     });
 
     it('check component build folder and build js', () => {
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js'), true);
-        assert.strictEqual(fs.existsSync('packages/app/dist/my-components-app.js.map'), true);
+        assert.strictEqual(fs.existsSync('packages/app/dist/my-app.js'), true);
+        assert.strictEqual(fs.existsSync('packages/app/dist/my-app.js.map'), true);
     });
 
     it('check component inject content app', () => {
@@ -85,8 +85,8 @@ describe(`${ID} build`, function() {
         console.log(`inject content app: [${contentApp}]`);
 
         const arrApp = contentApp.split('\n');
-        assert.strictEqual(arrApp[0].trim(), '<script src="../../../node_modules/my-components-component-1/dist/my-components-component-1.js"></script>');
-        assert.strictEqual(arrApp[1].trim(), '<script src="../dist/my-components-app.js"></script>');
+        assert.strictEqual(arrApp[0].trim(), '<script src="../../../node_modules/my-component-1/dist/my-component-1.js"></script>');
+        assert.strictEqual(arrApp[1].trim(), '<script src="../dist/my-app.js"></script>');
 
     });
 
@@ -97,15 +97,15 @@ describe(`${ID} build`, function() {
     });
 
     it('check component-1 build folder and build js', () => {
-        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.js'), true);
-        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-components-component-1.js.map'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-component-1.js'), true);
+        assert.strictEqual(fs.existsSync('packages/component-1/dist/my-component-1.js.map'), true);
     });
 
     it('check component inject content component-1', () => {
         const contentComponent1 = getInjectContent('component-1');
         console.log(`inject content component-1: [${contentComponent1}]`);
         // no dependencies
-        assert.strictEqual(contentComponent1, '<script src="../dist/my-components-component-1.js"></script>');
+        assert.strictEqual(contentComponent1, '<script src="../dist/my-component-1.js"></script>');
     });
 
 });

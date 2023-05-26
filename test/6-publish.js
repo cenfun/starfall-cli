@@ -21,7 +21,7 @@ describe(`${ID} publish`, function() {
 
         const confApp = Util.readJSONSync('packages/app/package.json');
         assert.strictEqual(confApp.version, '1.0.1');
-        assert.ok(confApp.dependencies['my-components-component-1'], '~1.0.1');
+        assert.ok(confApp.dependencies['my-component-1'], '~1.0.1');
 
         const confComponent1 = Util.readJSONSync('packages/component-1/package.json');
         assert.strictEqual(confComponent1.version, '1.0.1');
@@ -43,7 +43,7 @@ describe(`${ID} publish`, function() {
 
         const confApp = Util.readJSONSync('packages/app/package.json');
         assert.strictEqual(confApp.version, '1.1.0');
-        assert.ok(confApp.dependencies['my-components-component-1'], '~1.1.0');
+        assert.ok(confApp.dependencies['my-component-1'], '~1.1.0');
 
         const confComponent1 = Util.readJSONSync('packages/component-1/package.json');
         assert.strictEqual(confComponent1.version, '1.1.0');
