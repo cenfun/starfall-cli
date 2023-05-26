@@ -204,6 +204,7 @@ module.exports = {
                         extractComments: false
                     }),
                     new CssMinimizerPlugin({
+                        minify: CssMinimizerPlugin.lightningCssMinify,
                         minimizerOptions: {
                             preset: ['default', {
                                 discardComments: {
