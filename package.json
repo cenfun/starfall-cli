@@ -65,7 +65,6 @@
         "koa-bodyparser": "^4.4.0",
         "koa-connect": "^2.1.0",
         "koa-static-resolver": "^1.0.4",
-        "lz-loader": "^1.0.5",
         "marked": "^5.0.2",
         "mini-css-extract-plugin": "^2.7.6",
         "mocha": "^10.2.0",

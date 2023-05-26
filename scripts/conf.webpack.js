@@ -92,14 +92,6 @@ module.exports = {
             }
         };
 
-        // const lzLoader = {
-        //     loader: "lz-loader",
-        //     options: {
-        //         esModule: option.esModule,
-        //         compressor: "css-loader"
-        //     }
-        // };
-
         rules.push({
             test: /\.css$/,
             use: [styleLoader, cssLoader]
