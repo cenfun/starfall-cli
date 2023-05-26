@@ -50,7 +50,6 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-sonarjs": "^0.19.0",
         "eslint-plugin-vue": "^9.14.1",
-        "fkill": "^8.1.0",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.1",
         "github-markdown-css": "^5.2.0",
