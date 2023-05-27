@@ -81,7 +81,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
 ```bash
 sf init
 sf add component-name
-sf install jquery -c component-name
+sf install
 sf build
 sf test
 ```

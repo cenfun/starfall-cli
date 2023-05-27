@@ -35,8 +35,6 @@
         "console-grid": "^2.0.1",
         "css-loader": "^6.7.4",
         "css-minimizer-webpack-plugin": "^5.0.0",
-        "diff": "^5.1.0",
-        "diff2html": "^3.4.35",
         "eight-colors": "^1.0.3",
         "esbuild": "^0.17.19",
         "eslint": "^8.41.0",
@@ -44,7 +42,6 @@
         "eslint-plugin-html": "^7.1.0",
         "eslint-plugin-react": "^7.32.2",
         "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-sonarjs": "^0.19.0",
         "eslint-plugin-vue": "^9.14.1",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.1",
@@ -55,8 +52,6 @@
         "istanbul-lib-coverage": "^3.2.0",
         "istanbul-lib-report": "^3.0.0",
         "istanbul-reports": "^3.1.5",
-        "jquery": "^3.7.0",
-        "js-beautify": "^1.14.7",
         "koa": "^2.14.2",
         "koa-bodyparser": "^4.4.0",
         "koa-connect": "^2.1.0",
@@ -82,7 +77,6 @@
         "style-loader": "^3.3.3",
         "stylelint": "^15.6.2",
         "stylelint-config-plus": "^1.0.3",
-        "tar": "^6.1.15",
         "terser": "^5.17.6",
         "turbogrid": "^3.0.7",
         "vue": "^3.3.4",
@@ -91,6 +85,7 @@
         "webpack-stats-report": "^2.0.4"
     },
     "devDependencies": {
+        "jquery": "^3.7.0",
         "webpack-cli": "^5.1.1"
     },
     "engines": {
