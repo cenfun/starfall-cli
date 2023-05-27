@@ -44,7 +44,6 @@
         "eslint-plugin-vue": "^9.14.1",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.1",
-        "github-markdown-css": "^5.2.0",
         "http-proxy-middleware": "^2.0.6",
         "ignore": "^5.2.4",
         "inquirer": "^9.2.6",
@@ -72,7 +71,6 @@
         "shelljs": "^0.8.5",
         "socket-livereload": "^2.0.0",
         "socket.io": "^4.6.1",
-        "socket.io-client": "^4.6.1",
         "style-loader": "^3.3.3",
         "stylelint": "^15.6.2",
         "stylelint-config-plus": "^1.0.3",
@@ -84,7 +82,9 @@
         "webpack-stats-report": "^2.0.4"
     },
     "devDependencies": {
+        "github-markdown-css": "^5.2.0",
         "jquery": "^3.7.0",
+        "socket.io-client": "^4.6.1",
         "webpack-cli": "^5.1.1"
     },
     "engines": {
