@@ -5,6 +5,7 @@
     "files": [
         "cli-build-path"
     ],
+    "license": "MIT",
     "dependencies": {},
     "devDependencies": {}
 }
