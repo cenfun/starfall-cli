@@ -12,6 +12,10 @@
     ],
     "license": "MIT",
     "dependencies": {},
-    "devDependencies": {},
+    "devDependencies": {
+        "github-markdown-css": "^5.4.0",
+        "jquery": "^3.7.1",
+        "socket.io-client": "^4.7.2"
+    },
     "cssExtract": true
 }
