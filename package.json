@@ -12,17 +12,17 @@
         "build": "sf pack -o lib/start/www",
         "patch": "npm run test && sf publish patch -r"
     },
+    "workspaces": [
+        "packages/*"
+    ],
     "keywords": [
         "sf",
         "cli"
     ],
-    "workspaces": [
-        "packages/*"
-    ],
     "license": "MIT",
     "dependencies": {
-        "@babel/core": "^7.23.5",
-        "@babel/preset-env": "^7.23.5",
+        "@babel/core": "^7.23.6",
+        "@babel/preset-env": "^7.23.6",
         "@babel/preset-react": "^7.23.3",
         "@babel/preset-typescript": "^7.23.3",
         "@koa/router": "^12.0.1",
@@ -38,8 +38,8 @@
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",
         "eight-colors": "^1.0.3",
-        "esbuild": "^0.19.8",
-        "eslint": "^8.55.0",
+        "esbuild": "^0.19.10",
+        "eslint": "^8.56.0",
         "eslint-config-plus": "^1.0.6",
         "eslint-plugin-html": "^7.1.0",
         "eslint-plugin-react": "^7.33.2",
@@ -47,6 +47,7 @@
         "eslint-plugin-vue": "^9.19.2",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.1",
+        "glob": "^10.3.10",
         "http-proxy-middleware": "^2.0.6",
         "ignore": "^5.3.0",
         "inquirer": "^9.2.12",
@@ -58,13 +59,13 @@
         "koa-connect": "^2.1.0",
         "koa-static-resolver": "^1.0.4",
         "lightningcss": "^1.22.1",
-        "marked": "^11.0.0",
+        "marked": "^11.1.0",
         "mini-css-extract-plugin": "^2.7.6",
         "mocha": "^10.2.0",
         "mouse-helper": "^1.0.7",
         "multi-process-worker": "^2.0.7",
-        "nmls": "^4.0.1",
-        "open": "^9.1.0",
+        "nmls": "^4.0.2",
+        "open": "^10.0.0",
         "playwright": "^1.40.1",
         "process": "^0.11.10",
         "rc": "^1.2.8",
@@ -77,13 +78,12 @@
         "style-loader": "^3.3.3",
         "stylelint": "^15.11.0",
         "stylelint-config-plus": "^1.0.4",
-        "terser": "^5.24.0",
-        "turbogrid": "^3.0.10",
-        "vue": "^3.3.9",
+        "terser": "^5.26.0",
+        "turbogrid": "^3.0.12",
+        "vue": "^3.3.13",
         "vue-loader": "^17.3.1",
         "webpack": "^5.89.0",
         "webpack-cli": "^5.1.4",
         "webpack-stats-report": "^2.0.6"
-    },
-    "devDependencies": {}
+    }
 }
