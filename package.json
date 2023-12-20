@@ -13,7 +13,8 @@
         "patch": "npm run test && sf publish patch -r"
     },
     "workspaces": [
-        "packages/*"
+        "packages/*",
+        "lib/init/template"
     ],
     "keywords": [
         "sf",
