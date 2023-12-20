@@ -101,8 +101,8 @@ describe(`${ID} install`, function() {
             // remove invalid first
             delete json.dependencies['invalid-dependency-a'];
             delete json.devDependencies['invalid-dev-dependency-a'];
-            json.dependencies['my-component-1'] = '2.0.1';
-            json.devDependencies['my-component-1'] = '2.0.1';
+            json.dependencies['my-component-1'] = '1.0.0';
+            json.devDependencies['my-component-1'] = '1.0.0';
             // console.log(json);
             return json;
         });
@@ -119,8 +119,8 @@ describe(`${ID} install`, function() {
     it('check component formatted dependencies', () => {
 
         const conf = Util.readJSONSync(appConfPath);
-        assert.strictEqual(conf.dependencies['my-component-1'], '');
-        assert.strictEqual(conf.devDependencies['my-component-1'], '');
+        assert.strictEqual(conf.dependencies['my-component-1'], '1.0.0');
+        assert.strictEqual(conf.devDependencies['my-component-1'], '1.0.0');
 
     });
 

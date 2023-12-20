@@ -1,6 +1,6 @@
 {
     "name": "cli-component-name",
-    "version": "",
+    "version": "1.0.0",
     "main": "cli-build-path/cli-component-name.js",
     "files": [
         "cli-build-path"

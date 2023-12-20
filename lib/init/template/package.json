@@ -1,7 +1,7 @@
 {
-    "name": "{projectName}",
+    "name": "starfall-components-template",
     "version": "1.0.0",
-    "description": "{projectName}",
+    "description": "starfall-components-template",
     "main": "",
     "scripts": {
         "build": "sf lint && sf b -p",
@@ -12,7 +12,7 @@
         "packages/*"
     ],
     "keywords": [
-        "{projectName}"
+        "starfall-components-template"
     ],
     "license": "MIT",
     "dependencies": {},
