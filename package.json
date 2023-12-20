@@ -16,6 +16,9 @@
         "sf",
         "cli"
     ],
+    "workspaces": [
+        "packages/*"
+    ],
     "license": "MIT",
     "dependencies": {
         "@babel/core": "^7.23.5",
