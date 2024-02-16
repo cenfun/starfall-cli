@@ -60,6 +60,7 @@ module.exports = {
     },
 
     test: {
+        // istanbul or v8
         coverageProvider: 'istanbul',
         coverageOptions: {},
         mocha: {
