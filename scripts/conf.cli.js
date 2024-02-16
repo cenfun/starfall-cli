@@ -60,6 +60,8 @@ module.exports = {
     },
 
     test: {
+        coverageProvider: 'istanbul',
+        coverageOptions: {},
         mocha: {
             timeout: 60 * 1000
         }
