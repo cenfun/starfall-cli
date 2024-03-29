@@ -27,7 +27,7 @@ module.exports = {
     },
 
     clean: {
-        exclude: []
+        exclude: ['.env']
     },
 
     outdate: {
