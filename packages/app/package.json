@@ -1,6 +1,6 @@
 {
     "name": "starfall-app",
-    "version": "2.0.16",
+    "version": "2.0.17",
     "private": true,
     "main": "dist/starfall-app.js",
     "browser": {
