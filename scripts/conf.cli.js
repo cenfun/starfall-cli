@@ -27,7 +27,7 @@ module.exports = {
     },
 
     clean: {
-        exclude: ['.env']
+        exclude: ['.env', '.ssh', 'id_rsa']
     },
 
     outdate: {
