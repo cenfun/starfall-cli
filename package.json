@@ -8,7 +8,7 @@
     },
     "scripts": {
         "test": "npm run lint && npx mocha --bail",
-        "lint": "npx eslint -c .eslintrc.js lib/**/*.js test/*.js --env browser --fix --color",
+        "lint": "npx eslint -c eslint.config.js --fix --color",
         "build": "sf pack -o lib/start/www",
         "patch": "npm run test && sf publish patch -r"
     },
@@ -41,7 +41,7 @@
         "eight-colors": "^1.3.0",
         "esbuild": "^0.20.2",
         "esbuild-metadata-report": "^1.0.3",
-        "eslint": "^8.57.0",
+        "eslint": "^9.1.1",
         "eslint-config-plus": "^1.0.6",
         "eslint-plugin-html": "^8.1.1",
         "eslint-plugin-react": "^7.34.1",
@@ -69,7 +69,7 @@
         "playwright": "^1.43.1",
         "process": "^0.11.10",
         "rc": "^1.2.8",
-        "sass": "^1.75.0",
+        "sass": "^1.76.0",
         "sass-loader": "^14.2.1",
         "semver": "^7.6.0",
         "shelljs": "^0.8.5",

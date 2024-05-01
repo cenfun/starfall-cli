@@ -1026,7 +1026,6 @@ Main.prototype = {
     },
 
     // ===================================================================================
-    /* eslint-disable max-statements,complexity */
     bindEvents: function() {
 
         this.terminalComBoxHandler();
@@ -1141,7 +1140,6 @@ Main.prototype = {
 
         return this;
     },
-    /* eslint-enable */
 
     // ===================================================================================
 

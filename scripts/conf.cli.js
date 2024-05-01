@@ -33,7 +33,7 @@ module.exports = {
     outdate: {
         exclude: [
             // 'stylelint'
-            'eslint'
+            // 'eslint'
         ]
     },
 

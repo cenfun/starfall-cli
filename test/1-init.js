@@ -43,11 +43,11 @@ describe(`${ID} init`, function() {
 
     it('check project files', () => {
         assert.strictEqual(fs.existsSync('.eslintignore'), true);
-        assert.strictEqual(fs.existsSync('.eslintrc.js'), true);
         assert.strictEqual(fs.existsSync('.gitignore'), true);
         assert.strictEqual(fs.existsSync('.npmrc'), true);
         assert.strictEqual(fs.existsSync('.stylelintignore'), true);
         assert.strictEqual(fs.existsSync('.stylelintrc.js'), true);
+        assert.strictEqual(fs.existsSync('eslint.config.js'), true);
         assert.strictEqual(fs.existsSync('package.json'), true);
         assert.strictEqual(fs.existsSync('README.md'), true);
     });

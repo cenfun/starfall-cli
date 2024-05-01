@@ -1,3 +1,3 @@
 module.exports = {
-    extends: ["stylelint-config-plus"]
+    extends: ['stylelint-config-plus']
 };

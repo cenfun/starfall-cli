@@ -112,7 +112,10 @@ button {
     background-color: #f5f5f5;
     cursor: pointer;
     user-select: none;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out;
 }
 
 .gui-version button {
@@ -184,7 +187,9 @@ a:hover {
     border-radius: 15px;
     background-color: #fff;
     background-clip: padding-box;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition:
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
 }
 
 .gui-input:hover {
@@ -290,7 +295,9 @@ a:hover {
     background-color: #0077cf;
 }
 
-.gui-checkbox .gui-control-input:not(:checked) ~ .gui-control-label:hover::before {
+.gui-checkbox
+    .gui-control-input:not(:checked)
+    ~ .gui-control-label:hover::before {
     border-color: #888;
 }
 
@@ -302,7 +309,9 @@ a:hover {
     background-color: rgb(0 123 255 / 50%);
 }
 
-.gui-checkbox .gui-control-input:disabled:indeterminate ~ .gui-control-label::before {
+.gui-checkbox
+    .gui-control-input:disabled:indeterminate
+    ~ .gui-control-label::before {
     background-color: rgb(0 123 255 / 50%);
 }
 
@@ -483,8 +492,7 @@ gui-output
     padding: 0;
     color: #eee8d5;
     background: #073642;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden auto;
 }
 
 .gui-output a:link,
@@ -555,7 +563,13 @@ gui loading
     content: "";
     width: 500px;
     height: 100%;
-    background-image: repeating-linear-gradient(-45deg, rgb(0 128 0 / 30%), rgb(0 128 0 / 30%) 10px, transparent 10px, transparent 15px);
+    background-image: repeating-linear-gradient(
+        -45deg,
+        rgb(0 128 0 / 30%),
+        rgb(0 128 0 / 30%) 10px,
+        transparent 10px,
+        transparent 15px
+    );
     animation: gui-button-loading-bg 3s linear infinite;
 }
 
