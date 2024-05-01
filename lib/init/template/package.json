@@ -18,8 +18,7 @@
     "dependencies": {},
     "devDependencies": {
         "eslint": "^9.1.1",
-        "eslint-config-plus": "^1.0.6",
-        "eslint-plugin-html": "^8.1.1",
+        "eslint-config-plus": "^2.0.0",
         "stylelint": "^16.4.0",
         "stylelint-config-plus": "^1.1.0"
     }
