@@ -42,7 +42,6 @@ describe(`${ID} init`, function() {
     });
 
     it('check project files', () => {
-        assert.strictEqual(fs.existsSync('.eslintignore'), true);
         assert.strictEqual(fs.existsSync('.gitignore'), true);
         assert.strictEqual(fs.existsSync('.npmrc'), true);
         assert.strictEqual(fs.existsSync('.stylelintignore'), true);
