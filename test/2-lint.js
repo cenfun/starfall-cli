@@ -29,6 +29,9 @@ describe(`${ID} lint`, function() {
         const sh = shelljs.exec(`${ID} lint`);
         // no-unused-vars
         assert.strictEqual(sh.code, 1);
+
+        // double css lint 
+        shelljs.exec(`${ID} lint`);
     });
 
     it('check files after lint - auto format css/js', () => {
