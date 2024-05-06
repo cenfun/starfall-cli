@@ -74,7 +74,7 @@
         "socket.io": "^4.7.5",
         "style-loader": "^4.0.0",
         "stylelint": "^16.5.0",
-        "stylelint-config-plus": "^1.1.0",
+        "stylelint-config-plus": "^1.1.1",
         "terser": "^5.31.0",
         "turbogrid": "^3.0.13",
         "vue": "^3.4.26",
