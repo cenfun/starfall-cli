@@ -46,7 +46,7 @@
         "eslint-plugin-html": "^8.1.1",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.2",
-        "glob": "^10.4.2",
+        "glob": "^10.4.3",
         "http-proxy-middleware": "^3.0.0",
         "ignore": "^5.3.1",
         "inquirer": "^9.3.4",
