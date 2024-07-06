@@ -1,6 +1,6 @@
 {
     "name": "starfall-cli",
-    "version": "2.0.19",
+    "version": "2.0.20",
     "description": "Starfall CLI - Building Your Components Easier and Faster",
     "main": "./lib/cli.js",
     "bin": {
