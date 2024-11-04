@@ -15,7 +15,7 @@
     "devDependencies": {
         "github-markdown-css": "^5.7.0",
         "jquery": "^3.7.1",
-        "socket.io-client": "^4.8.0"
+        "socket.io-client": "^4.8.1"
     },
     "cssExtract": true
 }
