@@ -17,9 +17,9 @@
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
-        "eslint": "^9.15.0",
+        "eslint": "^9.21.0",
         "eslint-config-plus": "^2.0.2",
-        "stylelint": "^16.10.0",
+        "stylelint": "^16.14.1",
         "stylelint-config-plus": "^1.1.3"
     }
 }
