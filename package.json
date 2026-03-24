@@ -9,7 +9,6 @@
     "scripts": {
         "test": "mocha",
         "lint": "npx eslint -c eslint.config.js --fix --color",
-        "build": "sf pack -o lib/start/www",
         "patch": "npm run test && sf publish patch -r"
     },
     "workspaces": [
@@ -56,7 +55,6 @@
         "koa-connect": "^2.1.1",
         "koa-static-resolver": "^1.0.6",
         "lightningcss": "^1.31.1",
-        "marked": "^17.0.3",
         "mini-css-extract-plugin": "^2.10.0",
         "mocha": "^11.7.5",
         "monocart-coverage-reports": "^2.12.9",

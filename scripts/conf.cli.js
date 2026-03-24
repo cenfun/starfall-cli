@@ -12,20 +12,6 @@ module.exports = {
         apiWatch: ''
     },
 
-    start: {
-        port: 3000,
-        history: 2000,
-        tabs: [
-            // {
-            //     title: "Custom Page 1",
-            //     content: "<h1>Custom content 1</h1>"
-            // }, {
-            //     title: "Custom Page 2",
-            //     content: "<h1>Custom content 2<h2>"
-            // }
-        ]
-    },
-
     clean: {
         exclude: ['.env', '.ssh', 'id_rsa']
     },
