@@ -11,10 +11,6 @@
         "lint": "npx eslint -c eslint.config.js --fix --color",
         "patch": "npm run test && sf publish patch -r"
     },
-    "workspaces": [
-        "packages/*",
-        "lib/init/template"
-    ],
     "keywords": [
         "sf",
         "cli"

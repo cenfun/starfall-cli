@@ -76,16 +76,6 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
       test.js
   ```
 
-#### Getting start with new project (monorepos)
-
-```bash
-sf init
-sf add component-name
-sf install
-sf build
-sf test
-```
-
 ## Configuration
 Copy to project root path or use CLI default.
 
