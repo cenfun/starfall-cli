@@ -18,9 +18,6 @@
     "dependencies": {
         "@babel/core": "^7.29.0",
         "@babel/preset-env": "^7.29.2",
-        "@babel/preset-react": "^7.28.5",
-        "@babel/preset-typescript": "^7.28.5",
-        "@babel/runtime": "^7.29.2",
         "@koa/router": "^15.4.0",
         "archiver": "^7.0.1",
         "assert": "^2.1.0",
