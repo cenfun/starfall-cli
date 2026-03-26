@@ -109,22 +109,3 @@ Copy to project root path or use CLI default.
     }]
   }
   ```
-
-## Run Starfall CLI from docker
-
-First building your Starfall CLI docker image from [Dockerfile](Dockerfile):
-
-```bash
-docker build . -t cli-docker
-```
-
-Then running Starfall CLI docker image for your project:
-
-```bash
-docker run \
---rm \
---name container_sf \
---mount type=bind,source="$(pwd)",target=/project \
-cli-docker \
-bash -c "sf install && sf precommit || CODE=\$? && chmod 777 -R /project && exit \$CODE"
-```
