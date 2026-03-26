@@ -54,6 +54,7 @@
         "nmls": "^4.0.3",
         "open": "^11.0.0",
         "playwright": "^1.58.2",
+        "process": "^0.11.10",
         "rc": "^1.2.8",
         "sass": "^1.98.0",
         "sass-loader": "^16.0.7",
@@ -70,6 +71,5 @@
         "vue-loader": "^17.4.2",
         "webpack": "^5.105.4",
         "webpack-stats-report": "^2.0.6"
-    },
-    "devDependencies": {}
+    }
 }
