@@ -55,11 +55,6 @@ module.exports = {
         }
     },
 
-    precommit: {
-        gitHook: true,
-        enable: 'lint + build + test'
-    },
-
     pack: {
         // before: (item, Util) => {
         //     console.log('before pack');
