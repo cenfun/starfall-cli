@@ -35,7 +35,6 @@
         "esbuild-metadata-report": "^1.0.3",
         "eslint": "^10.1.0",
         "eslint-config-plus": "^2.0.4",
-        "eslint-plugin-html": "^8.1.4",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.2",
         "glob": "^13.0.6",
@@ -55,7 +54,6 @@
         "nmls": "^4.0.3",
         "open": "^11.0.0",
         "playwright": "^1.58.2",
-        "process": "^0.11.10",
         "rc": "^1.2.8",
         "sass": "^1.98.0",
         "sass-loader": "^16.0.7",
@@ -71,7 +69,6 @@
         "vue": "^3.5.31",
         "vue-loader": "^17.4.2",
         "webpack": "^5.105.4",
-        "webpack-cli": "^7.0.2",
         "webpack-stats-report": "^2.0.6"
     },
     "devDependencies": {}
