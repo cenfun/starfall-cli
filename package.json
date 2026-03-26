@@ -7,7 +7,6 @@
         "sf": "./lib/cli.js"
     },
     "scripts": {
-        "test": "mocha",
         "lint": "npx eslint -c eslint.config.js --fix --color",
         "patch": "npm run test && sf publish patch -r"
     },
