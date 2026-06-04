@@ -24,12 +24,6 @@ module.exports = {
         ]
     },
 
-    blame: {
-        authorAlias: {
-
-        }
-    },
-
     lint: {
         naming: {
             required: false
