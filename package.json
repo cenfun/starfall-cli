@@ -23,7 +23,6 @@
         "assert": "^2.1.0",
         "axios": "^1.13.6",
         "babel-loader": "^10.1.1",
-        "babel-plugin-istanbul": "^7.0.1",
         "chokidar": "^5.0.0",
         "commander": "^14.0.3",
         "commander-help": "^1.0.1",

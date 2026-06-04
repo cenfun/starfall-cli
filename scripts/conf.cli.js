@@ -48,8 +48,7 @@ module.exports = {
     },
 
     test: {
-        // istanbul or v8
-        coverageProvider: 'istanbul',
+        // v8 only (Playwright CDP coverage), see monocart-coverage-reports for options
         coverageOptions: {},
         mocha: {
             timeout: 60 * 1000
