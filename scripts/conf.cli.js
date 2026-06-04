@@ -18,6 +18,7 @@ module.exports = {
 
     outdate: {
         exclude: [
+            'commander'
             // 'stylelint'
             // 'eslint'
         ]
