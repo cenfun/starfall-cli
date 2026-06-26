@@ -8,7 +8,7 @@
     },
     "scripts": {
         "lint": "npx eslint -c eslint.config.js --fix --color",
-        "patch": "npm run test && sf publish patch -r"
+        "patch": "sf publish patch -r"
     },
     "keywords": [
         "sf",
