@@ -1,6 +1,6 @@
 // https://eslint.org/docs/rules/
 
-const plus = require('eslint-config-plus');
+import plus from 'eslint-config-plus';
 
 plus.files = [
     '*.js',
@@ -14,6 +14,6 @@ plus.ignores = [
 ];
 
 // https://eslint.org/docs/latest/use/configure/configuration-files
-module.exports = [
+export default [
     plus
 ];

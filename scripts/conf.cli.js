@@ -1,7 +1,7 @@
 // starfall-cli config
 // https://github.com/cenfun/starfall-cli
 
-module.exports = {
+export default {
 
     tempPath: '.temp',
 

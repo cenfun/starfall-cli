@@ -1,9 +1,12 @@
-const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+import TerserPlugin from 'terser-webpack-plugin';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
+import { createRequire } from 'module';
+
+const loadModule = createRequire(import.meta.url);
 
 // https://webpack.js.org/configuration/
 
-module.exports = {
+export default {
 
     create: function(option) {
 
@@ -22,7 +25,7 @@ module.exports = {
         // ========================================================================
         // vue loader
 
-        const VueLoaderPlugin = require(`${option.nmRoot}/node_modules/vue-loader`).VueLoaderPlugin;
+        const VueLoaderPlugin = loadModule(`${option.nmRoot}/node_modules/vue-loader`).VueLoaderPlugin;
         plugins.push(new VueLoaderPlugin());
 
         const ruleVUE = {
