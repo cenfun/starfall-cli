@@ -16,6 +16,9 @@
         "cli"
     ],
     "license": "MIT",
+    "engines": {
+        "node": ">=22.0.0"
+    },
     "dependencies": {
         "@babel/core": "^8.0.1",
         "@babel/preset-env": "^8.0.2",
@@ -35,6 +38,7 @@
         "esbuild-metadata-report": "^1.0.3",
         "eslint": "^10.8.0",
         "eslint-config-plus": "^2.0.4",
+        "execa": "^10.0.0",
         "flatdep": "^1.1.10",
         "gauge": "^5.0.2",
         "glob": "^13.0.6",
