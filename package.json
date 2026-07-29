@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "@vitejs/plugin-vue": "^6.0.8",
+        "async-tick": "^1.0.2",
         "axios": "^1.18.1",
         "commander": "^15.0.0",
         "commander-help": "^1.0.1",
@@ -28,6 +29,7 @@
         "eslint": "^10.8.0",
         "eslint-config-plus": "^2.0.4",
         "execa": "^10.0.0",
+        "find-up": "^8.0.0",
         "gauge": "^5.0.2",
         "glob": "^13.0.6",
         "ignore": "^7.0.6",

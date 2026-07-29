@@ -79,7 +79,7 @@ Starfall CLI speeds up tasks by multiprocessing on multiple CPU cores, which max
 ## Configuration
 Copy to project root path or use CLI default.
 
-* [/scripts/conf.cli.js](/scripts/conf.cli.js)
+* [/sf.config.js](/sf.config.js)
 * [/scripts/conf.webpack.js](/scripts/conf.webpack.js)
 * [/scripts/conf.proxy.js](/scripts/conf.proxy.js)
 
