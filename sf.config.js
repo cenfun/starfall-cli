@@ -10,7 +10,7 @@ export default {
 
     outdate: {
         exclude: [
-            'commander'
+
         ]
     },
 
