@@ -1,16 +1,15 @@
 {
     "name": "starfall-cli",
     "version": "3.0.1",
-    "description": "Starfall CLI - Building Your Components Easier and Faster",
+    "description": "Starfall CLI",
     "type": "module",
     "main": "./lib/cli.js",
     "bin": {
         "sf": "./lib/cli.js"
     },
-    "scripts": {
-        "patch": "sf publish patch -r"
-    },
+    "scripts": {},
     "keywords": [
+        "starfall",
         "sf",
         "cli"
     ],
@@ -40,8 +39,5 @@
         "stylelint": "^17.14.1",
         "stylelint-config-plus": "^1.1.6",
         "vite": "^8.2.0"
-    },
-    "engines": {
-        "node": ">=22.12.0"
     }
 }
