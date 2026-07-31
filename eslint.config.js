@@ -1,8 +1,16 @@
 // https://eslint.org/docs/rules/
 
 import plus from 'eslint-config-plus';
+import vue from 'eslint-plugin-vue';
 
 // https://eslint.org/docs/latest/use/configure/configuration-files
 export default [
-    plus
+    ... vue.configs['flat/recommended'],
+    plus,
+    {
+        rules: {
+            'vue/no-v-html': 'off',
+            'vue/multi-word-component-names': 'off'
+        }
+    }
 ];

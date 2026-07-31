@@ -15,33 +15,33 @@
         "cli"
     ],
     "license": "MIT",
-    "engines": {
-        "node": ">=22.12.0"
-    },
     "dependencies": {
         "@vitejs/plugin-vue": "^6.0.8",
         "async-tick": "^1.0.2",
-        "axios": "^1.18.1",
+        "axios": "^1.19.0",
         "commander": "^15.0.0",
         "commander-help": "^1.0.1",
         "console-grid": "^2.2.4",
         "eight-colors": "^1.3.3",
         "eslint": "^10.8.0",
         "eslint-config-plus": "^2.0.4",
-        "execa": "^10.0.0",
+        "eslint-plugin-vue": "^10.10.0",
+        "execa": "^10.0.1",
         "find-up": "^8.0.0",
         "gauge": "^5.0.2",
         "glob": "^13.0.6",
         "ignore": "^7.0.6",
         "mocha": "^11.7.6",
         "nmls": "^4.0.3",
-        "playwright": "^1.62.0",
+        "playwright": "^1.62.1",
         "rc": "^1.2.8",
         "sass": "^1.102.0",
         "semver": "^7.8.5",
         "stylelint": "^17.14.1",
         "stylelint-config-plus": "^1.1.6",
-        "vite": "^8.1.5"
+        "vite": "^8.2.0"
     },
-    "devDependencies": {}
+    "engines": {
+        "node": ">=22.12.0"
+    }
 }
