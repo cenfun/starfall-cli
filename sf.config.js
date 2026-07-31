@@ -12,13 +12,5 @@ export default {
         exclude: [
 
         ]
-    },
-
-    test: {
-        // v8 only (Playwright CDP coverage), see monocart-coverage-reports for options
-        coverageOptions: {},
-        mocha: {
-            timeout: 60 * 1000
-        }
     }
 };
