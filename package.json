@@ -34,7 +34,6 @@
         "ignore": "^7.0.6",
         "mocha": "^11.7.6",
         "monocart-coverage-reports": "^2.12.12",
-        "nmls": "^4.0.4",
         "playwright": "^1.62.1",
         "rc": "^1.2.8",
         "sass": "^1.102.0",
