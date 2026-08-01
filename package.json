@@ -1,6 +1,6 @@
 {
     "name": "starfall-cli",
-    "version": "3.0.1",
+    "version": "3.0.0",
     "description": "Starfall CLI",
     "type": "module",
     "main": "./lib/cli.js",
