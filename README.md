@@ -1,3 +1,4 @@
+![](/assets/starfall.svg)
 # Starfall CLI
 
 * vite + vue
@@ -10,7 +11,8 @@
 npm install starfall-cli -g
 #run starfall-cli directly
 sf -v
-sf --help
+sf
+sf i
 ```
 
 ## Configuration

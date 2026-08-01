@@ -42,5 +42,6 @@
         "stylelint-config-plus": "^1.1.6",
         "vite": "^8.2.0",
         "vite-plugin-css-injected-by-js": "^5.0.2"
-    }
+    },
+    "devDependencies": {}
 }
