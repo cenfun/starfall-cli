@@ -7,7 +7,9 @@
     "bin": {
         "sf": "./lib/cli.js"
     },
-    "scripts": {},
+    "scripts": {
+        "publish": "node ./lib/init/templates/scripts/publish.js"
+    },
     "keywords": [
         "starfall",
         "sf",
