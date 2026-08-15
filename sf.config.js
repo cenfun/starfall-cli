@@ -5,6 +5,7 @@ export default {
     tempPath: '.temp',
 
     clean: {
+        drillDown: ['node_modules', '.pnpm'],
         exclude: ['.env', '.ssh', 'id_rsa']
     },
 
